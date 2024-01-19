@@ -11,9 +11,11 @@
             <h3 class="text-2xl text-second-green font-second ">Entre para continuar de onde parou</h3>
         </div>
         <div class="flex flex-col justify-center  font-second text-xl text-main-gray w-full max-w-sm ">
-            <app-input placeholder="Email" type="email"></app-input>
-            <app-input placeholder="Senha" type="password"></app-input>
-            <app-button class = "-mt-2" props="ENTRAR"></app-button>
+            <input 
+            formControlName = "email"
+            placeholder="Email" 
+            type="email"
+            required/>
         </div>
         <div class="mt-5 text-main-white text-xl flex flex-col text-center font-second">
             <a class="mb-4 underline" href="">Esqueci minha senha?</a>
