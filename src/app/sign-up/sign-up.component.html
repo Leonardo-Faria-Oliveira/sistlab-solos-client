@@ -1,0 +1,22 @@
+<form [formGroup] = "labSignupForm">
+    <app-first-step 
+    (nextStep)="next()"
+    *ngIf="step === 1"
+    ></app-first-step>
+
+    <app-second-step 
+    (nextStep)="next()"
+    (backStep)="back()"
+    *ngIf="step === 2"
+    ></app-second-step>
+
+    <app-third-step 
+    (nextStep)="next()"
+    *ngIf="step === 3"
+    ></app-third-step>
+    
+    <app-fourth-step 
+    (backStep)="back()"
+    *ngIf="step === 4"
+    ></app-fourth-step>
+</form>

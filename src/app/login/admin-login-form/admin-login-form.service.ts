@@ -1,8 +1,8 @@
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Access } from '../login/access';
+import { Access } from '../../models/access';
 import { Observable, catchError, retry, throwError } from 'rxjs';
-import { LogInResponse } from '../interfaces/login-response';
+import { LogInResponse } from '../../interfaces/login-response';
 import { environment } from 'src/environments/environment';
 
 @Injectable({

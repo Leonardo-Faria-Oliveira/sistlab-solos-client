@@ -1,0 +1,17 @@
+<!-- <div [ngClass]="hasError ? 'bg-main-black  overflow-y-hidden animate-pulse duration-75 transition-colors ease-out opacity-40 w-full min-h-screen h-full absolute z-[100]' : 'hidden'"></div> -->
+<div class="overflow-y-hidden overflow-x-hidden  self-center items-center bg-second-green w-full h-full min-h-screen flex flex-col ">
+    <!-- <app-error-modal  
+    [ngClass]="hasError ? 'z-10 w-full relative text-center': 'hidden'" 
+    errorMessage="{{error?.errorMessage}}" >
+    </app-error-modal> -->
+    <div class="  flex flex-row justify-center  max-h-screen w-full max-w-[96rem] ">
+        <div class="relative flex flex-col bg-noise -mt-56    w-full  ">
+            <img class="max-w-3xl " src = "../../assets/icon-noise.svg">
+        </div>
+        <div class="absolute self-center max-w-xl w-full -mt-1  ">
+           <app-third-step-form
+           (nextStep)="next()"
+           ></app-third-step-form>
+        </div>
+    </div>
+</div>

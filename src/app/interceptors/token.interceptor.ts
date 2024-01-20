@@ -8,7 +8,7 @@ import {
   HttpErrorResponse
 } from '@angular/common/http';
 import { Observable, catchError, throwError, } from 'rxjs';
-import { Access } from '../login/access';
+import { Access } from '../models/access';
 
 @Injectable()
 export class TokenInterceptor implements HttpInterceptor {
@@ -37,7 +37,7 @@ export class TokenInterceptor implements HttpInterceptor {
 
       if(error instanceof HttpErrorResponse && error.status === 401){
 
-        this.access.logOff
+        this.access.logOff()
 
       }
       return throwError(error.message)

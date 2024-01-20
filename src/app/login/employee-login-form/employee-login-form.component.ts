@@ -1,8 +1,8 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
-import { ErrorHandler } from '../interfaces/error-handler';
-import { Access } from '../login/access';
+import { ErrorHandler } from '../../interfaces/error-handler';
+import { Access } from '../../models/access';
 import { catchError, throwError } from 'rxjs';
 import { EmployeeLoginFormService } from './employee-login-form.service';
 

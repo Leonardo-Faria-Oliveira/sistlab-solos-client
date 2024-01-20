@@ -1,10 +1,10 @@
 import { Component, Output, EventEmitter } from '@angular/core';
 import { AdminLoginFormService } from './admin-login-form.service';
 import { FormControl, FormGroup } from '@angular/forms';
-import { Access } from '../login/access';
+import { Access } from '../../models/access';
 import { Router } from '@angular/router';
-import { ErrorHandler } from '../interfaces/error-handler';
-import { LogInResponse } from '../interfaces/login-response';
+import { ErrorHandler } from '../../interfaces/error-handler';
+import { LogInResponse } from '../../interfaces/login-response';
 import { catchError, throwError } from 'rxjs';
 
 @Component({
