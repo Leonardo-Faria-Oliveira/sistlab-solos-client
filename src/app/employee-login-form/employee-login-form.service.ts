@@ -1,20 +1,19 @@
-import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Access } from '../login/access';
-import { Observable, catchError, retry, throwError } from 'rxjs';
-import { LogInResponse } from '../interfaces/login-response';
 import { environment } from 'src/environments/environment';
+import { Access } from '../login/access';
+import { Observable } from 'rxjs';
+import { LogInResponse } from '../interfaces/login-response';
 
 @Injectable({
   providedIn: 'root'
 })
-export class AdminLoginFormService {
+export class EmployeeLoginFormService {
 
   constructor(private httpClient: HttpClient) { }
 
   url = environment.apiUrl
 
-  
 
   httpOptions = {
 
@@ -24,7 +23,7 @@ export class AdminLoginFormService {
 
   public logIn(access: Access): Observable<LogInResponse>{
 
-    return this.httpClient.post<LogInResponse>(this.url+"/admin/auth/login",
+    return this.httpClient.post<LogInResponse>(this.url+"/employee/auth/login",
      JSON.stringify({email:access.email, password: access.password}),
      this.httpOptions
     )

@@ -9,7 +9,7 @@
             <img class=" " src = "../../assets/icon-noise.svg">
         </div>
         <div class=" max-w-xl w-full ">
-            <employee-login-form *ngIf="loginFormRole === 'employee'"></employee-login-form>
+            <employee-login-form (errorEvent)="setError($event)" (hasErrorEvent)="setHasError($event)" *ngIf="loginFormRole === 'employee'"></employee-login-form>
             <admin-login-form (errorEvent)="setError($event)" (hasErrorEvent)="setHasError($event)" *ngIf="loginFormRole === 'admin'"></admin-login-form>
         </div>
     </div>

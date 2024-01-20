@@ -9,7 +9,7 @@ const routes: Routes = [
   {path:'', component: LoginComponent},
   {path:'login', component: LoginComponent},
   {path:'admin/2212vfoq', component: LoginComponent, canActivate:[unloggedAdminGuard]},
-  {path:'admin/:email', component: DashboardComponent, canActivate:[loggedAdminGuard]}
+  {path:'dashboard/:email', component: DashboardComponent, canActivate:[loggedAdminGuard]}
 ];
 
 @NgModule({
