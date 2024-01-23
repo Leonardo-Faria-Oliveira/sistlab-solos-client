@@ -1,16 +1,18 @@
 import { Router } from "@angular/router";
 import { LogInRequest } from "../interfaces/login-request";
+import { Injectable } from "@angular/core";
+
 
 export class Access implements LogInRequest{
 
-    email: String = "";
-    password: String
-    token?: String | undefined;
-    loginPath?: String | undefined | null;
+    email: string = "";
+    password: string
+    token?: string | undefined;
+    loginPath?: string | undefined | null;
 
     constructor (
-        email:String,
-        password:String,
+        email:string,
+        password:string,
         private router: Router){
 
         this.email = email

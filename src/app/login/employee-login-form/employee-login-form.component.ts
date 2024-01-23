@@ -21,11 +21,11 @@ export class EmployeeLoginFormComponent {
   @Output() hasErrorEvent = new EventEmitter<boolean>();
   @Output() errorEvent = new EventEmitter<ErrorHandler>();
 
-  public token:String | null = null
+  public token:string | null = null
 
   public employeeLoginForm = new FormGroup({
-    email: new FormControl<String | undefined>(undefined),
-    password: new FormControl<String | undefined>(undefined)
+    email: new FormControl<string | undefined>(undefined),
+    password: new FormControl<string | undefined>(undefined)
   })
 
   public onSubmit(){

@@ -1,0 +1,50 @@
+<nav class="bg-main-green flex flex-col text-main-white  min-h-screen max-w-sm w-full">
+    <header class="bg-darker-green flex  h-fit items-center pr-12 p-6  justify-between flex-row w-full ">
+        <div class="flex flex-row font-main font-semibold text-xl  w-full">
+            <h1 class="mr-2">{{name?.slice(0, 15)}}</h1>
+            <h1>icon</h1>
+        </div>
+        <div class=" flex flex-col text-xs text-main-red">
+            <h1>icon</h1>
+            <h6>Sair</h6>
+        </div>
+    </header>
+    <main class="h-full mt-40 border-main-white">
+        <div *ngIf="role === 'admin' ">
+            <div 
+            (click)="setActive(item.index)"
+            *ngFor="let item of labAdminEmployeeItensMenu"
+            [ngClass]="activeItem === item.index ? 'bg-main-white text-main-green' : 'bg-main-green  text-main-white'"
+            class="flex flex-row px-12 py-2 text-2xl font-regular my-4 justify-between font-second cursor-pointer"
+            >
+                <h1>item.icon</h1>
+                <h2 class="tracking-wider">{{item.text}}</h2>
+            </div>
+            <!-- <h1 *ngFor="let item of labAdminEmployeeItensMenu" >{{item.text}}</h1> -->
+        </div>
+        <div *ngIf="role === 'labEmployeeAdmin' ">
+            <div 
+            (click)="setActive(item.index)"
+            *ngFor="let item of labAdminEmployeeItensMenu"
+            [ngClass]="activeItem === item.index ? 'bg-main-white text-main-green' : 'bg-main-green  text-main-white'"
+            class="flex flex-row px-12 py-2 text-xl my-4 justify-between font-second cursor-pointer"
+            >
+                <h1>item.icon</h1>
+                <h2>{{item.text}}</h2>
+            </div>
+            <!-- <h1 *ngFor="let item of labAdminEmployeeItensMenu" >{{item.text}}</h1> -->
+        </div>
+        <div *ngIf="role === 'employee' ">
+            <div 
+            (click)="setActive(item.index)"
+            *ngFor="let item of labAdminEmployeeItensMenu"
+            [ngClass]="activeItem === item.index ? 'bg-main-white text-main-green' : 'bg-main-green  text-main-white'"
+            class="flex flex-row px-12 py-2 text-xl my-4 justify-between font-second cursor-pointer"
+            >
+                <h1>item.icon</h1>
+                <h2>{{item.text}}</h2>
+            </div>
+            <!-- <h1 *ngFor="let item of labAdminEmployeeItensMenu" >{{item.text}}</h1> -->
+        </div>
+    </main>
+</nav>

@@ -2,14 +2,14 @@
 export class Address{
 
     public zipCode?:number | null
-    public city:String
-    public country:String = "Brasil"
-    public state:String = "Paraná"
+    public city:string
+    public country:string = "Brasil"
+    public state:string = "Paraná"
     public number:number
 
     constructor(
         zipCode:number,
-        city:String,
+        city:string,
         number:number
     ){
 

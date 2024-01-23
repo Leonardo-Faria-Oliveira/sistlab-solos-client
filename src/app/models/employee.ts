@@ -1,30 +1,32 @@
 import { EmployeeSignUp } from "../interfaces/employee-signup";
+import { Role } from "./role";
 
 export class Employee implements EmployeeSignUp{
 
-    public id?:String | undefined
-    public name: String
-    public email: String
-    public password: String
-    public contact?: String | null | undefined;
-    public job: String;
-    public roleName: "labAdminEmployee" | "employee";
-    public labName?: String | null | undefined;
+    public id?:string | undefined
+    public name: string
+    public email: string
+    public password: string
+    public contact?: string | null | undefined;
+    public job: string;
+    public role: Role;
+    public labName?: string | null | undefined;
+    institution = null
 
     constructor(
-        name: String,
-        email: String,
-        password: String,
-        job: String,
+        name: string,
+        email: string,
+        password: string,
+        job: string,
         roleName: "labAdminEmployee" | "employee",
-        contact?: String | null | undefined,
+        contact?: string | null | undefined,
     ){
         this.name = name
         this.email = email
         this.password = password
         this.contact = contact
         this.job = job
-        this.roleName = roleName
+        this.role = new Role(roleName)
     }
 
 }

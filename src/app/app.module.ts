@@ -8,7 +8,7 @@ import { AdminLoginFormComponent } from './login/admin-login-form/admin-login-fo
 import { RouterOutlet } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ErrorModalComponent } from './error-modal/error-modal.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
@@ -20,6 +20,10 @@ import { FirstStepFormComponent } from './sign-up/first-step/first-step-form/fir
 import { SecondStepFormComponent } from './sign-up/second-step/second-step-form/second-step-form.component';
 import { ThirdStepFormComponent } from './sign-up/third-step/third-step-form/third-step-form.component';
 import { FourthStepFormComponent } from './sign-up/fourth-step/fourth-step-form/fourth-step-form.component';
+import { TokenInterceptor } from './interceptors/token.interceptor';
+import { Access } from './models/access';
+import { MenuComponent } from './dashboard/menu/menu.component';
+import { FooterComponent } from './dashboard/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +41,9 @@ import { FourthStepFormComponent } from './sign-up/fourth-step/fourth-step-form/
     FirstStepFormComponent,
     SecondStepFormComponent,
     ThirdStepFormComponent,
-    FourthStepFormComponent
+    FourthStepFormComponent,
+    MenuComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
@@ -47,7 +53,9 @@ import { FourthStepFormComponent } from './sign-up/fourth-step/fourth-step-form/
     CommonModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    {provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi:true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

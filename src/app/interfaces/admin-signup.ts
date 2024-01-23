@@ -1,13 +1,13 @@
+import { Institution } from "../models/institution"
 import { Role } from "../models/role"
 
-export interface EmployeeSignUp{
+export interface AdminSignUp{
 
     name: string
     email: string
     password: string
     contact?: string | null
-    job: string
     role: Role,
-    labName?: string |  null
+    institution: Institution
 
 }

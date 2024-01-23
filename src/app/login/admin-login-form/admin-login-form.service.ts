@@ -14,11 +14,12 @@ export class AdminLoginFormService {
 
   url = environment.apiUrl
 
-  
-
   httpOptions = {
 
-    headers: new HttpHeaders({ 'Content-Type': 'application/json; charset=UTF-8' })
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json; charset=UTF-8',
+      'Authorization': '12345'
+    })
   
   }
 

@@ -17,7 +17,7 @@ export class LoginComponent implements OnInit{
     public error:ErrorHandler | null = null
 
     public route = this.activatedRoute.snapshot.routeConfig?.path
-    public loginFormRole!: String
+    public loginFormRole!: string
      
     public ngOnInit(): void {
       

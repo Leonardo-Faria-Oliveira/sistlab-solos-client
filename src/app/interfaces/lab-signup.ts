@@ -3,10 +3,10 @@ import { Employee } from '../models/employee'
 
 export interface LabSignUp{
 
-    name:String
-    email:String
-    markUrl?:String | null
-    contact?: String | null
+    name:string
+    email:string
+    markUrl?:string | null
+    contact?: string | null
     address: Address
     employee: Employee
 

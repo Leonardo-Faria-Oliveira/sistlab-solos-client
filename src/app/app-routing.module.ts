@@ -11,7 +11,10 @@ const routes: Routes = [
   {path:'signup', component: SignUpComponent, canActivate:[unloggedUserGuard]},
   {path:'login', component: LoginComponent, canActivate:[unloggedUserGuard]},
   {path:'admin/2212vfoq', component: LoginComponent, canActivate:[unloggedUserGuard]},
-  {path:'dashboard/:email', component: DashboardComponent, canActivate:[loggedUserGuard]}
+  {path:'dashboard/:email', 
+  component: DashboardComponent, 
+  canActivate:[loggedUserGuard],
+  }
 ];
 
 @NgModule({

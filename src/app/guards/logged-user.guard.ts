@@ -4,7 +4,7 @@ export const loggedUserGuard: CanActivateFn = (route, state) => {
   
   
   const router = new Router()
-  const isUserLogged = localStorage.getItem("logginUserToken") === null ? false : true
+  const isUserLogged = localStorage.getItem("loggedUserToken") === null ? false : true
   const loginPath = localStorage.getItem("loginPath")
 
   if(isUserLogged){
@@ -14,8 +14,8 @@ export const loggedUserGuard: CanActivateFn = (route, state) => {
     
 
   }
-  router.navigate([loginPath])
-  return true
+  router.navigateByUrl(loginPath!)
+  return false
 
 
   

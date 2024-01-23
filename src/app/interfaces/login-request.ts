@@ -2,8 +2,8 @@
 
 export interface LogInRequest{
 
-    email: String,
-    password: String,
-    token?: String
+    email: string,
+    password: string,
+    token?: string
 
 }

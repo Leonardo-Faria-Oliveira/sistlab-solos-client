@@ -1,19 +1,19 @@
 export interface LabSignUpRequest{
 
-    name:String
-    email:String
-    markUrl?:String | null
-    contact?: String | null
-    city:String
+    name:string
+    email:string
+    markUrl?:string | null
+    contact?: string | null
+    city:string
     country:"Brasil"
     state:"Paraná"
     number:number
     zipCode?: number | null
-	pricingName: String
-	employeeName: String
-	employeeEmail: String
-	password: String
-	employeeContact: String
-	employeeJob: String
+	pricingName: string
+	employeeName: string
+	employeeEmail: string
+	password: string
+	employeeContact: string
+	employeeJob: string
   
 }
