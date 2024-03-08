@@ -88,6 +88,7 @@ export class AdminLoginFormComponent{
             
             this.token = res.token;
             localStorage.setItem("loggedUserToken", this.token!)
+            localStorage.setItem("userEmail", this.adminLoginForm.value.email!)
             console.log(localStorage.getItem("loggedUserToken"))
             localStorage.setItem("loginPath", "admin/2212vfoq")
             this.router.navigate([`/dashboard/${this.adminLoginForm.value.email}`])

@@ -5,10 +5,11 @@ export const unloggedUserGuard: CanActivateFn = (route, state) => {
   
   const router = new Router()
   const isUserLogged = localStorage.getItem("loggedUserToken") === null ? false : true
-
+  
   if(isUserLogged){
 
-    router.navigate(['dashboard']);
+    const userEmail = localStorage.getItem("userEmail")
+    router.navigate(['dashboard/'+userEmail]);
     return false
     
 

@@ -3,7 +3,7 @@ import { Employee } from "../models/employee"
 
 export interface GetAccountByEmail{
 
-    account: Admin | Employee | null
+    account: Employee | Admin | null
     errorMessage: string | null
 
 }

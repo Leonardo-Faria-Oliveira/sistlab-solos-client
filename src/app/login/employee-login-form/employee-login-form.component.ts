@@ -74,6 +74,7 @@ export class EmployeeLoginFormComponent {
               
               this.token = res.token;
               localStorage.setItem("loggedUserToken", this.token!.toString())
+              localStorage.setItem("userEmail", this.employeeLoginForm.value.email!)
               localStorage.setItem("loginPath", "login")
               this.router.navigateByUrl(`/dashboard/${this.employeeLoginForm.value.email}`)
             }

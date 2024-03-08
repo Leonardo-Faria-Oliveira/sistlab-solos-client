@@ -1,17 +1,40 @@
-<div class="flex flex-col w-full bg-neutral-blue max-w-[95rem]">
-    <div class="flex flex-row w-full bg-second-yellow max-w-[95rem]">
+<div class="flex flex-col w-full  ">
+    <div class="flex flex-row w-full">
         <header 
         class="w-full max-w-sm">
+        
             <app-menu 
+            (nextIndex)="setIndex($event)"
+            [activeItem]= activeIndex
             role = "{{account?.role?.name}}"
             name="{{account?.name}}"
             ></app-menu>
         </header>
-        <main 
-        
-        class=" w-full box-border  bg-main-red ">
-            <!-- <router-outlet></router-outlet> -->
-            <h1>tela</h1>
+        <main  class=" w-full box-border">
+            <app-overview
+            *ngIf="activeIndex===1"
+            ></app-overview>
+            <app-labs
+            *ngIf="account?.role?.name==='admin' && activeIndex===2"
+            ></app-labs>
+            <app-reports
+            *ngIf="account?.role?.name==='employee' && activeIndex===2"
+            ></app-reports>
+            <app-reports
+            *ngIf="account?.role?.name==='technicalResponsible' && activeIndex===2"
+            ></app-reports>
+            <app-reports
+            *ngIf="account?.role?.name==='admin' && activeIndex===3"
+            ></app-reports>
+            <app-reports
+            *ngIf="account?.role?.name==='labAdminEmployee' && activeIndex===3"
+            ></app-reports>
+            <app-pricings
+            *ngIf="account?.role?.name==='admin' && activeIndex===4"
+            ></app-pricings>
+            <app-statics
+            *ngIf="account?.role?.name==='admin' && activeIndex===5"
+            ></app-statics>
         </main>
     </div>
     <footer>

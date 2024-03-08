@@ -2,49 +2,50 @@
     <header class="bg-darker-green flex  h-fit items-center pr-12 p-6  justify-between flex-row w-full ">
         <div class="flex flex-row font-main font-semibold text-xl  w-full">
             <h1 class="mr-2">{{name?.slice(0, 15)}}</h1>
-            <h1>icon</h1>
+            <img  src="../../../assets/gear.svg"/>
         </div>
-        <div class=" flex flex-col text-xs text-main-red">
-            <h1>icon</h1>
-            <h6>Sair</h6>
+        <div 
+        (click)="logOut()"
+        class="cursor-pointer flex flex-col font-semibold font-main text-xs text-main-red">
+            <img  src="../../../assets/getOut.svg"/>
+            <h6 class="ml-[2px]">Sair</h6>
         </div>
     </header>
-    <main class="h-full mt-40 border-main-white">
+    <main class="h-full mt-28 border-main-white">
         <div *ngIf="role === 'admin' ">
             <div 
             (click)="setActive(item.index)"
-            *ngFor="let item of labAdminEmployeeItensMenu"
+            *ngFor="let item of adminItensMenu"
             [ngClass]="activeItem === item.index ? 'bg-main-white text-main-green' : 'bg-main-green  text-main-white'"
-            class="flex flex-row px-12 py-2 text-2xl font-regular my-4 justify-between font-second cursor-pointer"
+            class="flex flex-row px-12 h-20 text-2xl font-semibold my-4 justify-between font-main cursor-pointer"
             >
-                <h1>item.icon</h1>
-                <h2 class="tracking-wider">{{item.text}}</h2>
+            <img class="w-14"  [src]="activeItem === item.index ? item.activeIcon : item.icon"/>
+                <h2 class="tracking-wider self-center">{{item.text}}</h2>
             </div>
             <!-- <h1 *ngFor="let item of labAdminEmployeeItensMenu" >{{item.text}}</h1> -->
         </div>
-        <div *ngIf="role === 'labEmployeeAdmin' ">
+        <div *ngIf="role === 'labAdminEmployee' || role === 'labAdminTechnical' ">
             <div 
             (click)="setActive(item.index)"
             *ngFor="let item of labAdminEmployeeItensMenu"
             [ngClass]="activeItem === item.index ? 'bg-main-white text-main-green' : 'bg-main-green  text-main-white'"
-            class="flex flex-row px-12 py-2 text-xl my-4 justify-between font-second cursor-pointer"
+            class="flex flex-row px-12 h-20 text-2xl font-semibold my-4 justify-between font-main cursor-pointer"
             >
-                <h1>item.icon</h1>
-                <h2>{{item.text}}</h2>
+            <img class="w-14"  [src]="activeItem === item.index ? item.activeIcon : item.icon"/>
+                <h2 class="tracking-wider self-center">{{item.text}}</h2>
             </div>
             <!-- <h1 *ngFor="let item of labAdminEmployeeItensMenu" >{{item.text}}</h1> -->
         </div>
-        <div *ngIf="role === 'employee' ">
+        <div *ngIf="role === 'employee' || role === 'tecnhcialResponsible' ">
             <div 
             (click)="setActive(item.index)"
-            *ngFor="let item of labAdminEmployeeItensMenu"
+            *ngFor="let item of employeeItensMenu"
             [ngClass]="activeItem === item.index ? 'bg-main-white text-main-green' : 'bg-main-green  text-main-white'"
             class="flex flex-row px-12 py-2 text-xl my-4 justify-between font-second cursor-pointer"
             >
-                <h1>item.icon</h1>
+                <img class="w-14"  src="{{item.icon}}"/>
                 <h2>{{item.text}}</h2>
             </div>
-            <!-- <h1 *ngFor="let item of labAdminEmployeeItensMenu" >{{item.text}}</h1> -->
         </div>
     </main>
 </nav>

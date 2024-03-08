@@ -6,7 +6,7 @@ export interface EmployeeSignUp{
     email: string
     password: string
     contact?: string | null
-    job: string
+    job: string | null | undefined
     role: Role,
     labName?: string |  null
 

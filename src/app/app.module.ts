@@ -5,7 +5,7 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { EmployeeLoginFormComponent } from './login/employee-login-form/employee-login-form.component';
 import { AdminLoginFormComponent } from './login/admin-login-form/admin-login-form.component';
-import { RouterOutlet } from '@angular/router';
+import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
@@ -24,6 +24,11 @@ import { TokenInterceptor } from './interceptors/token.interceptor';
 import { Access } from './models/access';
 import { MenuComponent } from './dashboard/menu/menu.component';
 import { FooterComponent } from './dashboard/footer/footer.component';
+import { OverviewComponent } from './dashboard/overview/overview.component';
+import { LabsComponent } from './dashboard/labs/labs.component';
+import { ReportsComponent } from './dashboard/reports/reports.component';
+import { PricingsComponent } from './dashboard/pricings/pricings.component';
+import { StaticsComponent } from './dashboard/statics/statics.component';
 
 @NgModule({
   declarations: [
@@ -43,13 +48,21 @@ import { FooterComponent } from './dashboard/footer/footer.component';
     ThirdStepFormComponent,
     FourthStepFormComponent,
     MenuComponent,
-    FooterComponent
+    FooterComponent,
+    OverviewComponent,
+    LabsComponent,
+    ReportsComponent,
+    PricingsComponent,
+    StaticsComponent,
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     RouterOutlet,
     ReactiveFormsModule,
+    RouterLink,
+    RouterLinkActive,
     CommonModule,
     HttpClientModule
   ],

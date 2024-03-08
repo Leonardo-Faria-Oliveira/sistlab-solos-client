@@ -8,9 +8,10 @@ export class Employee implements EmployeeSignUp{
     public email: string
     public password: string
     public contact?: string | null | undefined;
-    public job: string;
+    public job: string | null | undefined;
     public role: Role;
     public labName?: string | null | undefined;
+    public crea: string | null | undefined;
     institution = null
 
     constructor(
@@ -18,8 +19,10 @@ export class Employee implements EmployeeSignUp{
         email: string,
         password: string,
         job: string,
-        roleName: "labAdminEmployee" | "employee",
+        roleName: string,
+        crea: string | null | undefined,
         contact?: string | null | undefined,
+        
     ){
         this.name = name
         this.email = email

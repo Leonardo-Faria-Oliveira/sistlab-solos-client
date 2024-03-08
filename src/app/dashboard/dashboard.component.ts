@@ -23,6 +23,8 @@ export class DashboardComponent implements OnInit{
 
   public account:Admin | Employee | undefined
 
+  public activeIndex: number = 1
+
   public ngOnInit(): void {
 
     this.dashboardService.getAccountByEmail(this.email)
@@ -33,19 +35,40 @@ export class DashboardComponent implements OnInit{
       return throwError(() => new Error(err));
     }))
     .subscribe(res => {
-      this.account = new Admin(
+
+      let role = this.dashboardService.getTypeRole()
+      if(role === "admin"){
+
+        this.account = new Admin(
         res.account?.name!,
         res.account?.email!,
         res.account?.password!,
         res.account?.role.name!,
         res.account?.institution?.name!
         )
+
+      }else{
+        this.account = new Employee(
+          res.account?.name!,
+          res.account?.email!,
+          res.account?.password!,
+          res.account?.job!,
+          res.account?.role.name!,
+          res.account?.contact!,
+          res.account?.crea!,
+          )
+      }
+
       
     })
 
   }
 
+  public setIndex(index:number){
+    this.activeIndex = index
+  }
 
-  
+
+
 
 }

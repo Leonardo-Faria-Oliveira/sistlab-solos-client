@@ -8,9 +8,11 @@ export class Admin implements AdminSignUp{
     public name: string
     public email: string
     public password: string
+    public job: string | null | undefined;
     public contact?: string | null | undefined
     public role = new Role("admin")
     public institution: Institution
+    public crea: string | null | undefined;
 
     constructor(
     name: string,

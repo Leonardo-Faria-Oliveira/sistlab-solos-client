@@ -7,7 +7,9 @@ export interface AdminSignUp{
     email: string
     password: string
     contact?: string | null
+    job: string | null | undefined
     role: Role,
     institution: Institution
+    crea: string | null | undefined
 
 }
