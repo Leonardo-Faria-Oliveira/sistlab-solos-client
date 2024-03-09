@@ -23,7 +23,7 @@ export class DashboardComponent implements OnInit{
 
   public account:Admin | Employee | undefined
 
-  public activeIndex: number = 1
+  public activeIndex: number = parseInt(localStorage.getItem("lastIndex")!) ?? 1
 
   public ngOnInit(): void {
 

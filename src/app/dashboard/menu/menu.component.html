@@ -41,10 +41,10 @@
             (click)="setActive(item.index)"
             *ngFor="let item of employeeItensMenu"
             [ngClass]="activeItem === item.index ? 'bg-main-white text-main-green' : 'bg-main-green  text-main-white'"
-            class="flex flex-row px-12 py-2 text-xl my-4 justify-between font-second cursor-pointer"
+            class="flex flex-row px-12 h-20 text-2xl font-semibold my-4 justify-between font-main cursor-pointer"
             >
-                <img class="w-14"  src="{{item.icon}}"/>
-                <h2>{{item.text}}</h2>
+            <img class="w-14"  [src]="activeItem === item.index ? item.activeIcon : item.icon"/>
+                <h2 class="tracking-wider self-center">{{item.text}}</h2>
             </div>
         </div>
     </main>

@@ -106,38 +106,25 @@ export class MenuComponent {
     {
       index:1,
       text:"Visão geral",
-      icon:"",
-      activeIcon: "",
-      
-    },
-    {
-      index:2,
-      text:"Funcionários",
-      icon:"",
-      activeIcon: "",
+      icon:"../../../assets/overview.svg",
+      activeIcon: "../../../assets/overview_active.svg",
       
     },
     {
       index:3,
       text:"Laudos",
-      icon:"",
-      activeIcon: "",
+      icon:"../../../assets/reports.svg",
+      activeIcon: "../../../assets/reports_active.svg",
       
     },
     {
       index:4,
       text:"Clientes",
-      icon:"",
-      activeIcon: "",
+      icon:"../../../assets/clients.svg",
+      activeIcon: "../../../assets/clients_active.svg",
       
     },
-    {
-      index:5,
-      text:"Assinatura",
-      icon:"",
-      activeIcon: "",
-      
-    },
+
   ]
 
   
@@ -146,6 +133,7 @@ export class MenuComponent {
 
     console.log(this.role)
     this.activeItem = index
+    localStorage.setItem("lastIndex", index.toString())
    
     this.nextIndex.emit(index);
   }

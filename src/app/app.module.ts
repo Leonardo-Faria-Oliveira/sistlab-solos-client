@@ -29,6 +29,7 @@ import { LabsComponent } from './dashboard/labs/labs.component';
 import { ReportsComponent } from './dashboard/reports/reports.component';
 import { PricingsComponent } from './dashboard/pricings/pricings.component';
 import { StaticsComponent } from './dashboard/statics/statics.component';
+import { EmployeesComponent } from './dashboard/employees/employees.component';
 
 @NgModule({
   declarations: [
@@ -54,6 +55,7 @@ import { StaticsComponent } from './dashboard/statics/statics.component';
     ReportsComponent,
     PricingsComponent,
     StaticsComponent,
+    EmployeesComponent,
     
   ],
   imports: [
