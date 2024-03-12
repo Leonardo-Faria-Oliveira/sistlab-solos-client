@@ -1,44 +1,51 @@
+<app-modal-signup-employee 
+[ngClass]="modalSignUpEmployee ? 'z-[100]' : 'hidden'"
+></app-modal-signup-employee>
 <div class="bg-main-white  w-full min-h-screen flex flex-col pt-20 pb-5 items-center">
     <main class=" max-w-[62rem]  w-full  flex justify-around flex-col">
         <section class="flex mb-24 flex-row justify-between">
             <div class="bg-main-white border-[3px] max-w-72 w-full flex flex-col items-center py-6  border-second-gray">
                 <img class="w-24 mb-6" alt="ativos" src="../../../assets/ok.svg"/>
                 <h2 class=" mb-6 w-48  text-center font-main text-main-gray font-semibold text-2xl">Funcionários ativos</h2>
-                <h4 class="font-second text-second-black text-7xl">03</h4>
+                <h4 class="font-second text-second-black text-7xl">{{countOk >= 0 && countOk < 10 ? '0'+countOk : countOk}}</h4>
             </div>
             <div class="bg-main-white border-[3px] max-w-72 w-full flex flex-col items-center py-6  border-second-gray">
                 <img class="w-24 mb-6" alt="ativos" src="../../../assets/off.svg"/>
                 <h2 class=" mb-6 w-48  text-center font-main text-main-gray font-semibold text-2xl">Funcionários desativados</h2>
-                <h4 class="font-second text-second-black text-7xl">00</h4>
+                <h4 class="font-second text-second-black text-7xl">{{countOff >= 0 && countOff < 10 ? '0'+countOff : countOff}}</h4>
             </div>
         </section>
         <section class="flex flex-col  ">
-            <div class="flex mb-4 flex-row justify-between bg-main-white">
-                <button class="bg-main-green text-left text-lg  pl-5 tracking-wider rounded-[5px] hover:bg-darker-green transition-colors ease-linear duration-150 text-main-white font-second uppercase font-semibold w-full max-w-80 pt-4 pb-3">
+            <div class="flex mb-4 flex-row justify-between text-main-white bg-main-white">
+                <button (click)="setModalSignUpEmployee(true)" class="bg-main-green text-left text-lg  pl-5 tracking-wider rounded-[5px] hover:bg-hover-main-green transition-colors ease-linear duration-150 font-second uppercase font-semibold w-full max-w-80 pt-4 pb-3">
                   <h4 class="inline">Cadastrar funcioná rio</h4>   
                   <span class="ml-9 "><img class="inline -mt-1 w-5" alt="plus" src="../../../assets/plus.svg"></span>
                 </button>
-                <button class="bg-main-green text-left text-lg  pl-5 tracking-wider rounded-[5px] hover:bg-darker-green transition-colors ease-linear duration-150 text-main-white font-second uppercase font-semibold w-full max-w-80 pt-4 pb-3">
+                <button class="bg-main-green text-left text-lg  pl-5 tracking-wider rounded-[5px] hover:bg-hover-main-green transition-colors ease-linear duration-150 font-second uppercase font-semibold w-full max-w-80 pt-4 pb-3">
                     <h4 class="inline">Buscar funcioná rio</h4>   
                     <span class="ml-[4rem] "><img class="inline -mt-1 w-5" alt="lookfor" src="../../../assets/lookfor.svg"></span>
                 </button>
             </div>
-            <!-- <table>
-                <tr class="bg-darker-green text-main-white text-2xl font-main font-semibold">
-                    <td class="py-4 mx-5">Nome</td>
-                    <td>Email</td>
-                    <td>Status</td>
-                    <td>Controle</td>
+            <table class="border-x border-b  border-second-gray">
+                <tr class="bg-darker-green   text-main-white text-2xl font-main font-semibold">
+                    <td class="py-4 pl-8">Nome</td>
+                    <td >Email</td>
+                    <td >Status</td>
+                    <td class="text-right pr-10">Controle</td>
                 </tr>
-                <tr>
-                    <td>Leonardo Faria</td>
-                    <td>faria@uenp.edu.br</td>
-                    <td>Ativo</td>
-                    <img alt="off" src="../../../assets/off.svg"/>
+                <tr *ngFor="let employee of employees" class="text-second-black mb-4  text-xl font-main font-semibold">
+                    <td class="py-12 pl-8 text-main-green">
+                        <span class=" cursor-pointer">{{employee.name}}</span>
+                    </td>
+                    <td class="py-12 ">{{employee.email}}</td>
+                    <td ngClass="py-12  w-1  {{employee.active ? 'text-second-green' : 'text-main-red'}} ">{{employee.active ? 'Ativo' : 'Desligado'}}</td>
+                    <td class="py-12 flex flex-row justify-end pr-14">
+                        <img class="cursor-pointer w-10 " alt="off" src="{{employee.active ? '../../../assets/ok.svg'  : '../../../assets/off.svg'}}"/>
+                    </td>
                 </tr>
         
               
-            </table> -->
+            </table>
         </section>
     </main>
 </div>

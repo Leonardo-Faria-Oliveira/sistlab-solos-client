@@ -7,6 +7,7 @@ export class Employee implements EmployeeSignUp{
     public name: string
     public email: string
     public password: string
+    public active: boolean | null | undefined
     public contact?: string | null | undefined;
     public job: string | null | undefined;
     public role: Role;

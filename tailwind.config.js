@@ -19,6 +19,7 @@ module.exports = {
       'second-black': '#2E2E2E',
       'hover-second-green': '#538244',
       'hover-main-green': '#0B4F2C',
+      'hover-main-gray': '#676B66',
       'hover-dark-green': '#0C2418',
       'second-gray': '#C8D2C6'
     },
