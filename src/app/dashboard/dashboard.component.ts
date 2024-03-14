@@ -36,6 +36,7 @@ export class DashboardComponent implements OnInit{
     }))
     .subscribe(res => {
 
+      localStorage.setItem("labName", res.labName)
       let role = this.dashboardService.getTypeRole()
       if(role === "admin"){
 

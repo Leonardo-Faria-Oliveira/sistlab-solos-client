@@ -1,4 +1,8 @@
 <app-modal-signup-employee 
+(functionEmitter)="createEmployee()"
+(roleEmitter)="setRole($event)" 
+(employeeOutputForm)="setEmployeeForm($event)"
+(modalSignUpEmployee)="setModalSignUpEmployee($event)"
 [ngClass]="modalSignUpEmployee ? 'z-[100]' : 'hidden'"
 ></app-modal-signup-employee>
 <div class="bg-main-white  w-full min-h-screen flex flex-col pt-20 pb-5 items-center">
@@ -40,11 +44,9 @@
                     <td class="py-12 ">{{employee.email}}</td>
                     <td ngClass="py-12  w-1  {{employee.active ? 'text-second-green' : 'text-main-red'}} ">{{employee.active ? 'Ativo' : 'Desligado'}}</td>
                     <td class="py-12 flex flex-row justify-end pr-14">
-                        <img class="cursor-pointer w-10 " alt="off" src="{{employee.active ? '../../../assets/ok.svg'  : '../../../assets/off.svg'}}"/>
+                        <img class="cursor-pointer w-10 " alt="off" src="{{employee.active ? '../../../assets/off.svg'  : '../../../assets/ok.svg'}}"/>
                     </td>
                 </tr>
-        
-              
             </table>
         </section>
     </main>

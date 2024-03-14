@@ -1,6 +1,6 @@
 import { Role } from "../models/role"
 
-export interface EmployeeSignUp{
+export interface EmployeeSignIn{
 
     name: string
     email: string

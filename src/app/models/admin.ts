@@ -1,8 +1,8 @@
-import { AdminSignUp } from "../interfaces/admin-signup";
+import { AdminSignIn } from "../interfaces/admin-signin";
 import { Institution } from "./institution";
 import { Role } from "./role";
 
-export class Admin implements AdminSignUp{
+export class Admin implements AdminSignIn{
     
     public id: string | undefined
     public name: string

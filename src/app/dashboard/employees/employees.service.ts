@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { CreateEmployee } from 'src/app/interfaces/create-employee';
 import { GetEmployees } from 'src/app/interfaces/get-employees';
 import { Employee } from 'src/app/models/employee';
 import { environment } from 'src/environments/environment';
@@ -30,6 +31,12 @@ export class EmployeesService {
       this.httpOptions
     ) 
 
+  }
+
+
+  public createEmployee(employee: CreateEmployee):Observable<Employee>{
+    let path = employee.roleName.includes("echnical") ? "/technical" : ""
+    return this.httpClient.post<Employee>(this.url+"/employee"+path, JSON.stringify(employee), this.httpOptions)
   }
 
 }

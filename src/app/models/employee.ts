@@ -1,7 +1,7 @@
-import { EmployeeSignUp } from "../interfaces/employee-signup";
+import { EmployeeSignIn } from "../interfaces/employee-signin";
 import { Role } from "./role";
 
-export class Employee implements EmployeeSignUp{
+export class Employee implements EmployeeSignIn{
 
     public id?:string | undefined
     public name: string

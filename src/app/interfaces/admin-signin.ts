@@ -1,7 +1,7 @@
 import { Institution } from "../models/institution"
 import { Role } from "../models/role"
 
-export interface AdminSignUp{
+export interface AdminSignIn{
 
     name: string
     email: string
