@@ -31,6 +31,7 @@ import { PricingsComponent } from './dashboard/pricings/pricings.component';
 import { StaticsComponent } from './dashboard/statics/statics.component';
 import { EmployeesComponent } from './dashboard/employees/employees.component';
 import { ModalSignupEmployeeComponent } from './dashboard/employees/modal-signup-employee/modal-signup-employee.component';
+import { FirstAccessComponent } from './first-access/first-access.component';
 
 @NgModule({
   declarations: [
@@ -58,6 +59,7 @@ import { ModalSignupEmployeeComponent } from './dashboard/employees/modal-signup
     StaticsComponent,
     EmployeesComponent,
     ModalSignupEmployeeComponent,
+    FirstAccessComponent,
     
   ],
   imports: [

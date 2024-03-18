@@ -20,7 +20,7 @@ export class TokenInterceptor implements HttpInterceptor {
     
     const token: string | null = localStorage.getItem("loggedUserToken")
     
-    if(request.url.includes("auth") || request.url.includes("create")){
+    if(request.url.includes("first") || request.url.includes("auth") || request.url.includes("create")){
       return next.handle(request)
     }
     if(token === null){

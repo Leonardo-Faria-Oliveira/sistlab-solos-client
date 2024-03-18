@@ -41,6 +41,8 @@ export class EmployeesComponent implements OnInit {
     .subscribe(res => {
       
       res.employees.map(employee =>{
+        let userEmail = localStorage.getItem("userEmail")
+        if(!(userEmail === employee.email))
         this.employees.push(employee)
         if(employee.active){
           this.countOk++

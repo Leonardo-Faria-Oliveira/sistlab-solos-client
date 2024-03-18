@@ -10,11 +10,13 @@ import { LabsComponent } from './dashboard/labs/labs.component';
 import { ReportsComponent } from './dashboard/reports/reports.component';
 import { PricingsComponent } from './dashboard/pricings/pricings.component';
 import { StaticsComponent } from './dashboard/statics/statics.component';
+import { FirstAccessComponent } from './first-access/first-access.component';
 
 const routes: Routes = [
   {path:'', component: LoginComponent, canActivate:[unloggedUserGuard]},
   {path:'signup', component: SignUpComponent, canActivate:[unloggedUserGuard]},
   {path:'login', component: LoginComponent, canActivate:[unloggedUserGuard]},
+  {path: 'first-access', component: FirstAccessComponent, canActivate:[unloggedUserGuard]},
   {path:'admin/2212vfoq', component: LoginComponent, canActivate:[unloggedUserGuard]},
   {path:'dashboard', 
     children:[
