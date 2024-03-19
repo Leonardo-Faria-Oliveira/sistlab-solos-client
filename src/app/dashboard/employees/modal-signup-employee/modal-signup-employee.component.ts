@@ -84,7 +84,7 @@ export class ModalSignupEmployeeComponent {
       setTimeout(() => this.setHasError(false), 1500)
       
     }
-    else if(this.employeeSignUpForm.value.email.match(/^[\S]*@[\S].[\S]/g) == null){
+    else if(!this.employeeSignUpForm.value.email.toLocaleLowerCase().match(/^([a-z0-9]+[.]*[a-z0-9]+)@[a-z]+[.]+[a-z]+/g)){
 
       this.setHasError(true);
       this.setError({

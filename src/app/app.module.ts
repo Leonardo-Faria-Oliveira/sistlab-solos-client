@@ -32,6 +32,9 @@ import { StaticsComponent } from './dashboard/statics/statics.component';
 import { EmployeesComponent } from './dashboard/employees/employees.component';
 import { ModalSignupEmployeeComponent } from './dashboard/employees/modal-signup-employee/modal-signup-employee.component';
 import { FirstAccessComponent } from './first-access/first-access.component';
+import { ClientsComponent } from './dashboard/clients/clients.component';
+import { ModalSignupClientComponent } from './dashboard/clients/modal-signup-client/modal-signup-client.component';
+import { SuccessModalComponent } from './success-modal/success-modal.component';
 
 @NgModule({
   declarations: [
@@ -60,6 +63,9 @@ import { FirstAccessComponent } from './first-access/first-access.component';
     EmployeesComponent,
     ModalSignupEmployeeComponent,
     FirstAccessComponent,
+    ClientsComponent,
+    ModalSignupClientComponent,
+    SuccessModalComponent,
     
   ],
   imports: [

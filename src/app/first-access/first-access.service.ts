@@ -25,6 +25,6 @@ export class FirstAccessService {
   
   public updateEmployee(email: string, password:string):Observable<Employee>{
   
-    return this.httpClient.patch<Employee>(this.url+"/employee/first-access/"+email, JSON.stringify(password), this.httpOptions)
+    return this.httpClient.patch<Employee>(this.url+"/employee/first-access/"+email, password, this.httpOptions)
   }
 }

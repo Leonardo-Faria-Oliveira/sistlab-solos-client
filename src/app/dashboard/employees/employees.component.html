@@ -5,10 +5,14 @@
 (modalSignUpEmployee)="setModalSignUpEmployee($event)"
 [ngClass]="modalSignUpEmployee ? 'z-[100]' : 'hidden'"
 ></app-modal-signup-employee>
-<div class="bg-main-white  w-full min-h-screen flex flex-col pt-20 pb-5 items-center">
-    <main class=" max-w-[62rem]  w-full  flex justify-around flex-col">
+<app-success-modal  
+[ngClass]="hasSuccess ? 'z-[150]  w-full left-0  text-center': 'hidden'" 
+>
+</app-success-modal>
+<div class="bg-main-white bg-dashboard z-[1]  w-full min-h-screen flex flex-col pt-20 pb-5 items-center">
+    <main class="  max-w-[62rem] z-[1] w-full  flex justify-around flex-col">
         <section class="flex mb-24 flex-row justify-between">
-            <div class="bg-main-white border-[3px] max-w-72 w-full flex flex-col items-center py-6  border-second-gray">
+            <div class=" bg-main-white border-[3px] max-w-72 w-full flex flex-col items-center py-6  border-second-gray">
                 <img class="w-24 mb-6" alt="ativos" src="../../../assets/ok.svg"/>
                 <h2 class=" mb-6 w-48  text-center font-main text-main-gray font-semibold text-2xl">Funcionários ativos</h2>
                 <h4 class="font-second text-second-black text-7xl">{{countOk >= 0 && countOk < 10 ? '0'+countOk : countOk}}</h4>
@@ -20,7 +24,7 @@
             </div>
         </section>
         <section class="flex flex-col  ">
-            <div class="flex mb-4 flex-row justify-between text-main-white bg-main-white">
+            <div class="flex mb-4 flex-row justify-between text-main-white ">
                 <button (click)="setModalSignUpEmployee(true)" class="bg-main-green text-left text-lg  pl-5 tracking-wider rounded-[5px] hover:bg-hover-main-green transition-colors ease-linear duration-150 font-second uppercase font-semibold w-full max-w-80 pt-4 pb-3">
                   <h4 class="inline">Cadastrar funcioná rio</h4>   
                   <span class="ml-9 "><img class="inline -mt-1 w-5" alt="plus" src="../../../assets/plus.svg"></span>
@@ -30,7 +34,7 @@
                     <span class="ml-[4rem] "><img class="inline -mt-1 w-5" alt="lookfor" src="../../../assets/lookfor.svg"></span>
                 </button>
             </div>
-            <table class="border-x border-b  border-second-gray">
+            <table class="border-x border-b bg-main-white border-second-gray">
                 <tr class="bg-darker-green   text-main-white text-2xl font-main font-semibold">
                     <td class="py-4 pl-8">Nome</td>
                     <td >Email</td>
@@ -46,6 +50,9 @@
                     <td class="py-12 flex flex-row justify-end pr-14">
                         <img class="cursor-pointer w-10 " alt="off" src="{{employee.active ? '../../../assets/off.svg'  : '../../../assets/ok.svg'}}"/>
                     </td>
+                </tr>
+                <tr class="text-second-black  mb-4  text-xl font-main font-semibold" *ngIf="employees.length < 2">
+                    <td colspan="4" class="py-12 border w-full text-center">Não há clientes</td>
                 </tr>
             </table>
         </section>

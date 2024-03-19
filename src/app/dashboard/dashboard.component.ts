@@ -35,7 +35,7 @@ export class DashboardComponent implements OnInit{
       return throwError(() => new Error(err));
     }))
     .subscribe(res => {
-
+      console.log(res)
       localStorage.setItem("labName", res.labName)
       let role = this.dashboardService.getTypeRole()
       if(role === "admin"){

@@ -22,7 +22,7 @@
             <img class="w-14"  [src]="activeItem === item.index ? item.activeIcon : item.icon"/>
                 <h2 class="tracking-wider self-center">{{item.text}}</h2>
             </div>
-            <!-- <h1 *ngFor="let item of labAdminEmployeeItensMenu" >{{item.text}}</h1> -->
+           
         </div>
         <div *ngIf="role === 'labAdminEmployee' || role === 'labAdminTechnical' ">
             <div 
@@ -34,9 +34,9 @@
             <img class="w-14"  [src]="activeItem === item.index ? item.activeIcon : item.icon"/>
                 <h2 class="tracking-wider self-center">{{item.text}}</h2>
             </div>
-            <!-- <h1 *ngFor="let item of labAdminEmployeeItensMenu" >{{item.text}}</h1> -->
+            
         </div>
-        <div *ngIf="role === 'employee' || role === 'tecnhcialResponsible' ">
+        <div *ngIf="role === 'employee' || role === 'technicalResponsible' ">
             <div 
             (click)="setActive(item.index)"
             *ngFor="let item of employeeItensMenu"

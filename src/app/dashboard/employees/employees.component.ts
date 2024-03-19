@@ -31,6 +31,8 @@ export class EmployeesComponent implements OnInit {
 
   public countOff: number = 0
 
+  public hasSuccess:boolean = false
+
 
 
   public ngOnInit(): void {
@@ -39,16 +41,22 @@ export class EmployeesComponent implements OnInit {
       return throwError(() => new Error(err));
     }))
     .subscribe(res => {
-      
+
+      let count = 0
+      let userEmail = localStorage.getItem("userEmail")
       res.employees.map(employee =>{
-        let userEmail = localStorage.getItem("userEmail")
-        if(!(userEmail === employee.email))
-        this.employees.push(employee)
+      
+        if( count <= 5 ){
+          if(!(userEmail === employee.email))
+            this.employees.push(employee)
+        }
+        count++
         if(employee.active){
           this.countOk++
         }else{
           this.countOff++
         }
+
       })
       
     })
@@ -102,7 +110,10 @@ export class EmployeesComponent implements OnInit {
     }))
     .subscribe(res => {
 
-      window.location.reload()
+      this.setModalSignUpEmployee(false)
+      this.hasSuccess = true
+      setTimeout(() => this.hasSuccess =false , 2000)
+      setTimeout(() => window.location.reload() , 2000)
       
     })
 
