@@ -26,13 +26,13 @@ errorMessage="{{error?.errorMessage}}" >
                 <h4 class="font-second text-second-black text-7xl"> 00</h4>
             </div>
         </section>
-        <section class="flex flex-col  ">
+        <section *ngIf="!isSearchMode" class="flex flex-col  ">
             <div class="flex mb-4 flex-row justify-between text-main-white ">
                 <button (click)="setModalSignUpClient(true)" class="bg-main-green text-left text-lg  pl-5 tracking-wider rounded-[5px] hover:bg-hover-main-green transition-colors ease-linear duration-150 font-second uppercase font-semibold w-full max-w-80 pt-4 pb-3">
                   <h4 class="inline">Cadastrar cliente</h4>   
                   <span class="ml-[5.5rem] "><img class="inline -mt-1 w-5" alt="plus" src="../../../assets/plus.svg"></span>
                 </button>
-                <button class="bg-main-green text-left text-lg  pl-5 tracking-wider rounded-[5px] hover:bg-hover-main-green transition-colors ease-linear duration-150 font-second uppercase font-semibold w-full max-w-80 pt-4 pb-3">
+                <button  (click)="setSearchMode(true)" class="bg-main-green text-left text-lg  pl-5 tracking-wider rounded-[5px] hover:bg-hover-main-green transition-colors ease-linear duration-150 font-second uppercase font-semibold w-full max-w-80 pt-4 pb-3">
                     <h4 class="inline">Buscar cliente</h4>   
                     <span class="ml-[7.5rem] "><img class="inline -mt-1 w-5" alt="lookfor" src="../../../assets/lookfor.svg"></span>
                 </button>
@@ -59,5 +59,13 @@ errorMessage="{{error?.errorMessage}}" >
                 </tr>
             </table>
         </section>
+        <app-search-client
+        orderBy="{{orderBy}}"
+        [ngClass]="isSearchMode ? '' : 'hidden'"
+        (isSearchMode)="setSearchMode($event)"
+        [clients]="clients"
+        (orderByEmitter)="orderClients($event)"
+        (searchEmitter)="searchClients($event)"
+        ></app-search-client>
     </main>
 </div>

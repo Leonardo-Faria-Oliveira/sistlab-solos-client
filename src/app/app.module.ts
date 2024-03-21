@@ -35,6 +35,8 @@ import { FirstAccessComponent } from './first-access/first-access.component';
 import { ClientsComponent } from './dashboard/clients/clients.component';
 import { ModalSignupClientComponent } from './dashboard/clients/modal-signup-client/modal-signup-client.component';
 import { SuccessModalComponent } from './success-modal/success-modal.component';
+import { SearchEmployeeComponent } from './dashboard/employees/search-employee/search-employee.component';
+import { SearchClientComponent } from './dashboard/clients/search-client/search-client.component';
 
 @NgModule({
   declarations: [
@@ -66,6 +68,8 @@ import { SuccessModalComponent } from './success-modal/success-modal.component';
     ClientsComponent,
     ModalSignupClientComponent,
     SuccessModalComponent,
+    SearchEmployeeComponent,
+    SearchClientComponent,
     
   ],
   imports: [

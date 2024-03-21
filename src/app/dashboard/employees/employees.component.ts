@@ -5,7 +5,8 @@ import { Employee } from 'src/app/models/employee';
 import { CreateEmployee } from 'src/app/interfaces/create-employee';
 import { FormGroup } from '@angular/forms';
 import { Roles } from 'src/app/interfaces/roles';
-import { Router } from '@angular/router';
+import { OrderBasic } from 'src/app/interfaces/order-basic';
+import { SearchBasic } from 'src/app/interfaces/search-basic';
 
 @Component({
   selector: 'app-employees',
@@ -21,6 +22,8 @@ export class EmployeesComponent implements OnInit {
 
   public employees:Employee[] = new Array<Employee>();
 
+  public userEmail:string = localStorage.getItem("userEmail")!
+
   public newEmployee:CreateEmployee  | null = null;
 
   public modalSignUpEmployee:boolean = false
@@ -33,7 +36,9 @@ export class EmployeesComponent implements OnInit {
 
   public hasSuccess:boolean = false
 
+  public isSearchMode:boolean = false
 
+  public orderBy:string = "asc"
 
   public ngOnInit(): void {
     this.employeesService.getEmployees()
@@ -43,11 +48,10 @@ export class EmployeesComponent implements OnInit {
     .subscribe(res => {
 
       let count = 0
-      let userEmail = localStorage.getItem("userEmail")
       res.employees.map(employee =>{
       
         if( count <= 5 ){
-          if(!(userEmail === employee.email))
+          if(!(this.userEmail === employee.email))
             this.employees.push(employee)
         }
         count++
@@ -100,6 +104,10 @@ export class EmployeesComponent implements OnInit {
     }
 
   }
+
+  public setSearchMode(searchMode:boolean){
+    this.isSearchMode = searchMode
+  }
   
 
   public createEmployee(){
@@ -116,6 +124,49 @@ export class EmployeesComponent implements OnInit {
       setTimeout(() => window.location.reload() , 2000)
       
     })
+
+  }
+
+
+  public orderEmployees(event: OrderBasic){
+
+    this.employeesService.orderEmployees(event) 
+    .pipe(catchError(err => {
+      return throwError(() => new Error(err));
+    }))
+    .subscribe(res => {
+
+      this.employees.length = 0
+      
+      res.employees.map(employee =>{
+
+        if(!(this.userEmail === employee.email))
+          this.employees.push(employee)
+
+      })
+      
+    })   
+
+  }
+
+  public searchEmployees(event:SearchBasic){
+
+    this.employeesService.searchEmployees(event)   
+    .pipe(catchError(err => {
+      return throwError(() => new Error(err));
+    }))
+    .subscribe(res => {
+
+      this.employees.length = 0
+      
+      res.employees.map(employee =>{
+
+        if(!(this.userEmail === employee.email))
+          this.employees.push(employee)
+
+      })
+      
+    })  
 
   }
 

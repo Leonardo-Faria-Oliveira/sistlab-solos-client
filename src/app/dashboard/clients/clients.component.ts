@@ -4,6 +4,8 @@ import { catchError, throwError } from 'rxjs';
 import { ClientsService } from './clients.service';
 import { Client } from 'src/app/models/client';
 import { ErrorHandler } from 'src/app/interfaces/error-handler';
+import { OrderBasic } from 'src/app/interfaces/order-basic';
+import { SearchBasic } from 'src/app/interfaces/search-basic';
 
 @Component({
   selector: 'app-clients',
@@ -22,9 +24,15 @@ export class ClientsComponent implements OnInit {
 
   public modalSignUpClient:boolean = false
 
+  public userEmail:string = localStorage.getItem("userEmail")!
+
   public hasSuccess:boolean = false
   public hasError:boolean = false
   public error:ErrorHandler | null = null 
+
+  public isSearchMode:boolean = false
+
+  public orderBy:string = "asc"
 
   public setHasError(hasError:boolean){
     this.hasError = hasError
@@ -32,6 +40,10 @@ export class ClientsComponent implements OnInit {
 
   public setError(error:ErrorHandler | null){
     this.error = error
+  }
+
+  public setSearchMode(searchMode:boolean){
+    this.isSearchMode = searchMode
   }
 
   public ngOnInit(): void {
@@ -92,5 +104,49 @@ export class ClientsComponent implements OnInit {
     })
 
   }
+
+  
+  public orderClients(event: OrderBasic){
+
+    this.clientsService.orderClients(event) 
+    .pipe(catchError(err => {
+      return throwError(() => new Error(err));
+    }))
+    .subscribe(res => {
+
+      this.clients.length = 0
+      
+      res.clients.map(client =>{
+
+        if(!(this.userEmail === client.email))
+          this.clients.push(client)
+
+      })
+      
+    })   
+
+  }
+
+  public searchClients(event:SearchBasic){
+
+    this.clientsService.searchClients(event)   
+    .pipe(catchError(err => {
+      return throwError(() => new Error(err));
+    }))
+    .subscribe(res => {
+
+      this.clients.length = 0
+      
+      res.clients.map(client =>{
+
+        if(!(this.userEmail === client.email))
+          this.clients.push(client)
+
+      })
+      
+    })  
+
+  }
+
 
 }
