@@ -1,10 +1,9 @@
-<div class="w-full min-h-screen bg-main-black bg-opacity-45 items-center left-0 top-0 absolute flex flex-col ">
+<div class="w-full z-40 min-h-screen bg-main-black bg-opacity-45 items-center left-0 top-0 absolute flex flex-col ">
     <app-error-modal  
     [ngClass]="hasError ? 'z-10 w-full relative text-center': 'hidden'" 
     errorMessage="{{error?.errorMessage}}" >
     </app-error-modal>
     <div class="p-10 flex flex-col justify-evenly easy-out duration-100 animate-up border-x border-b border-second-gray items-center w-full max-w-4xl  mt-6  bg-main-white   rounded-[5px]">
-
         <header class="flex mb-14 flex-row justify-between w-full">
             <h1 class="font-main text-second-black font-semibold text-3xl">Novo funcionário</h1>
             <img class="cursor-pointer" (click)="setModalSignUpEmployee(false)"  alt="cancel" src ="../../../../assets/cancel.svg"/>

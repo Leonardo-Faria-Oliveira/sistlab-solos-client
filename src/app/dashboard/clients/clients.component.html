@@ -2,63 +2,35 @@
 (functionEmitter)="createClient()"
 (clientOutputForm)="setClientForm($event)"
 (modalSignUpClient)="setModalSignUpClient($event)"
-[ngClass]="modalSignUpClient ? 'z-[100]' : 'hidden'"
+[ngClass]="modalSignUpClient ? 'z-10' : 'hidden'"
 ></app-modal-signup-client>
+
 <app-success-modal  
 [ngClass]="hasSuccess ? 'z-[150]  w-full left-0  text-center': 'hidden'" 
->
-</app-success-modal>
+></app-success-modal>
+
 <app-error-modal  
 [ngClass]="hasError ? 'z-10 w-full relative text-center': 'hidden'" 
-errorMessage="{{error?.errorMessage}}" >
-</app-error-modal>
-<div class="bg-main-white bg-dashboard w-full min-h-screen flex flex-col pt-20 pb-5 items-center">
-    <main class=" max-w-[62rem]  w-full  flex justify-around flex-col">
-        <section class="flex mb-24 flex-row justify-between">
-            <div class="bg-main-white border-[3px] max-w-72 w-full flex flex-col items-center py-6  border-second-gray">
-                <img class="w-24 mb-6" alt="ativos" src="../../../assets/ok.svg"/>
-                <h2 class=" mb-6 w-48  text-center font-main text-main-gray font-semibold text-2xl">Clientes</h2>
-                <h4 class="font-second text-second-black text-7xl">{{clients.length >= 0 && clients.length < 10 ? '0'+clients.length : clients.length}}</h4>
-            </div>
-            <div class="bg-main-white border-[3px] max-w-72 w-full flex flex-col items-center py-6  border-second-gray">
-                <img class="w-24 mb-6" alt="ativos" src="../../../assets/reports-by-clients.svg"/>
-                <h2 class=" mb-6 w-48  text-center font-main text-main-gray font-semibold text-2xl">Laudos por cliente</h2>
-                <h4 class="font-second text-second-black text-7xl"> 00</h4>
-            </div>
-        </section>
-        <section *ngIf="!isSearchMode" class="flex flex-col  ">
-            <div class="flex mb-4 flex-row justify-between text-main-white ">
-                <button (click)="setModalSignUpClient(true)" class="bg-main-green text-left text-lg  pl-5 tracking-wider rounded-[5px] hover:bg-hover-main-green transition-colors ease-linear duration-150 font-second uppercase font-semibold w-full max-w-80 pt-4 pb-3">
-                  <h4 class="inline">Cadastrar cliente</h4>   
-                  <span class="ml-[5.5rem] "><img class="inline -mt-1 w-5" alt="plus" src="../../../assets/plus.svg"></span>
-                </button>
-                <button  (click)="setSearchMode(true)" class="bg-main-green text-left text-lg  pl-5 tracking-wider rounded-[5px] hover:bg-hover-main-green transition-colors ease-linear duration-150 font-second uppercase font-semibold w-full max-w-80 pt-4 pb-3">
-                    <h4 class="inline">Buscar cliente</h4>   
-                    <span class="ml-[7.5rem] "><img class="inline -mt-1 w-5" alt="lookfor" src="../../../assets/lookfor.svg"></span>
-                </button>
-            </div>
-            <table class="border-x border-b bg-main-white border-second-gray">
-                <tr class="bg-darker-green   text-main-white text-2xl font-main font-semibold">
-                    <td class="py-4 pl-8">Nome</td>
-                    <td >Email</td>
-                    <td >Cidade</td>
-                    <td class="text-right pr-10">Laudo</td>
-                </tr>
-                <tr *ngFor="let client of clients" class="text-second-black mb-4  text-xl font-main font-semibold">
-                    <td class="py-12 pl-8 text-main-green">
-                        <span class=" cursor-pointer">{{client.name}}</span>
-                    </td>
-                    <td class="py-12 ">{{client.email}}</td>
-                    <td ngClass="py-12  w-1   ">{{client.city}}</td>
-                    <td class="py-12 flex flex-row justify-end pr-14">
-                        <img class="cursor-pointer w-8 " alt="off" src="../../../assets/new-plus.svg"/>
-                    </td>
-                </tr>
-                <tr class="text-second-black  mb-4  text-xl font-main font-semibold" *ngIf="clients.length === 0">
-                    <td colspan="4" class="py-12 border w-full text-center">Não há clientes</td>
-                </tr>
-            </table>
-        </section>
+errorMessage="{{error?.errorMessage}}" 
+></app-error-modal>
+
+<div class="bg-main-white w-full min-h-screen flex flex-col pt-20 pb-5 items-center">
+    <div  class=" relative z-0 flex flex-col items-center  w-full  ">
+        <img class=" fixed mt-40 " src = "../../assets/banner-dashboard.svg">
+    </div>
+    <main class=" max-w-[62rem] z-[5] w-full  flex justify-around flex-col">
+        
+        <app-overview-clients
+        [count]="clients.length"
+        ></app-overview-clients>
+
+        <app-list-clients
+        [clients]="clients"
+        [isSearchMode]="isSearchMode"
+        (modalEmitter)="setModalSignUpClient($event)"
+        (searchEmitter)="setSearchMode($event)"
+        ></app-list-clients>
+
         <app-search-client
         orderBy="{{orderBy}}"
         [ngClass]="isSearchMode ? '' : 'hidden'"

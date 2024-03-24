@@ -91,6 +91,12 @@ export class ClientsComponent implements OnInit {
 
     this.clientsService.createClient(this.newClient!)
     .pipe(catchError(err => {
+      this.setHasError(true);
+      this.setError({
+        errorCode: 400,
+        errorMessage: "Campo deve ser um email" 
+      })
+      setTimeout(() => this.setHasError(false), 2000)
       return throwError(() => new Error(err));
     }))
     .subscribe(res => {
@@ -131,6 +137,12 @@ export class ClientsComponent implements OnInit {
 
     this.clientsService.searchClients(event)   
     .pipe(catchError(err => {
+      this.setHasError(true);
+      this.setError({
+        errorCode: 400,
+        errorMessage: "Campo deve ser um email" 
+      })
+      setTimeout(() => this.setHasError(false), 2000)
       return throwError(() => new Error(err));
     }))
     .subscribe(res => {

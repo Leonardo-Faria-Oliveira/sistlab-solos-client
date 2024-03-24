@@ -37,6 +37,10 @@ import { ModalSignupClientComponent } from './dashboard/clients/modal-signup-cli
 import { SuccessModalComponent } from './success-modal/success-modal.component';
 import { SearchEmployeeComponent } from './dashboard/employees/search-employee/search-employee.component';
 import { SearchClientComponent } from './dashboard/clients/search-client/search-client.component';
+import { ListEmployeesComponent } from './dashboard/employees/list-employees/list-employees.component';
+import { OverviewEmployeesComponent } from './dashboard/employees/overview-employees/overview-employees.component';
+import { OverviewClientsComponent } from './dashboard/clients/overview-clients/overview-clients.component';
+import { ListClientsComponent } from './dashboard/clients/list-clients/list-clients.component';
 
 @NgModule({
   declarations: [
@@ -70,6 +74,10 @@ import { SearchClientComponent } from './dashboard/clients/search-client/search-
     SuccessModalComponent,
     SearchEmployeeComponent,
     SearchClientComponent,
+    ListEmployeesComponent,
+    OverviewEmployeesComponent,
+    OverviewClientsComponent,
+    ListClientsComponent,
     
   ],
   imports: [

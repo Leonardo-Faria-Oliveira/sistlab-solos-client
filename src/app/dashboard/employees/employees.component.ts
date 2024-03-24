@@ -7,6 +7,7 @@ import { FormGroup } from '@angular/forms';
 import { Roles } from 'src/app/interfaces/roles';
 import { OrderBasic } from 'src/app/interfaces/order-basic';
 import { SearchBasic } from 'src/app/interfaces/search-basic';
+import { ErrorHandler } from 'src/app/interfaces/error-handler';
 
 @Component({
   selector: 'app-employees',
@@ -37,6 +38,10 @@ export class EmployeesComponent implements OnInit {
   public hasSuccess:boolean = false
 
   public isSearchMode:boolean = false
+
+  public hasError:boolean = false
+  public error:ErrorHandler | null = null 
+
 
   public orderBy:string = "asc"
 
@@ -110,10 +115,23 @@ export class EmployeesComponent implements OnInit {
   }
   
 
+  public setHasError(hasError:boolean){
+    this.hasError = hasError
+  }
+
+  public setError(error:ErrorHandler | null){
+    this.error = error
+  }
+
   public createEmployee(){
-    // console.log(this.newEmployee)
     this.employeesService.createEmployee(this.newEmployee!)
     .pipe(catchError(err => {
+      this.setHasError(true);
+      this.setError({
+        errorCode: 400,
+        errorMessage: "Campo deve ser um email" 
+      })
+      setTimeout(() => this.setHasError(false), 2000)
       return throwError(() => new Error(err));
     }))
     .subscribe(res => {
