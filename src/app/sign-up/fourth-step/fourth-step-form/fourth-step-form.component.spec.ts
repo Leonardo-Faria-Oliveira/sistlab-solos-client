@@ -1,0 +1,21 @@
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+
+import { FourthStepFormComponent } from './fourth-step-form.component';
+
+describe('FourthStepFormComponent', () => {
+  let component: FourthStepFormComponent;
+  let fixture: ComponentFixture<FourthStepFormComponent>;
+
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      declarations: [FourthStepFormComponent]
+    });
+    fixture = TestBed.createComponent(FourthStepFormComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+});

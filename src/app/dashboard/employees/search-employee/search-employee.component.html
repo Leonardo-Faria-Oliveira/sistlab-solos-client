@@ -1,0 +1,57 @@
+<section class="flex flex-col  ">
+    <form [formGroup]="searchFormGroup" class="flex mb-4 flex-row justify-stretch text-main-white ">
+        <button  (click) = "setIsSearchMode(false)" 
+        class="bg-main-white border mr-1 border-second-gray text-left text-lg  px-6 tracking-wider rounded-[5px] transition-colors ease-linear duration-150 font-second uppercase font-semibold  py-3">
+            <img class="" alt="Voltar" src="../../../assets/gray-arrow-back.svg">
+        </button>
+        <input
+        formControlName = "search"
+        class=" max-w-md text-xl  text-main-gray -mr-6 tracking-wider outline-none font-second border-l border-b border-t border-second-gray h-14  rounded-[5px] pl-5 w-full "
+        placeholder="{{searchFormGroup.value.header?.name}}" 
+        type="text"
+        autocomplete="new-name"
+        />
+        <button 
+        (click)="searchByHeader()"
+        class="bg-main-white mr-1 border-r border-t border-b  border-second-gray text-left text-lg  px-6 tracking-wider rounded-r-[5px] transition-colors ease-linear duration-150 font-second uppercase font-semibold  py-3">
+            <img class="" alt="Buscar" src="../../../assets/search-look.svg">
+        </button>
+        <select 
+        name = "header"
+        formControlName = "header"
+        class=" form-control w-full max-w-80 mr-1 pl-3 text-xl border border-second-gray rounded-[5px] text-main-gray h-14  focus:text-inherit tracking-wider outline-none font-second "  
+        required>
+            <option
+            class=" text-xl  border border-second-gray text-main-gray  py-10 my-10  tracking-wider hover:bg-second-gray outline-none font-second"
+            *ngFor="let header of headerSearch" [ngValue]="header"> {{header.name}}
+            </option>
+        </select>
+        <button
+        (click)="setOrderBy(orderBy === 'asc' ? 'desc' : 'asc')" 
+        class="bg-main-white  border  border-second-gray px-6 rounded-[5px] py-[0.80rem]">
+            <img  alt="Ordenar por" [src]="orderBy === 'asc' ?  '../../../assets/green-arrow-up.svg' : '../../../assets/green-arrow-down.svg'">
+        </button>
+    </form>
+    
+    <table  class="border-x border-b bg-main-white border-second-gray">
+        <tr class="bg-darker-green   text-main-white text-2xl font-main font-semibold">
+            <td class="py-4 pl-8">Nome</td>
+            <td >Emai</td>
+            <td >Status</td>
+            <td class="text-right pr-10">Controle</td>
+        </tr>
+        <tr  *ngFor="let employee of employees" class="text-second-black mb-4  text-xl font-main font-semibold">
+            <td class="py-12 pl-8 text-main-green">
+                <span class=" cursor-pointer">{{employee.name}}</span>
+            </td>
+            <td class="py-12 ">{{employee.email}}</td>
+            <td ngClass="py-12  w-1  {{employee.active ? 'text-second-green' : 'text-main-red'}} ">{{employee.active ? 'Ativo' : 'Desligado'}}</td>
+            <td class="py-12 flex flex-row justify-end pr-14">
+                <img class="cursor-pointer w-10 " alt="off" src="{{employee.active ? '../../../assets/off.svg'  : '../../../assets/ok.svg'}}"/>
+            </td>
+        </tr>
+        <tr class="text-second-black  mb-4  text-xl font-main font-semibold" *ngIf="employees.length < 2">
+            <td colspan="4" class="py-12 border w-full text-center">Não há funcionários</td>
+        </tr>
+    </table>
+</section>

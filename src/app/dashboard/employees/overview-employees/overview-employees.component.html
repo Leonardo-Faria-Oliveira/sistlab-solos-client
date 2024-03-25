@@ -1,0 +1,12 @@
+<section  class="flex mb-24 flex-row justify-between">
+    <div class=" bg-main-white  border-[3px] max-w-72 w-full flex flex-col items-center py-6  border-second-gray">
+        <img class="w-24 mb-6" alt="ativos" src="../../../assets/ok.svg"/>
+        <h2 class=" mb-6 w-48  text-center font-main text-main-gray font-semibold text-2xl">Funcionários ativos</h2>
+        <h4 class="font-second text-second-black text-7xl">{{countOk! >= 0 && countOk! < 10 ? '0'+countOk : countOk}}</h4>
+    </div>
+    <div class="bg-main-white border-[3px]  max-w-72 w-full flex flex-col items-center py-6  border-second-gray">
+        <img class="w-24 mb-6" alt="ativos" src="../../../assets/off.svg"/>
+        <h2 class=" mb-6 w-48  text-center font-main text-main-gray font-semibold text-2xl">Funcionários desativados</h2>
+        <h4 class="font-second text-second-black text-7xl">{{countOff! >= 0 && countOff! < 10 ? '0'+countOff : countOff}}</h4>
+    </div>
+</section>

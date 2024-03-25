@@ -1,0 +1,33 @@
+<section  *ngIf="!isSearchMode" class="flex flex-col  ">
+    <div class="flex mb-4  flex-row justify-between text-main-white ">
+        <button (click)="setModalSignUpEmployee(true)" class="bg-main-green text-left text-lg flex flex-row justify-between px-5 tracking-wider rounded-[5px] hover:bg-hover-main-green transition-colors ease-linear duration-150 font-second uppercase font-semibold w-full max-w-80 pt-4 pb-3">
+          <h4>Cadastrar funcioná rio</h4>   
+          <img class="mt-1 w-5" alt="plus" src="../../../assets/plus.svg">
+        </button>
+        <button (click)="setSearchMode(true)" class="flex flex-row justify-between bg-main-green text-left text-lg  px-5 tracking-wider rounded-[5px] hover:bg-hover-main-green transition-colors ease-linear duration-150 font-second uppercase font-semibold w-full max-w-80 pt-4 pb-3">
+            <h4>Buscar funcioná rio</h4>   
+            <img class="mt-1 w-5" alt="lookfor" src="../../../assets/lookfor.svg">
+        </button>
+    </div>
+    <table class="border-x border-b bg-main-white border-second-gray">
+        <tr class="bg-darker-green   text-main-white text-2xl font-main font-semibold">
+            <td class="py-4 pl-8">Nome</td>
+            <td >Email</td>
+            <td >Status</td>
+            <td class="text-right pr-10">Controle</td>
+        </tr>
+        <tr *ngFor="let employee of employees" class="text-second-black mb-4  text-xl font-main font-semibold">
+            <td class="py-12 pl-8 text-main-green">
+                <span class=" cursor-pointer">{{employee.name}}</span>
+            </td>
+            <td class="py-12 ">{{employee.email}}</td>
+            <td ngClass="py-12  w-1  {{employee.active ? 'text-second-green' : 'text-main-red'}} ">{{employee.active ? 'Ativo' : 'Desligado'}}</td>
+            <td class="py-12 flex flex-row justify-end pr-14">
+                <img class="cursor-pointer w-10 " alt="off" src="{{employee.active ? '../../../assets/off.svg'  : '../../../assets/ok.svg'}}"/>
+            </td>
+        </tr>
+        <tr class="text-second-black  mb-4  text-xl font-main font-semibold" *ngIf="employees.length < 2">
+            <td colspan="4" class="py-12 border w-full text-center">Não há funcionários</td>
+        </tr>
+    </table>
+</section>

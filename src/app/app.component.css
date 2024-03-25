@@ -1,0 +1,14 @@
+@keyframes bounce {
+    0%{
+        display: hidden;
+        transform: translateY(-10%);
+    }
+    100%{
+        display: flex;
+    }
+    
+}
+
+.animate-bounce {
+    animation: bounce 500ms normal;
+}

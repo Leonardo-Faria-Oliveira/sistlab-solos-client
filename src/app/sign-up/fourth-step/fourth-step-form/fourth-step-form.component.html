@@ -1,0 +1,33 @@
+<div class="bg-main-green h-full flex min-h-screen  flex-col w-full  p-6 ">
+    <header class="h-16 flex-row justify-end  flex w-full  mb-8">
+        <h2 class="mr-5 text-main-white self-center font-main font-semibold text-2xl">SistLab</h2>
+        <img class="max-w-16" src=" ../../../../assets/main-logo-icon.svg">
+    </header>
+    <main class="flex flex-col min-h-[581px] h-full justify-center  items-center max-w-2xl  w-full">
+        <div class="flex flex-col justify-center  font-second text-xl text-main-gray w-full max-w-sm ">
+            <input 
+                class="  outline-none h-14 mb-10 rounded-[5px] pl-5 w-full "
+                placeholder="Senha*" 
+                type="password"
+                autocomplete="new-password"
+            />
+            <input 
+                class="  outline-none h-14 mb-10 rounded-[5px] pl-5 w-full "
+                placeholder="Confirmar senha*" 
+                type="password" 
+                autocomplete="new-password"
+            />
+            <button
+            class="h-14 -mt-2 mb-6 hover:bg-hover-second-green ease-in duration-100 bg-second-green w-full font-semibold rounded-[5px] font-second text-main-white "
+            >
+                ENVIAR
+            </button>
+            <button
+            (click)="back()"
+            class="h-14 -mt-2 hover:bg-hover-dark-green ease-in duration-100 bg-darker-green w-full font-semibold rounded-[5px] font-second text-main-white "
+            >
+                VOLTAR
+            </button>
+        </div>  
+    </main>
+</div>

@@ -1,0 +1,57 @@
+<div class="w-full z-40 min-h-screen bg-main-black bg-opacity-45 items-center left-0 top-0 absolute flex flex-col ">
+    <app-error-modal  
+    [ngClass]="hasError ? 'z-10 w-full relative text-center': 'hidden'" 
+    errorMessage="{{error?.errorMessage}}" >
+    </app-error-modal>
+    <div class="p-10 flex flex-col justify-evenly easy-out duration-100 animate-up border-x border-b border-second-gray items-center w-full max-w-4xl  mt-6  bg-main-white   rounded-[5px]">
+
+        <header class="flex mb-14 flex-row justify-between w-full">
+            <h1 class="font-main text-second-black font-semibold text-3xl">Novo cliente</h1>
+            <img class="cursor-pointer" (click)="setModalSignUpClient(false)"  alt="cancel" src ="../../../../assets/cancel.svg"/>
+        </header>
+        <main class="mb-10 w-full pl-5">
+            <form [formGroup]="clientSignUpForm" class="w-full flex flex-col">
+                <input
+                formControlName = "name"
+                class=" max-w-96 text-xl text-main-gray tracking-wider outline-none font-second border border-second-gray h-14 mb-11 rounded-[5px] pl-5 w-full "
+                placeholder="Nome*" 
+                type="text"
+                autocomplete="new-name"
+                />
+                <input 
+                formControlName = "email"
+                class=" max-w-96 text-xl text-main-gray outline-none tracking-wider font-second border border-second-gray h-14 mb-11 rounded-[5px] pl-5 w-full "
+                placeholder="Email*" 
+                type="email"
+                autocomplete="new-email" 
+                />
+                <input 
+                formControlName = "contact"
+                class=" max-w-96 text-xl text-main-gray outline-none tracking-wider font-second border border-second-gray h-14 mb-11 rounded-[5px] pl-5 w-full "
+                placeholder="Contato" 
+                type="text" 
+                autocomplete="new-contact"
+                />
+                <input 
+                formControlName = "city"
+                class=" max-w-96 text-xl text-main-gray outline-none tracking-wider font-second border border-second-gray h-14 mb-2 rounded-[5px] pl-5 w-full "
+                placeholder="Cidade*" 
+                type="text" 
+                autocomplete="new-city"
+                />
+            </form>
+        </main>
+        <footer class="w-full flex text-main-white justify-between flex-row">
+            <button (click)="setModalSignUpClient(false)" class=" rounded-[5px] text-lg transition-colors ease-linear duration-150 font-second uppercase font-semibold w-full max-w-[360px] justify-between px-6 pt-4 pb-3 bg-main-gray hover:bg-hover-main-gray  flex flex-row">
+                <h4>Cancelar</h4>
+                <img class="w-5 mt-1" alt="cancel" src ="../../../../assets/cancel-white.svg"/>
+            </button>
+            <button (click)="createClient()" class=" rounded-[5px] text-lg transition-colors ease-linear duration-150 font-second uppercase font-semibold w-full max-w-[360px] justify-between px-6 pt-4 pb-3 bg-main-green hover:bg-hover-main-green  flex flex-row">
+                <h4>Cadastrar cliente</h4>
+                <img class="w-5 mt-1" alt="plus" src ="../../../../assets/plus.svg"/>
+            </button>
+        </footer>
+ 
+
+    </div>
+</div>
