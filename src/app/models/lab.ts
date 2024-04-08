@@ -9,6 +9,9 @@ export class Lab implements LabSignUp{
     public email: string;
     public markUrl?: string | null | undefined;
     public contact?: string | null | undefined;
+    public header1?: string | null | undefined;
+    public header2?: string | null | undefined;
+    public header3?: string | null | undefined;
     public address: Address;
     public employee: Employee;
 

@@ -41,6 +41,9 @@ import { ListEmployeesComponent } from './dashboard/employees/list-employees/lis
 import { OverviewEmployeesComponent } from './dashboard/employees/overview-employees/overview-employees.component';
 import { OverviewClientsComponent } from './dashboard/clients/overview-clients/overview-clients.component';
 import { ListClientsComponent } from './dashboard/clients/list-clients/list-clients.component';
+import { ListReportsComponent } from './dashboard/reports/list-reports/list-reports.component';
+// import { NgxFlowModule, FlowInjectionToken } from 'flowjs/ngx-flow';
+// import Flow from 'flowjs/flow.js';
 
 @NgModule({
   declarations: [
@@ -78,6 +81,7 @@ import { ListClientsComponent } from './dashboard/clients/list-clients/list-clie
     OverviewEmployeesComponent,
     OverviewClientsComponent,
     ListClientsComponent,
+    ListReportsComponent,
     
   ],
   imports: [
@@ -88,7 +92,7 @@ import { ListClientsComponent } from './dashboard/clients/list-clients/list-clie
     RouterLink,
     RouterLinkActive,
     CommonModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi:true}

@@ -3544,6 +3544,16 @@ flatted@^3.2.7:
   resolved "https://registry.yarnpkg.com/flatted/-/flatted-3.2.9.tgz#7eb4c67ca1ba34232ca9d2d93e9886e611ad7daf"
   integrity sha512-36yxDn5H7OFZQla0/jFJmbIKTdZAQHngCedGxiMmpNfEZM0sdEeT+WczLQrjK6D7o2aiyLYDnkw0R3JK0Qv1RQ==
 
+flow.js@^0.2.6:
+  version "0.2.6"
+  resolved "https://registry.yarnpkg.com/flow.js/-/flow.js-0.2.6.tgz#5de86aaab650ad50d901e6d197d8a3e31cd25085"
+  integrity sha512-KvXsCPNj3uIOnXu07qXiqsxjqEveAe5nAM8W3ULTEDPynoMZlWvMyKZdH8pOh5oCFy7uXtgWnZQZOzgoH9Epdw==
+
+flowjs@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/flowjs/-/flowjs-1.0.0.tgz#608120c2e19230cd8c64d87f3c0b11cb07df6ff1"
+  integrity sha512-lCeOi/tDNas1o3brPqtZKF7Q0AfwNxpuA5jt5z3iuQzsQgQpO8s4vDcmAOPChg3yKEtnydPGMr1yU6BfThDTag==
+
 follow-redirects@^1.0.0:
   version "1.15.3"
   resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.15.3.tgz#fe2f3ef2690afce7e82ed0b44db08165b207123a"
