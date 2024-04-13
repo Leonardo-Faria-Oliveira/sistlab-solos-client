@@ -20,14 +20,14 @@ errorMessage="{{error?.errorMessage}}"
         <img class=" fixed mt-40 " src = "../../assets/banner-dashboard.svg">
     </div>
     <main  class=" max-w-[62rem] z-[5] w-full  flex justify-around flex-col">
-
-        
-        <!-- <app-list-reports
-        [reports]="reports"
+<!--    [reports]="reports"
         [isSearchMode]="isSearchMode"
         (modalEmitter)="setModalSignUpEmployee($event)"
-        (searchEmitter)="setSearchMode($event)"
-        ></app-list-reports> -->
+        (searchEmitter)="setSearchMode($event)" -->
+        
+        <app-list-reports
+        [reports]="reports"
+        ></app-list-reports>
         
 <!-- 
         <app-search-employee
