@@ -1,0 +1,58 @@
+<div class="w-full z-[100] min-h-screen overflow-hidden  bg-main-black bg-opacity-45 items-center left-0 top-0 absolute flex flex-col ">
+    <div class="p-10  flex flex-col justify-evenly easy-out duration-100 animate-up border-x border-b border-second-gray items-center w-full max-w-3xl  mt-2  bg-main-white   rounded-[5px]">
+        <header class="flex mb-2 flex-row justify-between w-full">
+            <h1 class="font-main text-second-black font-semibold text-3xl">Equação de Absorbância do Fósforo</h1>
+            <img class="cursor-pointer" (click)="setModalReportConfig()"  alt="cancel" src ="../../../../assets/cancel.svg"/>
+        </header>
+        <main class="w-full mb-2 text-main-black font-semibold font-main">
+            <form [formGroup]="phosphorValueForm" class=" p-12 flex flex-col">
+                <div class="flex flex-row w-full">
+                    <div class="flex mr-2 text-main-gray justify-around flex-col">
+                        <input (change)="hasFilledValues()" formControlName="y5" placeholder="y5" class="border h-14 w-14 text-center  border-second-gray rounded-[5px]" type="text"/>
+                        <input (change)="hasFilledValues()" formControlName="y4" placeholder="y4" class="border h-14 w-14 text-center  border-second-gray rounded-[5px]" type="text"/>
+                        <input (change)="hasFilledValues()" formControlName="y3" placeholder="y3" class="border h-14 w-14 text-center  border-second-gray rounded-[5px]" type="text"/>
+                        <input (change)="hasFilledValues()" formControlName="y2" placeholder="y2" class="border h-14 w-14 text-center  border-second-gray rounded-[5px]" type="text"/>
+                        <input (change)="hasFilledValues()" formControlName="y1" placeholder="y1" class="border h-14 w-14 text-center  border-second-gray rounded-[5px]" type="text"/>
+                    </div>
+                    <div class="border-l border-b w-full max-w-xl h-[28rem]">
+                        <google-chart
+                        *ngIf="hasChart"
+                            [type]="type"
+                            [data]="formattedValues!"
+                            [options]="options"
+                        >
+                        </google-chart>
+                    </div>
+                </div>
+                <div class="flex ml-14 mt-2 text-main-gray justify-around flex-row-reverse">
+                    <input  formControlName="x5" class="border h-14 w-14 text-center  border-second-gray rounded-[5px]" type="text"/>
+                    <input  formControlName="x4" class="border h-14 w-14 text-center  border-second-gray rounded-[5px]" type="text"/>
+                    <input  formControlName="x3" class="border h-14 w-14 text-center  border-second-gray rounded-[5px]" type="text"/>
+                    <input  formControlName="x2" class="border h-14 w-14 text-center  border-second-gray rounded-[5px]" type="text"/>
+                    <input  formControlName="x1" class="border h-14 w-14 text-center  border-second-gray rounded-[5px]" type="text"/>
+                </div>
+                <div class="flex mt-10  flex-row">
+                    <div class="flex items-center mr-8 font-main">
+                        <h2 class="text-2xl">Equação:</h2>
+                    </div>
+                    <div class="border text-main-gray w-full max-w-96 h-28 items-center flex justify-center border-second-gray">
+                        <h3 *ngIf="phosphorValue==0">Preencha os valores da coluna y</h3>
+                        <h3 class="text-main-green text-xl" *ngIf="phosphorValue>0">f(y) = (2 - log(y)) * {{phosphorValue.toFixed(2)}}</h3>
+                    </div>
+                </div>
+                
+            </form>
+          
+        </main>
+        <footer class="w-full text-main-white">
+            <button 
+            [ngClass]="phosphorValue > 0 ? 'cursor-pointer bg-main-green hover:bg-hover-main-green': ' cursor-auto bg-main-gray'"
+            [disabled] = "phosphorValue > 0" 
+            
+            class=" text-center   text-lg  px-5 tracking-wider rounded-[5px]  transition-colors ease-linear duration-150 font-second uppercase font-semibold w-full max-w-96 pt-4 pb-3">
+                <h4>Salvar</h4>   
+            </button>
+        </footer>
+    </div>
+
+</div>

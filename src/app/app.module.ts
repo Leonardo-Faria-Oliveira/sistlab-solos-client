@@ -42,7 +42,12 @@ import { OverviewEmployeesComponent } from './dashboard/employees/overview-emplo
 import { OverviewClientsComponent } from './dashboard/clients/overview-clients/overview-clients.component';
 import { ListClientsComponent } from './dashboard/clients/list-clients/list-clients.component';
 import { ListReportsComponent } from './dashboard/reports/list-reports/list-reports.component';
-// import { NgxFlowModule, FlowInjectionToken } from 'flowjs/ngx-flow';
+import { ReportConfigComponent } from './dashboard/reports/report-config/report-config.component';
+import { HeaderReportComponent } from './dashboard/reports/report-config/header-report/header-report.component';
+import { PhosphorValueConfigComponent } from './dashboard/reports/report-config/phosphor-value-config/phosphor-value-config.component';
+import { GoogleChartsModule } from 'angular-google-charts';
+
+
 // import Flow from 'flowjs/flow.js';
 
 @NgModule({
@@ -82,6 +87,9 @@ import { ListReportsComponent } from './dashboard/reports/list-reports/list-repo
     OverviewClientsComponent,
     ListClientsComponent,
     ListReportsComponent,
+    ReportConfigComponent,
+    HeaderReportComponent,
+    PhosphorValueConfigComponent,
     
   ],
   imports: [
@@ -93,6 +101,7 @@ import { ListReportsComponent } from './dashboard/reports/list-reports/list-repo
     RouterLinkActive,
     CommonModule,
     HttpClientModule,
+    GoogleChartsModule
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi:true}

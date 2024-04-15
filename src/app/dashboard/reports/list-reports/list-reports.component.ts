@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Report } from "../../../models/report";
 
 
@@ -10,6 +10,9 @@ import { Report } from "../../../models/report";
 export class ListReportsComponent {
 
   @Input({required:true}) reports:Report[] = new Array<Report>();
+
+  @Output() configEmitter = new EventEmitter<boolean>();
+
 
   public dateParser(date:Date) : string{
     let p = date.toString().split("-")
@@ -29,6 +32,10 @@ export class ListReportsComponent {
     let er = landName.substring(1, s.length)
 
     return r+er.slice(0, 20)
+  }
+
+  public setConfigEmitter(){
+    this.configEmitter.emit(true)
   }
 
 }

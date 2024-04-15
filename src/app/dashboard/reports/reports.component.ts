@@ -17,6 +17,8 @@ export class ReportsComponent  implements OnInit {
 
   public hasSuccess:boolean = false
 
+  public hasConfig:boolean = false
+
   public reports:Report[] = new Array<Report>();
 
   public hasError:boolean = false
@@ -36,6 +38,10 @@ export class ReportsComponent  implements OnInit {
      
     })
 // 
+  }
+
+  public setHasConfig(event:boolean){
+    this.hasConfig = event
   }
 
 }
