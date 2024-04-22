@@ -17,7 +17,7 @@ export class ReportsComponent  implements OnInit {
 
   public hasSuccess:boolean = false
 
-  public hasConfig:boolean = false
+  public hasConfig:boolean = true
 
   public reports:Report[] = new Array<Report>();
 

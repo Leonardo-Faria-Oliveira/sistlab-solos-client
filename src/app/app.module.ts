@@ -43,7 +43,7 @@ import { OverviewClientsComponent } from './dashboard/clients/overview-clients/o
 import { ListClientsComponent } from './dashboard/clients/list-clients/list-clients.component';
 import { ListReportsComponent } from './dashboard/reports/list-reports/list-reports.component';
 import { ReportConfigComponent } from './dashboard/reports/report-config/report-config.component';
-import { HeaderReportComponent } from './dashboard/reports/report-config/header-report/header-report.component';
+import { HeaderConfigComponent } from './dashboard/reports/report-config/header-config/header-config.component';
 import { PhosphorValueConfigComponent } from './dashboard/reports/report-config/phosphor-value-config/phosphor-value-config.component';
 import { GoogleChartsModule } from 'angular-google-charts';
 
@@ -88,7 +88,7 @@ import { GoogleChartsModule } from 'angular-google-charts';
     ListClientsComponent,
     ListReportsComponent,
     ReportConfigComponent,
-    HeaderReportComponent,
+    HeaderConfigComponent ,
     PhosphorValueConfigComponent,
     
   ],

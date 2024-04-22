@@ -2,6 +2,9 @@ import { Component, EventEmitter, Output } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ChartType, Row, Column, GoogleChartComponent } from 'angular-google-charts';
 import { DataTableService } from 'angular-google-charts/lib/services/data-table.service';
+import { PhosphorValueConfigService } from './phosphor-value-config.service';
+import { catchError, throwError } from 'rxjs';
+import { ErrorHandler } from 'src/app/interfaces/error-handler';
 
 @Component({
   selector: 'app-phosphor-value-config',
@@ -10,6 +13,10 @@ import { DataTableService } from 'angular-google-charts/lib/services/data-table.
 })
 export class PhosphorValueConfigComponent {
 
+  constructor(
+    private phosphorValueConfigService : PhosphorValueConfigService,
+  ){}
+
   @Output() modalReportConfig = new EventEmitter<number>();
 
   public formattedValues: (string | number)[][] | undefined
@@ -17,6 +24,10 @@ export class PhosphorValueConfigComponent {
   public phosphorValue:number = 0
 
   public values:Array<number> = new Array<number>()
+
+  public hasSuccess:boolean = false
+  public hasError:boolean = false
+  public error:ErrorHandler | null = null 
 
   public type:ChartType = ChartType.LineChart
 
@@ -104,6 +115,57 @@ export class PhosphorValueConfigComponent {
       return acc + currentValue
     }, 0);
     return calc / 5
+  }
+
+  public setHasError(hasError:boolean){
+    this.hasError = hasError
+  }
+
+  public setError(error:ErrorHandler | null){
+    this.error = error
+  }
+
+  public createPhosphorValue(){
+
+      this.phosphorValueConfigService.createPhosphorValues(
+        [
+          parseFloat(this.phosphorValueForm.value.x1!),
+          parseFloat(this.phosphorValueForm.value.x2!),
+          parseFloat(this.phosphorValueForm.value.x3!),
+          parseFloat(this.phosphorValueForm.value.x4!),
+          parseFloat(this.phosphorValueForm.value.x5!)
+        ],
+        [
+          parseFloat(this.phosphorValueForm.value.y1!),
+          parseFloat(this.phosphorValueForm.value.y2!),
+          parseFloat(this.phosphorValueForm.value.y3!),
+          parseFloat(this.phosphorValueForm.value.y4!),
+          parseFloat(this.phosphorValueForm.value.y5!)
+        ],
+        this.phosphorValue
+      )
+      .pipe(catchError(err => {
+        this.setHasError(true);
+        this.setError({
+          errorCode: 400,
+          errorMessage: err.message 
+        })
+        setTimeout(() => this.setHasError(false), 2000)
+        return throwError(() => new Error(err));
+      }))
+      .subscribe(res => {
+        
+        // this.setModalSignUpEmployee(false)
+        this.hasSuccess = true
+        setTimeout(() => this.hasSuccess =false , 2000)
+        this.setModalReportConfig()
+        
+      })
+
+    
+
+    
+
   }
 
 

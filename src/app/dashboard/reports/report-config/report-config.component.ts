@@ -9,7 +9,7 @@ export class ReportConfigComponent {
 
   @Output() reportConfigEmitter = new EventEmitter<boolean>();
 
-  public modalReportConfig:number = 1
+  public modalReportConfig:number = 2
 
   public setReportConfigEmitter(){
     this.reportConfigEmitter.emit(false)

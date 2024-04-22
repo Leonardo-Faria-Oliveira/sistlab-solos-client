@@ -20,11 +20,11 @@
         <div class="flex flex-row w-full mb-6 justify-between">
             <div class="flex flex-col">
                 <h1 class="font-main text-main-green font-semibold text-3xl">{{nameParser(report.landName)}}</h1>
-                <h3 class="font-second text-2xl text-second-black"> <span class="text-second-green cursor-pointer">{{nameParser(report.client.name)}}</span> - {{report.city}}</h3>
+                <h3 class="font-second text-xl text-second-black"> <span class="text-second-green cursor-pointer">{{nameParser(report.client.name)}}</span> - {{report.city}}</h3>
             </div>
-            <div class="flex text-right  flex-col font-second text-2xl text-second-black">
-                <h3>Funcionario Responsavel: <span class="text-second-green cursor-pointer">{{nameParser(report.employeesList[0].employee.name)}}</span></h3>
-                <h3>Responsavel Tecnico: <span class="text-second-green cursor-pointer">{{nameParser(report.employeesList[1].employee.name)}}</span></h3>
+            <div class="flex text-right  flex-col font-second text-xl text-second-black">
+                <h3>Funcionário Responsável: <span class="text-second-green cursor-pointer">{{nameParser(report.employeesList[0].employee.name)}}</span></h3>
+                <h3>Responsável Técnico: <span class="text-second-green cursor-pointer">{{nameParser(report.employeesList[1].employee.name)}}</span></h3>
             </div>
         </div>
         <div class=" w-full flex flex-row  justify-between">
