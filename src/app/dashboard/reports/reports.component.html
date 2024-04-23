@@ -31,6 +31,7 @@ errorMessage="{{error?.errorMessage}}"
         (searchEmitter)="setSearchMode($event)" -->
         
         <app-list-reports
+        (modalNewReportEmitter)="sethasModalNewReport($event)"
         (configEmitter)="setHasConfig($event)"
         [reports]="reports"
         ></app-list-reports>
@@ -44,6 +45,11 @@ errorMessage="{{error?.errorMessage}}"
         (orderByEmitter)="orderEmployees($event)"
         (searchEmitter)="searchEmployees($event)"
         ></app-search-employee> -->
+
+        <app-modal-new-report
+        *ngIf="hasModalNewReport"
+        >
+        </app-modal-new-report>
 
 
     </main>

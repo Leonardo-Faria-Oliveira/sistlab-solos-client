@@ -13,6 +13,7 @@ export class ListReportsComponent {
 
   @Output() configEmitter = new EventEmitter<boolean>();
 
+  @Output() modalNewReportEmitter = new EventEmitter<boolean>();
 
   public dateParser(date:Date) : string{
     let p = date.toString().split("-")
@@ -36,6 +37,10 @@ export class ListReportsComponent {
 
   public setConfigEmitter(){
     this.configEmitter.emit(true)
+  }
+
+  public sethasModalNewReport(){
+    this.modalNewReportEmitter.emit(true)
   }
 
 }

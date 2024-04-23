@@ -46,6 +46,12 @@ import { ReportConfigComponent } from './dashboard/reports/report-config/report-
 import { HeaderConfigComponent } from './dashboard/reports/report-config/header-config/header-config.component';
 import { PhosphorValueConfigComponent } from './dashboard/reports/report-config/phosphor-value-config/phosphor-value-config.component';
 import { GoogleChartsModule } from 'angular-google-charts';
+import { ModalNewReportComponent } from './dashboard/reports/modal-new-report/modal-new-report.component';
+import { ReportSettingsComponent } from './dashboard/reports/modal-new-report/report-settings/report-settings.component';
+import { PhysicalAnalysisComponent } from './dashboard/reports/modal-new-report/physical-analysis/physical-analysis.component';
+import { ChemicalAnalysisComponent } from './dashboard/reports/modal-new-report/chemical-analysis/chemical-analysis.component';
+import { ReportPreviewComponent } from './dashboard/reports/modal-new-report/report-preview/report-preview.component';
+import { MicronutrientsComponent } from './dashboard/reports/modal-new-report/micronutrients/micronutrients.component';
 
 
 // import Flow from 'flowjs/flow.js';
@@ -90,6 +96,12 @@ import { GoogleChartsModule } from 'angular-google-charts';
     ReportConfigComponent,
     HeaderConfigComponent ,
     PhosphorValueConfigComponent,
+    ModalNewReportComponent,
+    ReportSettingsComponent,
+    PhysicalAnalysisComponent,
+    ChemicalAnalysisComponent,
+    ReportPreviewComponent,
+    MicronutrientsComponent,
     
   ],
   imports: [

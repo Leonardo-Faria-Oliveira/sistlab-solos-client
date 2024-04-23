@@ -22,6 +22,8 @@ export class HeaderConfigComponent {
   public hasError:boolean = false
   public error:ErrorHandler | null = null 
 
+  public isLoading:boolean = false
+
   public hasUploaded:boolean = false
 
   public headerForm = new FormGroup({
@@ -62,7 +64,7 @@ export class HeaderConfigComponent {
   }
 
   public addHeaders(){
-
+    this.isLoading = true
     if(
       (this.headerForm.value.header1 === undefined || this.headerForm.value.header1 === null)
       && 
@@ -70,7 +72,7 @@ export class HeaderConfigComponent {
       && 
       (this.headerForm.value.header3 === undefined || this.headerForm.value.header3 === null)
     ){
-      
+      this.isLoading = false
       this.setHasError(true);
       this.setError({
         errorCode: 400,
@@ -95,12 +97,12 @@ export class HeaderConfigComponent {
         return throwError(() => new Error(err));
       }))
       .subscribe(res => {
-        
-        // this.setModalSignUpEmployee(false)
+
         this.hasSuccess = true
+        this.isLoading = false
         setTimeout(() => this.hasSuccess =false , 2000)
-        this.setModalReportConfig()
-        
+        setTimeout(() => this.setModalReportConfig() , 1000)
+
       })
 
     }

@@ -17,7 +17,9 @@ export class ReportsComponent  implements OnInit {
 
   public hasSuccess:boolean = false
 
-  public hasConfig:boolean = true
+  public hasConfig:boolean = false
+
+  public hasModalNewReport:boolean = true
 
   public reports:Report[] = new Array<Report>();
 
@@ -42,6 +44,10 @@ export class ReportsComponent  implements OnInit {
 
   public setHasConfig(event:boolean){
     this.hasConfig = event
+  }
+
+  public sethasModalNewReport(event:boolean){
+    this.hasModalNewReport = event
   }
 
 }
