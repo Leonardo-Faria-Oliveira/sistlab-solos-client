@@ -7,7 +7,7 @@
 
         <header class="flex mb-10 flex-row justify-between w-full">
             <h1 class="font-main text-second-black font-semibold text-3xl">{{modalProgress == 5 ? 'Prévia do laudo' : 'Novo laudo'}}</h1>
-            <img class="cursor-pointer"   alt="cancel" src ="../../../../assets/cancel.svg"/>
+            <img class="cursor-pointer" (click)="setReportConfigEmitter()"   alt="cancel" src ="../../../../assets/cancel.svg"/>
         </header>
         
         <div class="w-full">
@@ -38,6 +38,14 @@
             </app-micronutrients>
 
             <app-report-preview
+            [clientName]="clientName"
+            [city]="city"
+            [reportDate]="reportDate"
+            [depth]="depth"
+            [landName]="landName"
+            [hasMicronutrients]="hasMicronutrients"
+            (backEmitter)="back()"
+            (doubleBackEmitter)="doubleBack()"
             *ngIf="modalProgress==5"
             >
             </app-report-preview>

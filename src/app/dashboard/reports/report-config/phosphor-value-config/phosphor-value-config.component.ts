@@ -1,7 +1,5 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { ChartType, Row, Column, GoogleChartComponent } from 'angular-google-charts';
-import { DataTableService } from 'angular-google-charts/lib/services/data-table.service';
 import { PhosphorValueConfigService } from './phosphor-value-config.service';
 import { catchError, throwError } from 'rxjs';
 import { ErrorHandler } from 'src/app/interfaces/error-handler';
@@ -29,9 +27,6 @@ export class PhosphorValueConfigComponent {
   public hasError:boolean = false
   public error:ErrorHandler | null = null 
 
-  public type:ChartType = ChartType.LineChart
-
-  public chartData:Row[] | null = null
 
   public options = {
     areaOpacity: 0,

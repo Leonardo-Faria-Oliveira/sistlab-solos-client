@@ -45,79 +45,97 @@ import { ListReportsComponent } from './dashboard/reports/list-reports/list-repo
 import { ReportConfigComponent } from './dashboard/reports/report-config/report-config.component';
 import { HeaderConfigComponent } from './dashboard/reports/report-config/header-config/header-config.component';
 import { PhosphorValueConfigComponent } from './dashboard/reports/report-config/phosphor-value-config/phosphor-value-config.component';
-import { GoogleChartsModule } from 'angular-google-charts';
+// import { GoogleChartsModule } from 'angular-google-charts';
 import { ModalNewReportComponent } from './dashboard/reports/modal-new-report/modal-new-report.component';
 import { ReportSettingsComponent } from './dashboard/reports/modal-new-report/report-settings/report-settings.component';
 import { PhysicalAnalysisComponent } from './dashboard/reports/modal-new-report/physical-analysis/physical-analysis.component';
 import { ChemicalAnalysisComponent } from './dashboard/reports/modal-new-report/chemical-analysis/chemical-analysis.component';
 import { ReportPreviewComponent } from './dashboard/reports/modal-new-report/report-preview/report-preview.component';
 import { MicronutrientsComponent } from './dashboard/reports/modal-new-report/micronutrients/micronutrients.component';
+import { ScaleChartsComponent } from './dashboard/charts/scale-charts/scale-charts.component';
+import { ChemicalAttr1Component } from './dashboard/reports/modal-new-report/report-preview/frames/chemical-attr1/chemical-attr1.component';
+import { RadarChartComponent } from './dashboard/charts/radar-chart/radar-chart.component';
+import { provideCharts, withDefaultRegisterables } from 'ng2-charts';
+import { RadarChartFrameComponent } from './dashboard/reports/modal-new-report/report-preview/frames/radar-chart-frame/radar-chart-frame.component';
+import {NgxPrintModule} from 'ngx-print';
+import { PhysicalAttrComponent } from './dashboard/reports/modal-new-report/report-preview/frames/physical-attr/physical-attr.component';
+import { TechnicalSignatureComponent } from './dashboard/reports/modal-new-report/report-preview/frames/technical-signature/technical-signature.component';
+import { ChemicalAttr2Component } from './dashboard/reports/modal-new-report/report-preview/frames/chemical-attr2/chemical-attr2.component';
+
+
 
 
 // import Flow from 'flowjs/flow.js';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    LoginComponent,
-    EmployeeLoginFormComponent,
-    AdminLoginFormComponent,
-    DashboardComponent,
-    ErrorModalComponent,
-    SignUpComponent,
-    FirstStepComponent,
-    SecondStepComponent,
-    ThirdStepComponent,
-    FourthStepComponent,
-    FirstStepFormComponent,
-    SecondStepFormComponent,
-    ThirdStepFormComponent,
-    FourthStepFormComponent,
-    MenuComponent,
-    FooterComponent,
-    OverviewComponent,
-    LabsComponent,
-    ReportsComponent,
-    PricingsComponent,
-    StaticsComponent,
-    EmployeesComponent,
-    ModalSignupEmployeeComponent,
-    FirstAccessComponent,
-    ClientsComponent,
-    ModalSignupClientComponent,
-    SuccessModalComponent,
-    SearchEmployeeComponent,
-    SearchClientComponent,
-    ListEmployeesComponent,
-    OverviewEmployeesComponent,
-    OverviewClientsComponent,
-    ListClientsComponent,
-    ListReportsComponent,
-    ReportConfigComponent,
-    HeaderConfigComponent ,
-    PhosphorValueConfigComponent,
-    ModalNewReportComponent,
-    ReportSettingsComponent,
-    PhysicalAnalysisComponent,
-    ChemicalAnalysisComponent,
-    ReportPreviewComponent,
-    MicronutrientsComponent,
-    
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    RouterOutlet,
-    ReactiveFormsModule,
-    RouterLink,
-    RouterLinkActive,
-    CommonModule,
-    HttpClientModule,
-    GoogleChartsModule
-  ],
-  providers: [
-    {provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi:true}
-  ],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        LoginComponent,
+        EmployeeLoginFormComponent,
+        AdminLoginFormComponent,
+        DashboardComponent,
+        ErrorModalComponent,
+        SignUpComponent,
+        FirstStepComponent,
+        SecondStepComponent,
+        ThirdStepComponent,
+        FourthStepComponent,
+        FirstStepFormComponent,
+        SecondStepFormComponent,
+        ThirdStepFormComponent,
+        FourthStepFormComponent,
+        MenuComponent,
+        FooterComponent,
+        OverviewComponent,
+        LabsComponent,
+        ReportsComponent,
+        PricingsComponent,
+        StaticsComponent,
+        EmployeesComponent,
+        ModalSignupEmployeeComponent,
+        FirstAccessComponent,
+        ClientsComponent,
+        ModalSignupClientComponent,
+        SuccessModalComponent,
+        SearchEmployeeComponent,
+        SearchClientComponent,
+        ListEmployeesComponent,
+        OverviewEmployeesComponent,
+        OverviewClientsComponent,
+        ListClientsComponent,
+        ListReportsComponent,
+        ReportConfigComponent,
+        HeaderConfigComponent,
+        PhosphorValueConfigComponent,
+        ModalNewReportComponent,
+        ReportSettingsComponent,
+        PhysicalAnalysisComponent,
+        ChemicalAnalysisComponent,
+        ReportPreviewComponent,
+        MicronutrientsComponent,
+        ScaleChartsComponent,
+        ChemicalAttr1Component,
+        RadarChartFrameComponent,
+        PhysicalAttrComponent,
+        TechnicalSignatureComponent,
+        ChemicalAttr2Component,
+    ],
+    providers: [
+        { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
+        provideCharts(withDefaultRegisterables())
+    ],
+    bootstrap: [AppComponent],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        RouterOutlet,
+        ReactiveFormsModule,
+        RouterLink,
+        RouterLinkActive,
+        CommonModule,
+        HttpClientModule,
+        RadarChartComponent,
+        NgxPrintModule
+    ]
 })
 export class AppModule { }

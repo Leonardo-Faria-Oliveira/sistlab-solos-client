@@ -48,6 +48,7 @@ errorMessage="{{error?.errorMessage}}"
 
         <app-modal-new-report
         *ngIf="hasModalNewReport"
+        (reportConfigEmitter)="sethasModalNewReport($event)"
         >
         </app-modal-new-report>
 

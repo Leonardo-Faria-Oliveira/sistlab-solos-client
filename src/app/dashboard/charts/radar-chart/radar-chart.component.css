@@ -1,0 +1,33 @@
+.radar-chart-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+  }
+
+  
+  .radar-axis {
+    stroke: #e0e0e0;
+  }
+  
+  .radar-line {
+    fill: rgba(0, 0, 255, 0.3);
+    stroke: blue;
+    stroke-width: 2px;
+  }
+  
+  .radar-circle {
+    fill: blue;
+    fill-opacity: 0.8;
+  }
+  
+  .radar-label {
+    font-size: 14px;
+    text-anchor: middle;
+  }
+  
+  .radar-value {
+    font-size: 12px;
+    fill: blue;
+  }
+  

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { ErrorHandler } from 'src/app/interfaces/error-handler';
 
 @Component({
@@ -8,11 +8,23 @@ import { ErrorHandler } from 'src/app/interfaces/error-handler';
 })
 export class ModalNewReportComponent {
 
+  public clientName:string = "Gabriel Pereira"
+  public city:string = "Maringá"
+  public depth:number = 20
+  public reportDate:string = "22/07/2023"
+  public landName:string = "Sítio Iguatemi"
+  
   public hasError:boolean = false
   public error:ErrorHandler | null = null 
   public hasMicronutrients:boolean = false
   public isReportColored:boolean = true
-  public modalProgress:number = 5
+  public modalProgress:number = 1
+
+  @Output() reportConfigEmitter = new EventEmitter<boolean>();
+
+  public setReportConfigEmitter(){
+    this.reportConfigEmitter.emit(false)
+  }
 
   public setHasMicronutrients(){
     this.hasMicronutrients = !this.hasMicronutrients
@@ -32,6 +44,10 @@ export class ModalNewReportComponent {
 
   public back(){
     this.modalProgress--
+  }
+
+  public doubleBack(){
+    this.modalProgress-=2
   }
 
 }

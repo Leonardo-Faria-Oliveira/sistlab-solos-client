@@ -1,33 +1,33 @@
 <section class="flex flex-row w-full  font-main justify-between">
     <main class="max-w-[25rem] p-5 h-[36rem] border w-full pl-5">
     
-        <div class="bg-darker-green mb-8 flex justify-center h-16 items-center  rounded-[5px]">
+        <div class="bg-darker-green mb-5 flex justify-center h-16 items-center  rounded-[5px]">
             <h1 class="  text-xl    text-main-white" >Laudo Químico Físico</h1>
         </div>
 
-        <div class="flex flex-col mb-5 w-full">
+        <div class="flex flex-col mb-4 w-full">
             <div class="flex flex-row mb-4 justify-between w-full">
-                <div >
+                <div class="w-[5.8rem]  ">
                     <h5 class="text-main-gray text-xs">Proprietário</h5>
-                    <h3  class="font-semibold text-sm">Gabriel Pereira</h3>
+                    <h3  class="font-semibold text-sm">{{clientName!}}</h3>
                 </div>
-                <div>
+                <div class="w-[5.8rem]">
                     <h5 class="text-main-gray text-xs">Municipio</h5>
-                    <h3 class="font-semibold text-sm">Maringá - (PR)</h3>
+                    <h3 class="font-semibold text-sm">{{city}}</h3>
                 </div>
                 <div>
                     <h5 class="text-main-gray text-xs">Profundidade</h5>
-                    <h3 class="font-semibold text-sm">00 - 20 cm</h3>
+                    <h3 class="font-semibold text-center text-sm">0 - {{depth}}cm</h3>
                 </div>
             </div>
             <div class="flex flex-row justify-between ">
-                <div>
+                <div class="w-[5.2rem]  ">
                     <h5 class="text-main-gray text-xs">Propriedade</h5>
-                    <h3 class="font-semibold text-sm">Sítio Iguatemi</h3>
+                    <h3 class="font-semibold text-sm">{{landName}}</h3>
                 </div>
-                <div>
+                <div class="w-[5.8rem]  ">
                     <h5 class="text-main-gray text-xs">Data</h5>
-                    <h3 class="font-semibold text-sm">22/04/2024</h3>
+                    <h3 class="font-semibold text-sm">{{reportDate}}</h3>
                 </div>
                 <div>
                     <h5 class="text-main-gray text-xs">Descrição</h5>
@@ -37,43 +37,108 @@
         </div>
 
 
-        <div class="bg-darker-green text-center p-4">
-            <h2 class="text-main-white mb-4">Análise do solo</h2>
+        <div id="minimal" class="bg-darker-green text-center p-1 px-4 py-2">
+            <h2 class="text-main-white mb-2">Análise do solo</h2>
             <div class="flex flex-row justify-between">
-
                 <div class="flex flex-col">
-                    <div class="bg-main-gray w-40 mb-1 h-32 items-center flex justify-center">
-                        <h4 class="text-main-white text-[0.7rem]">Gráfico dos atributos físicos</h4>
-                    </div> 
                     
-                    <div class="bg-main-gray w-40 h-[8.2rem] items-center flex justify-center">
-                        <h4 class="text-main-white text-[0.7rem]">Indices de saturação</h4>
-                    </div>
-                </div>
+                    <app-chemical-attr1
+                    [points]="chemicalAttr1Points"
+                    [scales]="chemicalAttr1Scales"
+                    [chartMaxPx]="chartMaxPx"
+                    ></app-chemical-attr1>
 
+                    <app-physical-attr
+                    [points]="physicalAttrPoints"
+                    [scales]="physicalAttrScales"
+                    [chartMaxPx]="chartMaxPx"
+                    ></app-physical-attr>
+
+                    <app-technical-signature
+                    [technicalName]="technicalResponsible!.name"
+                    [crea]="'4567890987'"
+                    ></app-technical-signature>
+                    
+                </div>
+               
+                
                 <div class="flex flex-col">
-                    <div class="bg-main-gray w-40 mb-1 h-32 items-center flex justify-center">
-                        <h4 class="text-main-white text-[0.7rem]">Gráfico dos atributos químicos</h4>
-                    </div> 
-                    <div class="bg-main-gray w-40 mb-1 h-12 items-center flex justify-center">
-                        <h4 class="text-main-white text-[0.7rem]">Fósforo remanescente</h4>
-                    </div>
-                    <div class="bg-main-gray w-40 h-20 items-center flex justify-center">
-                        <h4 class="text-main-white text-[0.7rem]">Assinatura</h4>
-                    </div>
+
+                    <app-chemical-attr2
+                    [points]="chemicalAttr2Points"
+                    [scales]="chemicalAttr2Scales"
+                    [chartMaxPx]="chartMaxPx"
+                    ></app-chemical-attr2>
+
+                    <app-radar-chart-frame
+                    [points]="radarChartAttrPoints"
+                    [minValue]="radarChartAttrMinScaleValue!"
+                    [maxValue]="radarChartAttrMaxScaleValue!"
+                    ></app-radar-chart-frame>
+                    <!-- <div class=" w-40 mb-1  bg-main-white  text-[0.3rem] p-1 flex flex-col items-center">
+                        
+                        <h3 class="text-[0.5rem] font-semibold mb-2">Fósforo remanescente e nível crítico</h3>
+                        
+                        <div class="flex w-full flex-row ml-2 justify-around">
+                            <div>
+                                <div class="mr-2 px-1 text-main-white flex flex-col justify-center align-middle bg-main-green ">
+                                    mg dm³
+                                </div>
+                                <div class="mr-1 w-[1.47rem] text-[0.35rem] border flex flex-col justify-center align-middle ">
+                                    ns
+                                </div>
+                                <div class="mr-1 w-[1.47rem] text-[0.3rem]  flex flex-col justify-center align-middle ">
+                                    P-rem
+                                </div>
+                            </div>
+                            <div>
+                                <div class="mr-2 px-1 text-main-white flex flex-col justify-center align-middle bg-main-green ">
+                                    mg dm³
+                                </div>
+                                <div class="mr-1 w-[1.47rem] text-[0.35rem] border flex flex-col justify-center align-middle ">
+                                    ns
+                                </div>
+                                <div class="mr-1 w-[1.47rem] text-[0.3rem]  flex flex-col justify-center align-middle ">
+                                    Fósforo
+                                </div>
+                            </div>
+                            <div>
+                                <div class="mr-2 px-1 text-main-white flex flex-col justify-center align-middle bg-main-green ">
+                                    mg dm³
+                                </div>
+                                <div class="mr-1 w-[1.47rem] text-[0.35rem] border flex flex-col justify-center align-middle ">
+                                    ns
+                                </div>
+                                <div class="mr-1 w-[1.47rem] text-[0.3rem]  flex flex-col justify-center align-middle ">
+                                    Enxofre
+                                </div>
+                            </div>
+                            <div>
+                                <div class="mr-2 px-1 text-main-white flex flex-col justify-center align-middle bg-main-green ">
+                                    mg dm³
+                                </div>
+                                <div class="mr-1 w-[1.47rem] text-[0.35rem] border flex flex-col justify-center align-middle ">
+                                    ns
+                                </div>
+                                <div class="mr-1 w-[1.47rem] text-[0.3rem]  flex flex-col justify-center align-middle ">
+                                    Zinco
+                                </div>
+                            </div>
+                        </div>
+                    </div>  -->
+                    
                 </div>
     
-            
             </div>
         
         </div>
 
     </main>
     <footer class="w-full items-end max-w-[25rem]  flex text-main-white justify-end flex-col">
-        <button class="h-14 mb-4 rounded-[5px] text-lg text-center transition-colors ease-linear duration-150 font-second uppercase font-semibold w-full max-w-[360px]  px-6 pt-4 pb-3 bg-main-green hover:bg-hover-main-green ">
+        <button mat-fab printSectionId="minimal" ngxPrint class="h-14 mb-4 rounded-[5px] text-lg text-center transition-colors ease-linear duration-150 font-second uppercase font-semibold w-full max-w-[360px]  px-6 pt-4 pb-3 bg-main-green hover:bg-hover-main-green ">
             <h4>Gerar laudo</h4>
         </button>
-        <button class="h-14 rounded-[5px] text-lg text-center transition-colors ease-linear duration-150 font-second uppercase font-semibold w-full max-w-[360px]  px-6 pt-4 pb-3 bg-main-gray hover:bg-hover-main-gray ">
+        <button (click)="hasMicronutrients ? back() : doubleBack()" class="h-14 rounded-[5px] text-lg text-center transition-colors ease-linear duration-150 font-second uppercase font-semibold w-full max-w-[360px]  px-6 pt-4 pb-3 bg-main-gray hover:bg-hover-main-gray ">
             <h4>Voltar</h4>
         </button>
     </footer>

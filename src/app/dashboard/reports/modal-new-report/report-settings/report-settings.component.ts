@@ -11,7 +11,6 @@ export class ReportSettingsComponent {
   public isReportColored:boolean = true
 
   @Output() nextEmitter = new EventEmitter<void>();
-
   
   public setHasMicronutrients(){
     this.hasMicronutrients = !this.hasMicronutrients
