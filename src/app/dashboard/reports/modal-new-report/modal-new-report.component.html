@@ -3,7 +3,7 @@
     [ngClass]="hasError ? 'z-10 w-full relative text-center': 'hidden'" 
     errorMessage="{{error?.errorMessage}}" >
     </app-error-modal>
-    <div class="px-10 pt-10 pb-7 flex flex-col justify-evenly easy-out duration-100 animate-up border-x border-b border-second-gray items-center w-full max-w-4xl  mt-1  bg-main-white   rounded-[5px]">
+    <div class="px-10 pt-10 max-w-4xl pb-7 flex flex-col justify-evenly easy-out duration-100 animate-up border-x border-b border-second-gray items-center w-full   mt-1  bg-main-white   rounded-[5px]">
 
         <header class="flex mb-10 flex-row justify-between w-full">
             <h1 class="font-main text-second-black font-semibold text-3xl">{{modalProgress == 5 ? 'Prévia do laudo' : 'Novo laudo'}}</h1>
@@ -13,18 +13,25 @@
         <div class="w-full">
 
             <app-report-settings
+            (errorEmitter)="setError($event)"
+            [clientList]="clientList"
             (nextEmitter)="next()"
+            (formEmitter)="getReportSettings($event)"
             *ngIf="modalProgress==1"
             >
             </app-report-settings>
 
             <app-physical-analysis
+            [lastPhosphorValue]="lastPhosphorValue"
+            (formEmitter)="getPhysicalAnalysis($event)"
+            (errorEmitter)="setError($event)"
             (nextEmitter)="next()"
             *ngIf="modalProgress==2"
             >
             </app-physical-analysis> 
 
             <app-chemical-analysis
+            (formEmitter)="getChemicalAnalysis($event)"
             (doubleNextEmitter)="doubleNext()"
             (nextEmitter)="next()"
             [hasMicronutrients]="hasMicronutrients"
@@ -38,11 +45,9 @@
             </app-micronutrients>
 
             <app-report-preview
-            [clientName]="clientName"
-            [city]="city"
+            [report]="report"
+            [scales]="scales" 
             [reportDate]="reportDate"
-            [depth]="depth"
-            [landName]="landName"
             [hasMicronutrients]="hasMicronutrients"
             (backEmitter)="back()"
             (doubleBackEmitter)="doubleBack()"

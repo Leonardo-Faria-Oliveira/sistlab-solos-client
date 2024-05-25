@@ -19,8 +19,8 @@
     <main  *ngFor="let report of reports" class="bg-main-white mb-10 border-2 w-full rounded p-8 pb-3 border-second-gray  flex flex-col">
         <div class="flex flex-row w-full mb-6 justify-between">
             <div class="flex flex-col">
-                <h1 class="font-main text-main-green font-semibold text-3xl">{{nameParser(report.landName)}}</h1>
-                <h3 class="font-second text-xl text-second-black"> <span class="text-second-green cursor-pointer">{{nameParser(report.client.name)}}</span> - {{report.city}}</h3>
+                <h1 class="font-main text-main-green font-semibold text-3xl">{{nameParser(report.landName!)}}</h1>
+                <h3 class="font-second text-xl text-second-black"> <span class="text-second-green cursor-pointer">{{nameParser(report.client!.name)}}</span> - {{report.city}}</h3>
             </div>
             <div class="flex text-right  flex-col font-second text-xl text-second-black">
                 <h3>Funcionário Responsável: <span class="text-second-green cursor-pointer">{{nameParser(report.employeesList[0].employee.name)}}</span></h3>
@@ -35,7 +35,7 @@
                 </div>
                 <div class="font-second text-xl text-second-black flex flex-col">
                     <h3>Data</h3>
-                    <h3>{{dateParser(report.createdAt)}}</h3>
+                    <h3>{{dateParser(report.createdAt!)}}</h3>
                 </div>
             </div>
             <div class="w-full flex flex-row justify-end">

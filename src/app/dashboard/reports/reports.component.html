@@ -25,6 +25,8 @@ errorMessage="{{error?.errorMessage}}"
         <img class=" fixed mt-40 " src = "../../assets/banner-dashboard.svg">
     </div>
     <main  class=" max-w-[62rem] z-[5] w-full  flex justify-around flex-col">
+
+
 <!--    [reports]="reports"
         [isSearchMode]="isSearchMode"
         (modalEmitter)="setModalSignUpEmployee($event)"
@@ -36,8 +38,7 @@ errorMessage="{{error?.errorMessage}}"
         [reports]="reports"
         ></app-list-reports>
         
-<!-- 
-        <app-search-employee
+    <!-- <app-search-employee
         orderBy="{{orderBy}}"
         [ngClass]="isSearchMode ? '' : 'hidden'"
         (isSearchMode)="setSearchMode($event)"
@@ -47,7 +48,11 @@ errorMessage="{{error?.errorMessage}}"
         ></app-search-employee> -->
 
         <app-modal-new-report
+        [scales]="scales"
+        [lastPhosphorValue]="lastPhosphorValue"
+        (getPhosphorValueEmitter)="getLastPhosphorValue()"
         *ngIf="hasModalNewReport"
+        [clientList]="clientList"
         (reportConfigEmitter)="sethasModalNewReport($event)"
         >
         </app-modal-new-report>

@@ -30,6 +30,7 @@ export class Employee implements EmployeeSignIn{
         this.password = password
         this.contact = contact
         this.job = job
+        this.crea = crea
         this.role = new Role(roleName)
     }
 

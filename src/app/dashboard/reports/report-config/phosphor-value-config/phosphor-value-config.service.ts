@@ -1,6 +1,8 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { GetPhosphorValue } from 'src/app/interfaces/get-phophor-values';
+import { PhosphorValue } from 'src/app/models/phosphorValue';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -20,6 +22,12 @@ export class PhosphorValueConfigService {
     })
   
   }
+
+  public getLastPhosphorValue():Observable<GetPhosphorValue>{
+    let labName = localStorage.getItem("labName");
+    return this.httpClient.get<GetPhosphorValue>(this.url+"/phosphorValue/lab/"+labName, this.httpOptions)
+  }
+
 
   public createPhosphorValues(arr_x: number[], arr_y:number[], absorbanceValue:number):Observable<void>{
     let labName = localStorage.getItem("labName");

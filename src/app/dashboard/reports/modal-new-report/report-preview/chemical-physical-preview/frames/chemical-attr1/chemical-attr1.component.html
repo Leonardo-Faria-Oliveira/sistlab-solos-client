@@ -1,13 +1,13 @@
-<div class=" w-40 mb-1 h-[8.9rem] bg-main-white  text-[0.3rem] p-1 flex flex-col items-center">
+<div class=" w-40 mb-1 h-28 bg-main-white  text-[0.3rem] p-1 flex flex-col items-center">
                         
-    <h3 class="text-[0.5rem] font-semibold mb-2">Atributos Químicos</h3>
+    <h3 class="text-[0.5rem] font-semibold mb-[0.4rem]">Atributos Químicos</h3>
     
     <div class="flex flex-row mb-1 text-main-white  w-full ">
         <div class="mr-2 px-1 h-[1.45rem] flex flex-col justify-center align-middle bg-main-green ">
             Determinação
         </div>
-        <div class="mr-1 px-[0.35rem] h-[1.45rem] flex flex-col justify-center align-middle bg-main-green ">
-            cmol dm³
+        <div class="mr-1 px-1 h-[1.45rem] flex flex-col justify-center align-middle bg-main-green ">
+            Resultado
         </div>
         <div>
             <h3 class="w-[4.7rem] mb-[0.1rem] py-[0.1rem] text-[0.3rem] bg-main-green ">Nível de suficiência</h3>
@@ -34,93 +34,66 @@
     </div>
     <div class="flex mb-1 flex-row text-main-black  w-full ">
         <h3 class="mr-2 w-9 flex flex-col justify-center">
-            SB 
+            pH 
         </h3>
         <div class="mr-1 w-[1.83rem] text-[0.35rem] border flex flex-col justify-center align-middle ">
-            {{points[0] < 0 ? 'ns' : points[0]}}
+            {{points[0] < 0 ? 'ns' : points[0].toFixed(2)}}
         </div>
         <app-scale-charts
-        [chartId]="'chart-10'"
-        [pointId]="'point-10'"
+        [chartId]="'chart-1'"
+        [pointId]="'point-1'"
         [point]="points[0]"
         [scale]="scales[0]"
         [chartMaxPx]="chartMaxPx"
-        ></app-scale-charts>
+        >
+        </app-scale-charts>
     </div>
     <div class="flex mb-1 flex-row text-main-black  w-full ">
         <h3 class="mr-2 w-9 px-[0.32rem] flex flex-col justify-center">
             CTC 
         </h3>
         <div class="mr-1 w-[1.83rem] text-[0.35rem] border flex flex-col justify-center align-middle ">
-            {{points[1] < 0 ? 'ns' : points[1]}}
+           {{points[1] < 0 ? 'ns' : points[1].toFixed(2)}}
         </div>
         <app-scale-charts
-        [chartId]="'chart-11'"
-        [pointId]="'point-11'"
+        [chartId]="'chart-2'"
+        [pointId]="'point-2'"
         [point]="points[1]"
         [scale]="scales[1]"
         [chartMaxPx]="chartMaxPx"
-        ></app-scale-charts>
+        >
+        </app-scale-charts>
     </div>
     <div class="flex mb-1 flex-row text-main-black  w-full ">
         <h3 class="mr-2 w-9  flex flex-col justify-center">
-            CTC efetiva 
+            H+AL
         </h3>
         <div class="mr-1 w-[1.83rem] text-[0.35rem] border flex flex-col justify-center align-middle ">
-            {{points[2] < 0 ? 'ns' : points[2]}}
+            {{points[2] < 0 ? 'ns' : points[2].toFixed(2)}}
         </div>
         <app-scale-charts
-        [chartId]="'chart-12'"
-        [pointId]="'point-12'"
+        [chartId]="'chart-3'"
+        [pointId]="'point-3'"
         [point]="points[2]"
         [scale]="scales[2]"
         [chartMaxPx]="chartMaxPx"
-        ></app-scale-charts>
+        >
+        </app-scale-charts>
     </div>
     <div class="flex mb-1 flex-row text-main-black  w-full ">
         <h3 class="mr-2 w-9 px-[0.32rem] flex flex-col justify-center">
-            H + AL
+            SB 
         </h3>
         <div class="mr-1 w-[1.83rem] text-[0.35rem] border flex flex-col justify-center align-middle ">
-            {{points[3] < 0 ? 'ns' : points[3]}}
+            {{points[3] < 0 ? 'ns' : points[3].toFixed(2)}}
         </div>
         <app-scale-charts
-        [chartId]="'chart-13'"
-        [pointId]="'point-13'"
+        [chartId]="'chart-4'"
+        [pointId]="'point-4'"
         [point]="points[3]"
         [scale]="scales[3]"
         [chartMaxPx]="chartMaxPx"
-        ></app-scale-charts>
+        >
+        </app-scale-charts>
     </div>
-    <div class="flex mb-1 flex-row text-main-black  w-full ">
-        <h3 class="mr-2 w-9 px-[0.32rem] flex flex-col justify-center">
-            H
-        </h3>
-        <div class="mr-1 w-[1.83rem] text-[0.35rem] border flex flex-col justify-center align-middle ">
-            {{points[4] < 0 ? 'ns' : points[4]}}
-        </div>
-        <app-scale-charts
-        [chartId]="'chart-14'"
-        [pointId]="'point-14'"
-        [point]="points[4]"
-        [scale]="scales[4]"
-        [chartMaxPx]="chartMaxPx"
-        ></app-scale-charts>
-    </div>
-    <div class="flex mb-1 flex-row text-main-black  w-full ">
-        <h3 class="mr-2 w-9 px-[0.32rem] flex flex-col justify-center">
-            AL³
-        </h3>
-        <div class="mr-1 w-[1.83rem] text-[0.35rem] border flex flex-col justify-center align-middle ">
-            {{points[5] < 0 ? 'ns' : points[5]}}
-        </div>
-        <app-scale-charts
-        [chartId]="'chart-15'"
-        [pointId]="'point-15'"
-        [point]="points[5]"
-        [scale]="scales[5]"
-        [chartMaxPx]="chartMaxPx"
-        ></app-scale-charts>
-    </div>
-
 </div>

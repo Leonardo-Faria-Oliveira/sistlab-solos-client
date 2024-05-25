@@ -1,0 +1,73 @@
+<div class=" w-full mb-1 max-w-64 pb-[1.20rem] bg-main-white  text-[0.3rem] p-1 flex flex-col items-center ">
+    <h3 class=" text-sm  font-semibold mb-[0.8rem]">Índices de Saturação</h3>
+    <div class="flex flex-row w-full">
+        <div class="mr-6">
+            <div class="flex flex-row mb-2 text-xs  ">
+                <span class="bg-main-green w-8 border border-main-green text-main-white p-[0.1rem] ">
+                    AL%
+                </span>
+                <span class="border w-9 border-main-black border-l-0 text-main-black pt-[0.1rem]">
+                    {{points[0] < 0 ? 'ns' : points[0].toFixed(2)}}
+                </span>
+            </div>
+            <div class="flex flex-row mb-2 text-xs  ">
+                <span class="bg-main-green w-8 border border-main-green text-main-white p-[0.1rem] ">
+                    C%
+                </span>
+                <span class="border w-9 border-main-black border-l-0 text-main-black pt-[0.1rem]">
+                    {{points[1] < 0 ? 'ns' : points[1].toFixed(2)}}
+                </span>
+            </div>
+            <div class="flex flex-row mb-2 text-xs  ">
+                <span class="bg-main-green w-8 border border-main-green text-main-white p-[0.1rem] ">
+                    K%
+                </span>
+                <span class="border w-9 border-main-black border-l-0 text-main-black pt-[0.1rem]">
+                    {{points[2] < 0 ? 'ns' : points[2].toFixed(2)}}
+                </span>
+            </div>
+            <div class="flex flex-row mb-2 text-xs  ">
+                <span class="bg-main-green w-8 border border-main-green text-main-white p-[0.1rem] ">
+                    Mg%
+                </span>
+                <span class="border w-9 border-main-black border-l-0 text-main-black pt-[0.1rem]">
+                    {{points[3] < 0 ? 'ns' : points[3].toFixed(2)}}
+                </span>
+            </div>
+            <div class="flex flex-row text-xs  ">
+                <span class="bg-main-green border w-8 border-main-green text-main-white p-[0.1rem] ">
+                    SB%
+                </span>
+                <span class="border w-9 border-main-black border-l-0 text-main-black pt-[0.1rem]">
+                    {{points[4] < 0 ? 'ns' : points[4].toFixed(2)}}                
+                </span>
+            </div>
+        </div>       
+        <app-radar-chart class="" 
+        [points]="points"
+        [minValue]="minValue"
+        [maxValue]="110"
+        ></app-radar-chart>
+    </div>
+    <div class="w-full mt-3 flex flex-col justify-center items-center">
+        <h3 class=" text-xs font-semibold mb-3">Legenda</h3>
+        <div class="flex max-w-28 w-full flex-row flex-wrap items-center justify-between">
+            <div class=" flex flex-col items-center mb-2">
+                <div class="w-8 h-4 border-main-gray border bg-second-gray"></div>
+                <h5 class="text-[0.5rem] uppercase font-semibold">Excessivo</h5>
+            </div>
+            <div class=" flex flex-col items-center mb-2">
+                <div class="w-8 h-4 bg-[rgba(0,255,0,1)] border border-darker-green"></div>
+                <h5 class="text-[0.5rem] uppercase font-semibold">Equilibrado</h5>
+            </div>
+            <div class=" flex flex-col items-center ">
+                <div class="w-8 h-4 bg-[rgba(255,255,0,1)] border border-second-yellow"></div>
+                <h5 class="text-[0.5rem] uppercase font-semibold">Tolerante</h5>
+            </div>
+            <div class=" flex flex-col items-center ">
+                <div class="w-8 h-4 bg-[rgba(255,0,0,1)] border border-second-red"></div>
+                <h5 class="text-[0.5rem] uppercase font-semibold">Desequilíbrio</h5>
+            </div>
+        </div>
+    </div>
+</div>

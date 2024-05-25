@@ -6,3 +6,14 @@
 .symbol{
     border-radius: 0% 50% 50% 50%;
 }
+
+
+.off-screen{
+
+    margin-top: -100%;
+    margin-left: -100%;
+    position: absolute;
+    z-index: 600;
+}
+
+

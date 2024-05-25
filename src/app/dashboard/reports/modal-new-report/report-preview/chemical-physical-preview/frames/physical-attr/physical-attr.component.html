@@ -44,10 +44,10 @@
     </div>
     <div class="flex mb-1 flex-row text-main-black  w-full ">
         <h3 class="mr-2  w-[2rem] flex flex-col justify-center">
-            Cálcio (Ca²)
+            Areia
         </h3>
         <div class="mr-1 w-[1.83rem] text-[0.35rem] border flex flex-col justify-center align-middle ">
-            {{points[0] < 0 ? 'ns' : points[0]}}
+            {{points[0] < 0 ? 'ns' : points[0].toFixed(2)}}
         </div>
         <app-scale-charts
         [chartId]="'chart-5'"
@@ -60,10 +60,10 @@
     </div>
     <div class="flex mb-1 flex-row text-main-black  w-full ">
         <h3 class="mr-2 w-[2rem] px-[0.32rem] flex flex-col justify-center">
-            Magnésio (Mg²)
+            Silte
         </h3>
         <div class="mr-1 w-[1.83rem] text-[0.35rem] border flex flex-col justify-center align-middle ">
-            {{points[1] < 0 ? 'ns' : points[1]}}
+            {{points[1] < 0 ? 'ns' : points[1].toFixed(2)}}
         </div>
         <app-scale-charts
         [chartId]="'chart-6'"
@@ -76,10 +76,10 @@
     </div>
     <div class="flex mb-1 flex-row text-main-black  w-full ">
         <h3 class="mr-2 w-[2rem]  flex flex-col justify-center">
-            Potássio (K)
+            Argila
         </h3>
         <div class="mr-1 w-[1.83rem] text-[0.35rem] border flex flex-col justify-center align-middle ">
-            {{points[2] < 0 ? 'ns' : points[2]}}
+            {{points[2] < 0 ? 'ns' : points[2].toFixed(2)}}
         </div>
         <app-scale-charts
         [chartId]="'chart-7'"
@@ -99,10 +99,10 @@
     </div>
     <div class="flex mb-1 flex-row text-main-black  w-full ">
         <h3 class="mr-2 w-[2rem]  flex flex-col justify-center">
-            Fósforo (P)
+            Matéria orgânica
         </h3>
         <div class="mr-1 w-[1.83rem] text-[0.35rem] border flex flex-col justify-center align-middle ">
-            {{points[3] < 0 ? 'ns' : points[3]}}
+            {{points[3] < 0 ? 'ns' : points[3].toFixed(2)}}
         </div>
         <app-scale-charts
         [chartId]="'chart-8'"
@@ -115,10 +115,10 @@
     </div>
     <div class="flex mb-1 flex-row text-main-black  w-full ">
         <h3 class="mr-2 w-[2rem]  flex flex-col justify-center">
-            Enxofre
+            Carbono orgânico
         </h3>
         <div class="mr-1 w-[1.83rem] text-[0.35rem] border flex flex-col justify-center align-middle ">
-            {{points[4] < 0 ? 'ns' : points[4]}}
+            {{points[4] < 0 ? 'ns' : points[4].toFixed(2)}}
         </div>
         <app-scale-charts
         [chartId]="'chart-9'"

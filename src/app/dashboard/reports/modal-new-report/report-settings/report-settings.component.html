@@ -1,61 +1,101 @@
 <main class="mb-8 w-full  pl-5">
-    <form  class="w-full flex flex-col">
-        <div class="mb-8 w-full">
-            <h2 class=" text-2xl font-semibold mb-3 text-main-green font-main cursor-pointer">
-                Selecione o cliente
-            </h2>
-            <select 
-            name = "header"
-   
-            class="cursor-pointer form-control w-full max-w-96 mr-1 pl-3 text-xl border border-second-gray rounded-[5px] text-main-gray h-14  focus:text-inherit tracking-wider outline-none font-second "  
-            required>
-                <option
-                class="   text-xl  border border-second-gray text-main-gray  py-10 my-10  tracking-wider hover:bg-second-gray outline-none font-second"
-                > 
-                Leonardo
-                </option>
-                <option
-                class=" text-xl  border border-second-gray text-main-gray  py-10 my-10  tracking-wider hover:bg-second-gray outline-none font-second"
-                > 
-                Matheus
-                </option>
-            </select>
-            <h4 class="cursor-pointer font-semibold font-main mt-2 text-second-green">Novo cliente +</h4>
+    <form [formGroup]="reportSettingsForm"  class="w-full flex flex-col">
+        <div class="mb-8 w-full flex flex-row ">
+            <div class="w-full">
+                <h2 class=" text-2xl font-semibold mb-3 text-main-green font-main cursor-pointer">
+                    Selecione o cliente
+                </h2>
+                <select 
+                
+                formControlName="clientId"
+                name = "header"
+                class="cursor-pointer form-control w-full max-w-96 mr-1 pl-3 text-xl border border-second-gray rounded-[5px] text-main-gray h-14  focus:text-inherit tracking-wider outline-none font-second "  
+                >
+                    <option
+                    [ngValue]="client.id!"
+                    *ngFor="let client of clientList"
+                    class="   text-xl  border border-second-gray text-second-black  py-10 my-10  tracking-wider hover:bg-second-gray outline-none font-second"
+                    > 
+                    {{client.name}}
+                    </option>
+                </select>
+            </div>
+            <div class="w-full">
+                <h2 class=" text-2xl font-semibold mb-3 text-main-green font-main cursor-pointer">
+                    Nome da propriedade
+                </h2>
+                <input
+                formControlName="landName"
+                class=" max-w-96 text-xl text-second-black tracking-wider outline-none font-second border border-second-gray h-14 rounded-[5px] pl-5 w-full "
+                placeholder="Nome da propriedade" 
+                type="text"
+                autocomplete="new-name"
+                />
+            </div>
             
+            <!-- <h4 class="cursor-pointer font-semibold font-main mt-2 text-second-green">Novo cliente +</h4> -->
         </div>
-        <div class="mb-8">
-            <h2 class=" text-2xl font-semibold mb-3 text-main-green font-main cursor-pointer">
-                Nome da propriedade
-            </h2>
-            <input
-        
-            class=" max-w-96 text-xl text-main-gray tracking-wider outline-none font-second border border-second-gray h-14 rounded-[5px] pl-5 w-full "
-            placeholder="Nome da propriedade" 
-            type="text"
-            autocomplete="new-name"
-            />
-        </div>
-        
-        <div class=" flex flex-row justify-between">
+        <div class="mb-8 flex flex-row justify-around">
+            
             <div class="w-full">
                 <h2 class=" text-2xl font-semibold mb-3 text-main-green font-main ">
                     Talhão
                 </h2>
                 <input
-            
-                class=" max-w-96 text-xl text-main-gray tracking-wider outline-none font-second border border-second-gray h-14 rounded-[5px] pl-5 w-full "
-                placeholder="00 - X cm" 
+                formControlName="field"
+                class=" max-w-[15rem] text-xl text-second-black tracking-wider outline-none font-second border border-second-gray h-14 rounded-[5px] pl-5 w-full "
+                placeholder="Talhão" 
                 type="text"
                 autocomplete="new-name"
                 />
             </div>
             <div class="w-full">
+                <h2 class=" text-2xl font-semibold mb-3 text-main-green font-main cursor-pointer">
+                    Latitude
+                </h2>
+                <input
+                formControlName="lat"
+                class=" max-w-[15rem]  text-xl text-second-black tracking-wider outline-none font-second border border-second-gray h-14 rounded-[5px] pl-5 w-full "
+                placeholder="Latitude da amostra" 
+                type="text"
+                autocomplete="new-city"
+                />
+            </div>
+            <div class="w-full">
+                <h2 class=" text-2xl font-semibold mb-3 text-main-green font-main cursor-pointer">
+                    Longitude
+                </h2>
+                <input
+                formControlName="lng"
+                class=" max-w-[15rem]  text-xl text-second-black tracking-wider outline-none font-second border border-second-gray h-14 rounded-[5px] pl-5 w-full "
+                placeholder="Longitude da amostra" 
+                type="text"
+                autocomplete="new-city"
+                />
+            </div>
+        </div>
+        
+        <div class=" flex flex-row justify-between">
+            <div class="w-full">
+                <h2 class=" text-2xl font-semibold mb-3 text-main-green font-main cursor-pointer">
+                    Cidade
+                </h2>
+                <input
+                formControlName="city"
+                class=" max-w-96  text-xl text-second-black tracking-wider outline-none font-second border border-second-gray h-14 rounded-[5px] pl-5 w-full "
+                placeholder="Cidade da propriedade" 
+                type="text"
+                autocomplete="new-city"
+                />
+            </div>
+            
+            <div class="w-full">
                 <h2 class=" text-2xl font-semibold mb-3 text-main-green font-main ">
                     Profundidade da medição
                 </h2>
                 <input
-            
-                class=" max-w-96 text-xl text-main-gray tracking-wider outline-none font-second border border-second-gray h-14 rounded-[5px] pl-5 w-full "
+                formControlName="depth"
+                class=" max-w-96 text-xl text-second-black tracking-wider outline-none font-second border border-second-gray h-14 rounded-[5px] pl-5 w-full "
                 placeholder="00 - X cm" 
                 type="text"
                 autocomplete="new-name"

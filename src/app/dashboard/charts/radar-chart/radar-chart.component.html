@@ -1,8 +1,8 @@
 <canvas  
 baseChart 
 [data]="radarChartData" 
-class="bg-main-white w-[5rem]" 
+class="bg-main-white {{maxValue > 100 ? 'w-[9rem]' : 'w-[6rem]'}} " 
 [options]="radarChartOptions" 
 [type]="'radar'"
-[plugins]="plugin"> 
+[plugins]="maxValue > 100 ? pluginPdf : pluginPreview"> 
 </canvas>

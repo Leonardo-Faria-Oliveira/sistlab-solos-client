@@ -1,39 +1,27 @@
 <main class="mb-8 w-full pl-5">
-    <form  class="w-full flex flex-col">
+    <form [formGroup]="physicalAnalysisForm" class="w-full flex flex-col">
         
         <div class=" mb-11 flex flex-row justify-between">
-            <div class="w-full">
-                <h2 class=" text-2xl font-semibold mb-3 text-main-green font-main ">
-                    pH da amostra
-                </h2>
-                <input
-            
-                class=" max-w-[15rem] text-xl text-main-gray tracking-wider outline-none font-second border border-second-gray h-14 rounded-[5px] pl-5 w-full "
-                placeholder="00 - X cm" 
-                type="text"
-                autocomplete="new-name"
-                />
-            </div>
-            <div class="w-full">
-                <h2 class=" text-2xl font-semibold mb-3 text-main-green font-main ">
-                    Enxofre
-                </h2>
-                <input
-            
-                class=" max-w-[15rem] text-xl text-main-gray tracking-wider outline-none font-second border border-second-gray h-14 rounded-[5px] pl-5 w-full "
-                placeholder="00 - X cm" 
-                type="text"
-                autocomplete="new-name"
-                />
-            </div>
             <div class="w-full">
                 <h2 class=" text-2xl font-semibold mb-3 text-main-green font-main ">
                     Absorbância do fósforo
                 </h2>
                 <input
-            
-                class=" max-w-[15rem] text-xl text-main-gray tracking-wider outline-none font-second border border-second-gray h-14 rounded-[5px] pl-5 w-full "
-                placeholder="00 - X cm" 
+                formControlName="phosphorAbsorbance"
+                class=" max-w-96 text-xl text-second-black tracking-wider outline-none font-second border border-second-gray h-14 rounded-[5px] pl-5 w-full "
+                placeholder="mol dm³" 
+                type="text"
+                autocomplete="new-name"
+                />
+            </div>
+            <div class="w-full">
+                <h2 class=" text-2xl font-semibold mb-3 text-main-green font-main ">
+                    Carbono
+                </h2>
+                <input
+                formControlName="carbon"
+                class=" max-w-96 text-xl text-second-black tracking-wider outline-none font-second border border-second-gray h-14 rounded-[5px] pl-5 w-full "
+                placeholder="mol dm³" 
                 type="text"
                 autocomplete="new-name"
                 />
@@ -49,8 +37,8 @@
                         Areia
                     </h2>
                     <input
-                
-                    class=" max-w-96 text-xl text-main-gray tracking-wider outline-none font-second border border-second-gray h-14 rounded-[5px] pl-5 w-full "
+                    formControlName="sand"
+                    class=" max-w-[15rem] text-xl text-second-black tracking-wider outline-none font-second border border-second-gray h-14 rounded-[5px] pl-5 w-full "
                     placeholder="g/Kg" 
                     type="text"
                     autocomplete="new-name"
@@ -61,8 +49,20 @@
                         Argila
                     </h2>
                     <input
-                
-                    class=" max-w-96 text-xl text-main-gray tracking-wider outline-none font-second border border-second-gray h-14 rounded-[5px] pl-5 w-full "
+                    formControlName="clay"
+                    class=" max-w-[15rem] text-xl text-second-black tracking-wider outline-none font-second border border-second-gray h-14 rounded-[5px] pl-5 w-full "
+                    placeholder="g/Kg" 
+                    type="text"
+                    autocomplete="new-name"
+                    />
+                </div>
+                <div class="w-full">
+                    <h2 class=" text-2xl font-semibold mb-3 text-main-green font-main ">
+                        Silte
+                    </h2>
+                    <input
+                    formControlName="silt"
+                    class=" max-w-[15rem] text-xl text-second-black tracking-wider outline-none font-second border border-second-gray h-14 rounded-[5px] pl-5 w-full "
                     placeholder="g/Kg" 
                     type="text"
                     autocomplete="new-name"
@@ -70,32 +70,21 @@
                 </div>
             </div>
 
-            <div class=" flex flex-row mb-5 justify-between">
-                <div class="w-full">
-                    <h2 class=" text-2xl font-semibold mb-3 text-main-green font-main ">
-                        Silte
-                    </h2>
-                    <input
+            <!-- <div class=" flex flex-row mb-5 justify-between"> -->
                 
-                    class=" max-w-96 text-xl text-main-gray tracking-wider outline-none font-second border border-second-gray h-14 rounded-[5px] pl-5 w-full "
-                    placeholder="g/Kg" 
-                    type="text"
-                    autocomplete="new-name"
-                    />
-                </div>
-                <div class="w-full">
+                <!-- <div class="w-full">
                     <h2 class=" text-2xl font-semibold mb-3 text-main-green font-main ">
                         Materia orgânica
                     </h2>
                     <input
-                
+                    formControlName="organicMatter"
                     class=" max-w-96 text-xl text-main-gray tracking-wider outline-none font-second border border-second-gray h-14 rounded-[5px] pl-5 w-full "
                     placeholder="g/Kg" 
                     type="text"
                     autocomplete="new-name"
                     />
-                </div>
-            </div>
+                </div> -->
+            <!-- </div> -->
     </form>
 </main>
 <footer class="w-full flex text-main-white justify-center flex-row">

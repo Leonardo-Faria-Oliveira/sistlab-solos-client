@@ -53,14 +53,21 @@ import { ChemicalAnalysisComponent } from './dashboard/reports/modal-new-report/
 import { ReportPreviewComponent } from './dashboard/reports/modal-new-report/report-preview/report-preview.component';
 import { MicronutrientsComponent } from './dashboard/reports/modal-new-report/micronutrients/micronutrients.component';
 import { ScaleChartsComponent } from './dashboard/charts/scale-charts/scale-charts.component';
-import { ChemicalAttr1Component } from './dashboard/reports/modal-new-report/report-preview/frames/chemical-attr1/chemical-attr1.component';
+import { ChemicalAttr1Component } from './dashboard/reports/modal-new-report/report-preview/chemical-physical-preview/frames/chemical-attr1/chemical-attr1.component';
 import { RadarChartComponent } from './dashboard/charts/radar-chart/radar-chart.component';
 import { provideCharts, withDefaultRegisterables } from 'ng2-charts';
-import { RadarChartFrameComponent } from './dashboard/reports/modal-new-report/report-preview/frames/radar-chart-frame/radar-chart-frame.component';
+import { RadarChartFrameComponent } from './dashboard/reports/modal-new-report/report-preview/chemical-physical-preview/frames/radar-chart-frame/radar-chart-frame.component';
 import {NgxPrintModule} from 'ngx-print';
-import { PhysicalAttrComponent } from './dashboard/reports/modal-new-report/report-preview/frames/physical-attr/physical-attr.component';
-import { TechnicalSignatureComponent } from './dashboard/reports/modal-new-report/report-preview/frames/technical-signature/technical-signature.component';
-import { ChemicalAttr2Component } from './dashboard/reports/modal-new-report/report-preview/frames/chemical-attr2/chemical-attr2.component';
+import { PhysicalAttrComponent } from './dashboard/reports/modal-new-report/report-preview/chemical-physical-preview/frames/physical-attr/physical-attr.component';
+import { TechnicalSignatureComponent } from './dashboard/reports/modal-new-report/report-preview/chemical-physical-preview/frames/technical-signature/technical-signature.component';
+import { ChemicalAttr2Component } from './dashboard/reports/modal-new-report/report-preview/chemical-physical-preview/frames/chemical-attr2/chemical-attr2.component';
+import { ChemicalPhysicalPreviewComponent } from './dashboard/reports/modal-new-report/report-preview/chemical-physical-preview/chemical-physical-preview.component';
+import { ChemicalPhysicalPdfComponent } from './dashboard/reports/modal-new-report/report-preview/chemical-physical-pdf/chemical-physical-pdf.component';
+import { ChemicalAttr1PdfComponent } from './dashboard/reports/modal-new-report/report-preview/chemical-physical-pdf/frames/chemical-attr1-pdf/chemical-attr1-pdf.component';
+import { PhysicalAttrPdfComponent } from './dashboard/reports/modal-new-report/report-preview/chemical-physical-pdf/frames/physical-attr-pdf/physical-attr-pdf.component';
+import { TechnicalSignaturePdfComponent } from './dashboard/reports/modal-new-report/report-preview/chemical-physical-pdf/frames/technical-signature-pdf/technical-signature-pdf.component';
+import { ChemicalAttr2PdfComponent } from './dashboard/reports/modal-new-report/report-preview/chemical-physical-pdf/frames/chemical-attr2-pdf/chemical-attr2-pdf.component';
+import { RadarChartFramePdfComponent } from './dashboard/reports/modal-new-report/report-preview/chemical-physical-pdf/frames/radar-chart-frame-pdf/radar-chart-frame-pdf.component';
 
 
 
@@ -119,6 +126,13 @@ import { ChemicalAttr2Component } from './dashboard/reports/modal-new-report/rep
         PhysicalAttrComponent,
         TechnicalSignatureComponent,
         ChemicalAttr2Component,
+        ChemicalPhysicalPreviewComponent,
+        ChemicalPhysicalPdfComponent,
+        ChemicalAttr1PdfComponent,
+        PhysicalAttrPdfComponent,
+        TechnicalSignaturePdfComponent,
+        ChemicalAttr2PdfComponent,
+        RadarChartFramePdfComponent,
     ],
     providers: [
         { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
