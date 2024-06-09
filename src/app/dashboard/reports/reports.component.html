@@ -48,9 +48,13 @@ errorMessage="{{error?.errorMessage}}"
         ></app-search-employee> -->
 
         <app-modal-new-report
+        (createReportEmitter)="createReport($event)"
+        [technicalResponsibleList]="technicalResponsibleList"
+        [employee]="employee!"
         [scales]="scales"
         [lastPhosphorValue]="lastPhosphorValue"
         (getPhosphorValueEmitter)="getLastPhosphorValue()"
+        [isTechnicalResponsible]="isTechnicalResponsible"
         *ngIf="hasModalNewReport"
         [clientList]="clientList"
         (reportConfigEmitter)="sethasModalNewReport($event)"

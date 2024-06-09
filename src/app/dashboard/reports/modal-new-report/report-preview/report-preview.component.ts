@@ -4,6 +4,7 @@ import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
 import { Employee } from 'src/app/models/employee';
 import { Report } from 'src/app/models/report';
+import { ReportPdf } from 'src/app/models/reportPdf';
 
 @Component({
   selector: 'app-report-preview',
@@ -14,7 +15,7 @@ export class ReportPreviewComponent implements OnInit{
 
   @Input({required:true}) reportDate:string | undefined
 
-  @Input({required:true}) report!:Report
+  @Input({required:true}) report!:ReportPdf
 
   @Input({required:false}) scales:number[][] | undefined
 
@@ -27,7 +28,6 @@ export class ReportPreviewComponent implements OnInit{
   public isPdf:boolean = false
 
   public isLoading:boolean = false
-
 
   public landName:string = " "//"this.report.landName"
 
@@ -56,6 +56,8 @@ export class ReportPreviewComponent implements OnInit{
   @Input({required:true}) hasMicronutrients:boolean = false
   @Output() backEmitter = new EventEmitter<void>();
   @Output() doubleBackEmitter = new EventEmitter<void>();
+  @Output() createReportEmitter = new EventEmitter<Report>();
+
 
 
   public back(){
@@ -132,7 +134,6 @@ export class ReportPreviewComponent implements OnInit{
 
   public generatePDF() {
     this.isPdf= true
-    this.isLoading = true
     const data = document.getElementById('pdf');
     if (data) {
       html2canvas(data).then(canvas => {
@@ -144,9 +145,55 @@ export class ReportPreviewComponent implements OnInit{
         pdf.save(this.landName + " - "+ this.clientName+".pdf");
       });
     }
-    this.isLoading = false
   }
 
+  public gerarLaudo(){
+    
+    this.isLoading = true
+    let labName = localStorage.getItem("labName")
+    this.createReportEmitter.emit(new Report(
+      labName!,
+      this.report.landName!,
+      this.report.phosphorAbsorbance!,
+      this.report.chemicalAnalysis?.ph!,
+      this.report.city!,
+      this.report.field!,
+      this.report.createdAt!,
+      this.report.acidity!,
+      this.report.phosphor!,
+      this.report.ctc!,
+      this.report.bases!,
+      this.report.depth!,
+      this.report.saturation!.aluminumPercent,
+      this.report.saturation!.calciumPercent,
+      this.report.saturation!.potassiumPercent,
+      this.report.saturation!.magnesiumPercent,
+      this.report.saturation!.basesPercent,
+      this.report.physicalAnalysis!.sand,
+      this.report.chemicalAnalysis!.sulfur,
+      this.report.physicalAnalysis!.silt,
+      this.report.physicalAnalysis!.carbon,
+      this.report.physicalAnalysis!.clay,
+      this.report.chemicalAnalysis!.sodium,
+      this.report.chemicalAnalysis!.aluminum,
+      this.report.chemicalAnalysis!.calcium,
+      this.report.chemicalAnalysis!.potassium,
+      this.report.chemicalAnalysis!.magnesium,
+      this.report.physicalAnalysis!.organicMatter,
+      this.report.physicalAnalysis!.totalOrganicCarbon,
+      this.report.chemicalAnalysis!.potencialAcidity,
+      null,
+      this.report.employeeEmail!,
+      this.report.technicalResponsibleEmail!,
+      this.report.client!,
+      this.report.lat!,
+      this.report.lng!,
+    ))
+    this.generatePDF()
+    setTimeout(() => this.isLoading =false , 2000)
+    setTimeout(() => window.location.reload() , 2000)
+
+  }
 
   public ngOnInit(): void {
 

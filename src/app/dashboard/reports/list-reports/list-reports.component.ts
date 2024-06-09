@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Report } from "../../../models/report";
+import { ReportPdf } from 'src/app/models/reportPdf';
 
 
 @Component({
@@ -9,7 +10,7 @@ import { Report } from "../../../models/report";
 })
 export class ListReportsComponent {
 
-  @Input({required:true}) reports:Report[] = new Array<Report>();
+  @Input({required:true}) reports:ReportPdf[] = new Array<ReportPdf>();
 
   @Output() configEmitter = new EventEmitter<boolean>();
 

@@ -3,6 +3,8 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { ErrorHandler } from 'src/app/interfaces/error-handler';
 import { ReportSettingsEmitter } from 'src/app/interfaces/report-settings-emitter';
 import { Client } from 'src/app/models/client';
+import { Employee } from 'src/app/models/employee';
+import { Report } from 'src/app/models/report';
 
 @Component({
   selector: 'app-report-settings',
@@ -13,6 +15,11 @@ export class ReportSettingsComponent {
 
   @Input({required:true}) clientList:Client[] = new Array<Client>()
 
+  @Input({required:true}) technicalResponsibleList:Employee[] | null = new Array()
+
+
+  @Input({required:true}) isTechnicalResponsible!:boolean
+
   public hasMicronutrients:boolean = false
   public isReportColored:boolean = true
 
@@ -20,9 +27,9 @@ export class ReportSettingsComponent {
   @Output() formEmitter = new EventEmitter<ReportSettingsEmitter>();
   @Output() errorEmitter = new EventEmitter<ErrorHandler>();
 
-
   public reportSettingsForm = new FormGroup({
     clientId: new FormControl(),
+    technicalResponsibleId: new FormControl(),
     landName: new FormControl<string | undefined>(undefined),
     field: new FormControl<string | undefined>(undefined),
     city: new FormControl<string | undefined>(undefined),
@@ -71,6 +78,7 @@ export class ReportSettingsComponent {
     ){
       this.formEmitter.emit({
         clientId: this.reportSettingsForm.value.clientId!,
+        technicalResponsibleId:this.reportSettingsForm.value.technicalResponsibleId!,
         landName: this.reportSettingsForm.value.landName!,
         field: this.reportSettingsForm.value.field!,
         depth: parseFloat(this.reportSettingsForm.value.depth!),

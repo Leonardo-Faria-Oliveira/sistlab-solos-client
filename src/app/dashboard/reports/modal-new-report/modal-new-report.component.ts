@@ -1,12 +1,14 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { ChemicalAnalysisEmitter } from 'src/app/interfaces/chemical-analysis-emitter';
 import { ErrorHandler } from 'src/app/interfaces/error-handler';
+import { GetEmployeeListFromReport } from 'src/app/interfaces/get-employee-list-from-report';
 import { PhysicalAnalysisEmitter } from 'src/app/interfaces/physical-analysis-emitter';
 import { ReportSettingsEmitter } from 'src/app/interfaces/report-settings-emitter';
-import { ChemicalAnalysis } from 'src/app/models/chemicalAnalysis';
 import { Client } from 'src/app/models/client';
+import { Employee } from 'src/app/models/employee';
 import { PhosphorValue } from 'src/app/models/phosphorValue';
 import { Report } from 'src/app/models/report';
+import { ReportPdf } from 'src/app/models/reportPdf';
 
 @Component({
   selector: 'app-modal-new-report',
@@ -16,24 +18,26 @@ import { Report } from 'src/app/models/report';
 export class ModalNewReportComponent {
 
   @Input({required:true}) clientList:Client[] = new Array<Client>()
+  @Input({required:true}) technicalResponsibleList:Employee[] = new Array<Employee>()
   @Input({required:false}) lastPhosphorValue:PhosphorValue | undefined
   @Input({required:false}) scales:number[][] | undefined
+  @Input({required:true}) isTechnicalResponsible!: boolean
+  @Input({required:true}) employee!:Employee
 
   @Output() reportConfigEmitter = new EventEmitter<boolean>();
   @Output() getPhosphorValueEmitter = new EventEmitter();
   @Output() getScalesEmitter = new EventEmitter();
+  @Output() createReportEmitter = new EventEmitter<Report>();
 
-  public clientName:string = "Gabriel Pereira"
-  public city:string = "Maringá"
   public depth:number = 20
-  public reportDate:string = "22/07/2023"
-  public landName:string = "Sítio Iguatemi"
+  public reportDate: Date = new Date()
   public hasError:boolean = false
   public error:ErrorHandler | null = null 
   public hasMicronutrients:boolean = false
   public isReportColored:boolean = true
   public modalProgress:number = 1
-  public report:Report = new Report()
+  public report:ReportPdf = new ReportPdf()
+  public employeeList:GetEmployeeListFromReport[] = new Array<GetEmployeeListFromReport>()
   public setReportConfigEmitter(){
     this.reportConfigEmitter.emit(false)
   }
@@ -60,6 +64,14 @@ export class ModalNewReportComponent {
 
   }
 
+  public formatDate(date: Date): string {
+    let day = date.getDate().toString().padStart(2, '0');
+    let month = (date.getMonth() + 1).toString().padStart(2, '0');
+    let year = date.getFullYear().toString();
+
+    return `${day}/${month}/${year}`;
+}
+
   public doubleNext(){
     this.modalProgress+=2
   }
@@ -81,6 +93,24 @@ export class ModalNewReportComponent {
       })
 
     }else{
+
+      let technicalResponsible
+      if(!this.isTechnicalResponsible){
+        
+        technicalResponsible = this.clientList.find(technical => technical.id === reportSettings.technicalResponsibleId)
+        
+        if(technicalResponsible == null){
+          this.setError({
+            errorCode: 400,
+            errorMessage: "Funcionário inválido"
+          })
+        }
+    
+        
+      }
+
+      this.report.employeeEmail = this.employee.email
+      this.report.technicalResponsibleEmail = this.isTechnicalResponsible ? this.employee.email : technicalResponsible!.email
       this.report.landName = reportSettings.landName    
       this.report.field = reportSettings.field
       this.report.depth = reportSettings.depth
@@ -122,6 +152,12 @@ export class ModalNewReportComponent {
     this.hasError = true
     this.error = error
     setTimeout(() =>  this.hasError = false, 2000)
+
+  }
+
+  public createReport(report:Report){
+
+    this.createReportEmitter.emit(report)
 
   }
 

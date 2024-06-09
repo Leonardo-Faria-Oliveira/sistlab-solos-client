@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ErrorHandler } from 'src/app/interfaces/error-handler';
 import { ReportsService } from './reports.service';
 import { catchError, throwError } from 'rxjs';
@@ -9,6 +9,11 @@ import { PhosphorValueConfigService } from './report-config/phosphor-value-confi
 import { PhosphorValue } from 'src/app/models/phosphorValue';
 import { ScalesService } from '../charts/scales/scales.service';
 import { Scale } from 'src/app/models/scale';
+import { Employee } from 'src/app/models/employee';
+import { Access } from 'src/app/models/access';
+import { Admin } from 'src/app/models/admin';
+import { EmployeesService } from '../employees/employees.service';
+import { ReportPdf } from 'src/app/models/reportPdf';
 
 @Component({
   selector: 'app-reports',
@@ -21,10 +26,20 @@ export class ReportsComponent  implements OnInit {
     private scalesService: ScalesService,
     private phosphorValueService : PhosphorValueConfigService,
     private clientsService: ClientsService,
+    private employeesService: EmployeesService,
     private reportsService : ReportsService,
   ){}
 
   public clientList:Client[] = new Array<Client>()
+
+  @Input({required:true}) isTechnicalResponsible!:boolean
+
+  @Input({required:true}) account!:Employee | Admin
+
+  public employee:Employee | undefined
+
+  public technicalResponsibleList:Employee[] =  new Array()
+
 
   public lastPhosphorValue:PhosphorValue | undefined
   
@@ -54,7 +69,7 @@ export class ReportsComponent  implements OnInit {
 
   public hasModalNewReport:boolean = true
 
-  public reports:Report[] = new Array<Report>();
+  public reports:ReportPdf[] = new Array<ReportPdf>();
 
   public hasError:boolean = false
   public error:ErrorHandler | null = null 
@@ -98,10 +113,21 @@ export class ReportsComponent  implements OnInit {
   }
 
 
+  public createReport(report:Report){
+    // console.log(report)
+    this.reportsService.createReport(report).pipe(catchError(err => {
+        return throwError(() => new Error(err));
+      }
+    ))
+    .subscribe(res => {
+      console.log(res)
+    })
+  }
 
   public ngOnInit(): void {
     
     Promise.all([
+
       this.clientsService.getClients().pipe(catchError(err => {
         return throwError(() => new Error(err));
       }))
@@ -110,6 +136,17 @@ export class ReportsComponent  implements OnInit {
           this.clientList.push(client)
         });
       }),
+      
+      this.isTechnicalResponsible ? null : this.employeesService.getEmployees().pipe(catchError(err => {
+        return throwError(() => new Error(err));
+      }))
+      .subscribe(res => {
+        res.employees.forEach(employee => {
+          if(employee.crea !== null && employee.crea !== undefined)
+            this.technicalResponsibleList.push(employee)
+        });
+      }),
+      
   
       this.reportsService.getReports()
       .pipe(catchError(err => {
@@ -123,6 +160,15 @@ export class ReportsComponent  implements OnInit {
       this.getScales()
     ])
 
+    this.employee = new Employee(
+      this.account.name,
+      this.account.email,
+      this.account.password,
+      this.account.job!, 
+      this.account.role.name,
+      this.account.crea, 
+      this.account.contact
+    )
 
 // 
   }

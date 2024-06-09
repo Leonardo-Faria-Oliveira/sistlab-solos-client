@@ -28,19 +28,28 @@
             ></app-employees>
 
             <!-- Laudos e Clientes -->
-            <app-reports
+            <!-- <app-reports
+            [isTechnicalResponsible]="false"
             *ngIf="account?.role?.name==='admin' && activeIndex===3"
-            ></app-reports>
+            ></app-reports> -->
             <app-reports
+            [isTechnicalResponsible]="false"
+            [account]="account!"
             *ngIf="account?.role?.name==='employee' && activeIndex===3"
             ></app-reports>
             <app-reports
+            [account]="account!"
+            [isTechnicalResponsible]="true"
             *ngIf="account?.role?.name==='technicalResponsible' && activeIndex===3"
             ></app-reports>
             <app-reports
+            [account]="account!"
+            [isTechnicalResponsible]="false"
             *ngIf="account?.role?.name==='labAdminEmployee' && activeIndex===3"
             ></app-reports>
             <app-reports
+            [account]="account!"
+            [isTechnicalResponsible]="true"
             *ngIf="account?.role?.name==='labAdminTechnical' && activeIndex===3"
             ></app-reports>
 

@@ -1,6 +1,7 @@
 export interface ReportSettingsEmitter{
 
-    clientId:string ,
+    clientId:string,
+    technicalResponsibleId: string  | undefined,
     landName: string,
     field: string,
     depth: number,

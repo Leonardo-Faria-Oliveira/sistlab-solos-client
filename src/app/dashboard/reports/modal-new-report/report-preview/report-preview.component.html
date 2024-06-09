@@ -40,7 +40,7 @@
    
     <footer class="w-full items-end max-w-[25rem]  flex text-main-white justify-end flex-col">
         <button 
-        (click)="generatePDF()"
+        (click)="gerarLaudo()"
         class="h-14 mb-4 rounded-[5px] text-lg text-center transition-colors ease-linear duration-150 font-second uppercase font-semibold w-full max-w-[360px]  px-6 pt-4 pb-3 bg-main-green hover:bg-hover-main-green ">
             <h4 *ngIf="!isLoading" >Gerar laudo</h4>   <div ngClass="self-center" *ngIf="isLoading" class="loader"></div>
         </button>

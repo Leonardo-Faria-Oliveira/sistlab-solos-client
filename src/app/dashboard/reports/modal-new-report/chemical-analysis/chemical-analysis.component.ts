@@ -2,7 +2,9 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ChemicalAnalysisEmitter } from 'src/app/interfaces/chemical-analysis-emitter';
 import { ErrorHandler } from 'src/app/interfaces/error-handler';
+import { Access } from 'src/app/models/access';
 import { ChemicalAnalysis } from 'src/app/models/chemicalAnalysis';
+import { Employee } from 'src/app/models/employee';
 import { PhosphorValue } from 'src/app/models/phosphorValue';
 
 @Component({
@@ -14,6 +16,7 @@ export class ChemicalAnalysisComponent {
 
 
   @Input({required:true}) hasMicronutrients:boolean = false
+
   @Output() nextEmitter = new EventEmitter<void>();
   @Output() doubleNextEmitter = new EventEmitter<void>();
   @Output() formEmitter = new EventEmitter<ChemicalAnalysisEmitter>();

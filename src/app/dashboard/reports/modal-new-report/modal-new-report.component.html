@@ -13,6 +13,8 @@
         <div class="w-full">
 
             <app-report-settings
+            [technicalResponsibleList]="isTechnicalResponsible ? null : technicalResponsibleList"
+            [isTechnicalResponsible]="isTechnicalResponsible"
             (errorEmitter)="setError($event)"
             [clientList]="clientList"
             (nextEmitter)="next()"
@@ -45,9 +47,10 @@
             </app-micronutrients>
 
             <app-report-preview
+            (createReportEmitter)="createReport($event)"
             [report]="report"
             [scales]="scales" 
-            [reportDate]="reportDate"
+            [reportDate]="formatDate(reportDate)"
             [hasMicronutrients]="hasMicronutrients"
             (backEmitter)="back()"
             (doubleBackEmitter)="doubleBack()"
