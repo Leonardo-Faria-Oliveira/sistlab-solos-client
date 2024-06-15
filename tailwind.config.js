@@ -25,7 +25,7 @@ module.exports = {
     },
     fontFamily:{
       'main': ' Titillium Web',
-      'second': 'Tw Cen MT Std'
+      'second': 'Titillium Web'
     }
   },
   plugins: [],

@@ -1,0 +1,128 @@
+<div class="  w-full mb-1 max-w-64  bg-main-white  text-[0.3rem] p-1 flex flex-col items-center">
+                        
+    <h3 class="text-sm  font-semibold mb-[0.4rem]">Atributos Químicos</h3>
+    
+    <div class="flex flex-row mb-2 text-main-white  w-full ">
+        <div class="mr-2 px-1 text-xs h-[1.45rem] flex flex-col justify-center align-middle bg-main-green ">
+            Determinação
+        </div>
+        <div class="mr-2 px-1 text-xs h-[1.45rem] flex flex-col justify-center align-middle bg-main-green ">
+            cmol dm³
+        </div>
+        <div>
+            <h3 class="px-1 text-[0.7rem] mb-[0.1rem] py-[0.2rem]  bg-main-green ">
+                Nível de suficiência
+            </h3>
+            <table class="text-main-black text-[0.5rem]">
+                <tr class="border">
+                    <td class="px-[0.2rem] border-r">
+                        MB
+                    </td>
+                    <td class="px-[0.4rem] border-r">
+                        B
+                    </td>
+                    <td class="px-[0.4rem] border-r">
+                        M
+                    </td>
+                    <td class="px-[0.4rem] border-r">
+                        A
+                    </td>
+                    <td class="px-[0.2rem] ">
+                        MA
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="flex mb-1 flex-row text-main-black  w-full ">
+        <h3 class="mr-2 w-20 text-xs   text-center">
+            Potassio (K)
+        </h3>
+        <div class="mr-[0.38rem] w-14 text-xs border  text-center ">
+            {{points[0] < 0 ? 'ns' : points[0].toFixed(2)}}
+        </div>
+        <app-scale-charts
+        [chartId]="'chart-20'"
+        [pointId]="'point-20'"
+        [point]="points[0]"
+        [scale]="scales[0]"
+        [chartMaxPx]="chartMaxPx"
+        ></app-scale-charts>
+    </div>
+    <div class="flex mb-1 flex-row text-main-black  w-full ">
+        <h3 class="mr-2 w-20 text-xs   text-center">
+            Magnésio (Mg)
+        </h3>
+        <div class="mr-[0.38rem] w-14 text-xs border  text-center ">
+            {{points[1] < 0 ? 'ns' : points[1].toFixed(2)}}
+        </div>
+        <app-scale-charts
+        [chartId]="'chart-21'"
+        [pointId]="'point-21'"
+        [point]="points[1]"
+        [scale]="scales[1]"
+        [chartMaxPx]="chartMaxPx"
+        ></app-scale-charts>
+    </div>
+    <div class="flex mb-1 flex-row text-main-black  w-full ">
+        <h3 class="mr-2 w-20 text-xs   text-center">
+            Alumínio (AL)
+        </h3>
+        <div class="mr-[0.38rem] w-14 text-xs border  text-center ">
+            {{points[2] < 0 ? 'ns' : points[2].toFixed(2)}}
+        </div>
+        <app-scale-charts
+        [chartId]="'chart-22'"
+        [pointId]="'point-22'"
+        [point]="points[2]"
+        [scale]="scales[2]"
+        [chartMaxPx]="chartMaxPx"
+        ></app-scale-charts>
+    </div>
+    <div class="flex mb-1 flex-row text-main-black  w-full ">
+        <h3 class="mr-2 w-20 text-xs   text-center">
+            Sódio (Na)
+        </h3>
+        <div class="mr-[0.38rem] w-14 text-xs border  text-center ">
+            {{points[3] < 0 ? 'ns' : points[3].toFixed(2)}}
+        </div>
+        <app-scale-charts
+        [chartId]="'chart-23'"
+        [pointId]="'point-23'"
+        [point]="points[3]"
+        [scale]="scales[3]"
+        [chartMaxPx]="chartMaxPx"
+        ></app-scale-charts>
+    </div>
+    <div class="flex mb-1 flex-row text-main-black  w-full ">
+        <h3 class="mr-2 w-20 text-xs   text-center">
+            Cálcio (C)
+        </h3>
+        <div class="mr-[0.38rem] w-14 text-xs border  text-center ">
+            {{points[4] < 0 ? 'ns' : points[4].toFixed(2)}}
+        </div>
+        <app-scale-charts
+        [chartId]="'chart-24'"
+        [pointId]="'point-24'"
+        [point]="points[4]"
+        [scale]="scales[4]"
+        [chartMaxPx]="chartMaxPx"
+        ></app-scale-charts>
+    </div>
+    <div class="flex mb-1 flex-row text-main-black  w-full ">
+        <h3 class="mr-2 w-20 text-xs   text-center">
+            Enxofre (S)
+        </h3>
+        <div class="mr-[0.38rem] w-14 text-xs border  text-center ">
+            {{points[5] < 0 ? 'ns' : points[5].toFixed(2)}}
+        </div>
+        <app-scale-charts
+        [chartId]="'chart-25'"
+        [pointId]="'point-25'"
+        [point]="points[5]"
+        [scale]="scales[5]"
+        [chartMaxPx]="chartMaxPx"
+        ></app-scale-charts>
+    </div>
+
+</div>

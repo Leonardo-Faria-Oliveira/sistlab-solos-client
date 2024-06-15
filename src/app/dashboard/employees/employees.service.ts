@@ -28,8 +28,8 @@ export class EmployeesService {
 
 
   public getEmployees(): Observable<GetEmployees>{
-
-    return this.httpClient.get<GetEmployees>(this.url+"/employee",
+    let labName = localStorage.getItem("labName")
+    return this.httpClient.get<GetEmployees>(this.url+"/employee/"+labName,
       this.httpOptions
     ) 
 
@@ -42,17 +42,17 @@ export class EmployeesService {
   }
 
   public searchEmployees(search:SearchBasic): Observable<GetEmployees>{
-      
+    let labName = localStorage.getItem("labName")
     return this.httpClient.get<GetEmployees>(
-      this.url+"/employee/search/"+search.header+"/"+search.search,
+      this.url+`/employee/${labName}/search/`+search.header+"/"+search.search,
       this.httpOptions
     ) 
 
   }
 
   public orderEmployees(filter:OrderBasic): Observable<GetEmployees>{
-
-    return this.httpClient.get<GetEmployees>(this.url+"/employee/"+filter.header+"/"+filter.orderBy,
+    let labName = localStorage.getItem("labName")
+    return this.httpClient.get<GetEmployees>(this.url+"/employee/"+labName+"/"+filter.header+"/"+filter.orderBy,
       this.httpOptions
     ) 
 

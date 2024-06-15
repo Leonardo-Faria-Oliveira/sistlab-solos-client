@@ -52,13 +52,10 @@ export class ClientsComponent implements OnInit {
       return throwError(() => new Error(err));
     }))
     .subscribe(res => {
-      
-      let limit  = res.clients.length < 5 ? res.clients.length : 5
-      for(let i = 0; i<limit; i++){
 
-        this.clients.push(res.clients[i])
-      
-      }
+
+      this.clients = res.clients;
+
      
     })
 

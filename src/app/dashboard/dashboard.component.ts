@@ -66,6 +66,7 @@ export class DashboardComponent implements OnInit{
   }
 
   public setIndex(index:number){
+    console.log(index)
     this.activeIndex = index
   }
 

@@ -27,10 +27,17 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [],
+            "allowedCommonJsDependencies": [
+              "lodash"
+           ]
           },
           "configurations": {
             "production": {
+              "optimization": {
+                "scripts": true,
+                "styles": true
+              },
               "budgets": [
                 {
                   "type": "initial",
@@ -100,5 +107,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "7fa76606-d613-4176-b8ab-59e4c1a8ecf1"
   }
 }

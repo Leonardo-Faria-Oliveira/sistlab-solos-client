@@ -1,0 +1,64 @@
+<div class="w-full z-40 min-h-screen bg-main-black bg-opacity-45 items-center left-0 top-0 absolute flex flex-col ">
+    <app-error-modal  
+    [ngClass]="hasError ? 'z-10 w-full relative text-center': 'hidden'" 
+    errorMessage="{{error?.errorMessage}}" >
+    </app-error-modal>
+    <div class="px-10 pt-10 max-w-4xl pb-7 flex flex-col justify-evenly easy-out duration-100 animate-up border-x border-b border-second-gray items-center w-full   mt-1  bg-main-white   rounded-[5px]">
+
+        <header class="flex mb-10 flex-row justify-between w-full">
+            <h1 class="font-main text-second-black font-semibold text-3xl">{{modalProgress == 5 ? 'Prévia do laudo' : 'Novo laudo'}}</h1>
+            <img class="cursor-pointer" (click)="setReportConfigEmitter()"   alt="cancel" src ="../../../../assets/cancel.svg"/>
+        </header>
+        
+        <div class="w-full">
+
+            <app-report-settings
+            [technicalResponsibleList]="isTechnicalResponsible ? null : technicalResponsibleList"
+            [isTechnicalResponsible]="isTechnicalResponsible"
+            (errorEmitter)="setError($event)"
+            [clientList]="clientList"
+            (nextEmitter)="next()"
+            (formEmitter)="getReportSettings($event)"
+            *ngIf="modalProgress==1"
+            >
+            </app-report-settings>
+
+            <app-physical-analysis
+            [lastPhosphorValue]="lastPhosphorValue"
+            (formEmitter)="getPhysicalAnalysis($event)"
+            (errorEmitter)="setError($event)"
+            (nextEmitter)="next()"
+            *ngIf="modalProgress==2"
+            >
+            </app-physical-analysis> 
+
+            <app-chemical-analysis
+            (formEmitter)="getChemicalAnalysis($event)"
+            (doubleNextEmitter)="doubleNext()"
+            (nextEmitter)="next()"
+            [hasMicronutrients]="hasMicronutrients"
+            *ngIf="modalProgress==3"
+            >
+            </app-chemical-analysis>
+
+            <app-micronutrients
+            *ngIf="modalProgress==4"
+            >
+            </app-micronutrients>
+
+            <app-report-preview
+            (createReportEmitter)="createReport($event)"
+            [report]="report"
+            [scales]="scales" 
+            [reportDate]="formatDate(reportDate)"
+            [hasMicronutrients]="hasMicronutrients"
+            (backEmitter)="back()"
+            (doubleBackEmitter)="doubleBack()"
+            *ngIf="modalProgress==5"
+            >
+            </app-report-preview>
+
+        </div>
+
+    </div>
+</div>

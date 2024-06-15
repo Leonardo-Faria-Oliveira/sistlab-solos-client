@@ -1,0 +1,31 @@
+<div class="w-full absolute overflow-y-scroll  z-[100] min-h-screen bg-main-black bg-opacity-45 items-center left-0 top-0  flex flex-col ">
+
+    <div *ngIf="modalReportConfig == 1" class="p-10 flex flex-col justify-evenly easy-out duration-100 animate-up border-x border-b border-second-gray items-center w-full max-w-4xl  mt-40  bg-main-white   rounded-[5px]">
+        <header class="flex mb-14 flex-row justify-between w-full">
+            <h1 class="font-main text-second-black font-semibold text-3xl">Configurações dos laudos</h1>
+            <img class="cursor-pointer" (click)="setReportConfigEmitter()"  alt="cancel" src ="../../../../assets/cancel.svg"/>
+        </header>
+        <main class="w-full pl-5 text-main-white">
+            <div class="flex flex-row justify-between">
+                <button (click)="setModalReportConfig(2)" class="bg-main-green text-center text-lg  px-5 tracking-wider rounded-[5px] hover:bg-hover-main-green transition-colors ease-linear duration-150 font-second uppercase font-semibold w-full max-w-96 pt-4 pb-3">
+                    <h4>Cabeçalho</h4>   
+                </button>
+                <button (click)="setModalReportConfig(3)" class=" text-center bg-main-green  text-lg  px-5 tracking-wider rounded-[5px] hover:bg-hover-main-green transition-colors ease-linear duration-150 font-second uppercase font-semibold w-full max-w-96 pt-4 pb-3">
+                    <h4>Equação de absorbancia do P</h4>   
+                </button>
+            </div>
+        </main>
+    </div>
+
+    <app-header-config
+    (modalReportConfig)="setModalReportConfig($event)"
+    *ngIf="modalReportConfig == 2"
+    >
+    </app-header-config>
+
+    <app-phosphor-value-config
+    (modalReportConfig)="setModalReportConfig($event)"
+    *ngIf="modalReportConfig == 3"
+    >
+    </app-phosphor-value-config>
+</div>

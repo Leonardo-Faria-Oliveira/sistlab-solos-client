@@ -52,21 +52,22 @@ export class EmployeesComponent implements OnInit {
     }))
     .subscribe(res => {
 
-      let count = 0
-      res.employees.map(employee =>{
+      this.employees = res.employees;
+      // let count = 0
+      // res.employees.map(employee =>{
       
-        if( count <= 5 ){
-          if(!(this.userEmail === employee.email))
-            this.employees.push(employee)
-        }
-        count++
-        if(employee.active){
-          this.countOk++
-        }else{
-          this.countOff++
-        }
+      //   if( count <= 5 ){
+      //     if(!(this.userEmail === employee.email))
+      //       this.employees.push(employee)
+      //   }
+      //   count++
+      //   if(employee.active){
+      //     this.countOk++
+      //   }else{
+      //     this.countOff++
+      //   }
 
-      })
+      // })
       
     })
 

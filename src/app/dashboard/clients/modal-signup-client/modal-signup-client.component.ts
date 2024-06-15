@@ -9,11 +9,9 @@ import { ErrorHandler } from 'src/app/interfaces/error-handler';
 })
 export class ModalSignupClientComponent {
 
-  
   @Output() modalSignUpClient = new EventEmitter<boolean>();
 
   @Output() clientOutputForm = new EventEmitter();
-
 
   @Output() functionEmitter = new EventEmitter();
 
@@ -26,7 +24,6 @@ export class ModalSignupClientComponent {
     contact: new FormControl<string | undefined>(undefined),
     name: new FormControl<string | undefined>(undefined)
   })
-
 
   public setModalSignUpClient(event:boolean){
     this.modalSignUpClient.emit(event)

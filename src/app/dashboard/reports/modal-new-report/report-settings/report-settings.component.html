@@ -1,0 +1,146 @@
+<main class=" w-full  pl-5">
+    <form [formGroup]="reportSettingsForm"  class="w-full flex flex-col">
+        <div class="mb-6 w-full flex flex-row ">
+            <div class="w-full">
+                <h2 class=" text-2xl font-semibold mb-3 text-main-green font-main cursor-pointer">
+                    Selecione o cliente
+                </h2>
+                <select 
+                
+                formControlName="clientId"
+                name = "header"
+                class="cursor-pointer form-control w-full max-w-96 mr-1 pl-3 text-xl border border-second-gray rounded-[5px] text-main-gray h-14  focus:text-inherit tracking-wider outline-none font-second "  
+                >
+                    <option
+                    [ngValue]="client.id!"
+                    *ngFor="let client of clientList"
+                    class="   text-xl  border border-second-gray text-second-black  py-10 my-10  tracking-wider hover:bg-second-gray outline-none font-second"
+                    > 
+                    {{client.name}}
+                    </option>
+                </select>
+            </div>
+            <div *ngIf="!isTechnicalResponsible" class="w-full" >
+                <h2 class=" text-2xl font-semibold mb-3 text-main-green font-main cursor-pointer">
+                    Selecione o responsável técnico
+                </h2>
+                <select 
+                
+                formControlName="clientId"
+                name = "header"
+                class="cursor-pointer form-control w-full max-w-96 mr-1 pl-3 text-xl border border-second-gray rounded-[5px] text-main-gray h-14  focus:text-inherit tracking-wider outline-none font-second "  
+                >
+                    <option
+                    [ngValue]="technical.id"
+                    *ngFor="let technical of technicalResponsibleList"
+                    class="   text-xl  border border-second-gray text-second-black  py-10 my-10  tracking-wider hover:bg-second-gray outline-none font-second"
+                    > 
+                    {{technical.name}}
+                    </option>
+                </select>
+            </div>
+            <!-- <h4 class="cursor-pointer font-semibold font-main mt-2 text-second-green">Novo cliente +</h4> -->
+        </div>
+        <div class=" flex flex-row mb-6 justify-between">
+            <div class="w-full">
+                <h2 class=" text-2xl font-semibold mb-3 text-main-green font-main cursor-pointer">
+                    Nome da propriedade
+                </h2>
+                <input
+                formControlName="landName"
+                class=" max-w-96 text-xl text-second-black tracking-wider outline-none font-second border border-second-gray h-14 rounded-[5px] pl-5 w-full "
+                placeholder="Nome da propriedade" 
+                type="text"
+                autocomplete="new-name"
+                />
+            </div> 
+        </div>
+        <div class="mb-6 flex flex-row justify-around">
+            
+            <div class="w-full">
+                <h2 class=" text-2xl font-semibold mb-3 text-main-green font-main ">
+                    Talhão
+                </h2>
+                <input
+                formControlName="field"
+                class=" max-w-[15rem] text-xl text-second-black tracking-wider outline-none font-second border border-second-gray h-14 rounded-[5px] pl-5 w-full "
+                placeholder="Talhão" 
+                type="text"
+                autocomplete="new-name"
+                />
+            </div>
+            <div class="w-full">
+                <h2 class=" text-2xl font-semibold mb-3 text-main-green font-main cursor-pointer">
+                    Latitude
+                </h2>
+                <input
+                formControlName="lat"
+                class=" max-w-[15rem]  text-xl text-second-black tracking-wider outline-none font-second border border-second-gray h-14 rounded-[5px] pl-5 w-full "
+                placeholder="Latitude da amostra" 
+                type="text"
+                autocomplete="new-city"
+                />
+            </div>
+            <div class="w-full">
+                <h2 class=" text-2xl font-semibold mb-3 text-main-green font-main cursor-pointer">
+                    Longitude
+                </h2>
+                <input
+                formControlName="lng"
+                class=" max-w-[15rem]  text-xl text-second-black tracking-wider outline-none font-second border border-second-gray h-14 rounded-[5px] pl-5 w-full "
+                placeholder="Longitude da amostra" 
+                type="text"
+                autocomplete="new-city"
+                />
+            </div>
+        </div>
+        
+        <div class=" flex flex-row justify-between">
+            <div class="w-full">
+                <h2 class=" text-2xl font-semibold mb-3 text-main-green font-main cursor-pointer">
+                    Cidade
+                </h2>
+                <input
+                formControlName="city"
+                class=" max-w-96  text-xl text-second-black tracking-wider outline-none font-second border border-second-gray h-14 rounded-[5px] pl-5 w-full "
+                placeholder="Cidade da propriedade" 
+                type="text"
+                autocomplete="new-city"
+                />
+            </div>
+            
+            <div class="w-full">
+                <h2 class=" text-2xl font-semibold mb-3 text-main-green font-main ">
+                    Profundidade da medição
+                </h2>
+                <input
+                formControlName="depth"
+                class=" max-w-96 text-xl text-second-black tracking-wider outline-none font-second border border-second-gray h-14 rounded-[5px] pl-5 w-full "
+                placeholder="00 - X cm" 
+                type="text"
+                autocomplete="new-name"
+                />
+            </div>
+            
+        </div>
+        <div class="flex flex-row mt-2  max-w-96 justify-stretch">
+            <!-- <div  (click)="setHasMicronutrients()" class=" w-full cursor-pointer flex flex-row mb-11 ">
+                <div ngClass=" inline mr-2 border-2 border-main-gray w-full max-w-5 h-5 {{hasMicronutrients ? 'bg-second-green' : 'bg-main-white'}}" ></div>
+                <h4 class="inline w-full -mt-[0.15rem]  text-second-green font-semibold font-main " >
+                    Micronutrientes
+                </h4>
+            </div> -->
+            <div  (click)="setIsReportColored()" class=" w-full cursor-pointer flex flex-row mb-11 ">
+                <div ngClass=" inline mr-2 border-2 border-main-gray w-full max-w-5 h-5 {{isReportColored ? 'bg-second-green' : 'bg-main-white'}}" ></div>
+                <h4 class="inline w-full -mt-[0.15rem]  text-second-green font-semibold font-main " >
+                    Laudo colorido
+                </h4>
+            </div>
+        </div>
+    </form>
+</main>
+<footer class="w-full flex text-main-white justify-center flex-row">
+    <button (click)="next()"  class=" rounded-[5px] text-lg text-center transition-colors ease-linear duration-150 font-second uppercase font-semibold w-full max-w-[360px]  px-6 pt-4 pb-3 bg-main-green hover:bg-hover-main-green ">
+        <h4>Proximo</h4>
+    </button>
+</footer>

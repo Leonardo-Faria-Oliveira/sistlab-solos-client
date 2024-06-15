@@ -20,12 +20,6 @@
             <app-labs
             *ngIf="account?.role?.name==='admin' && activeIndex===2"
             ></app-labs>
-            <app-reports
-            *ngIf="account?.role?.name==='employee' && activeIndex===2"
-            ></app-reports>
-            <app-reports
-            *ngIf="account?.role?.name==='technicalResponsible' && activeIndex===2"
-            ></app-reports>
             <app-employees
             *ngIf="account?.role?.name==='labAdminEmployee' && activeIndex===2"
             ></app-employees>
@@ -34,23 +28,38 @@
             ></app-employees>
 
             <!-- Laudos e Clientes -->
-            <app-reports
+            <!-- <app-reports
+            [isTechnicalResponsible]="false"
             *ngIf="account?.role?.name==='admin' && activeIndex===3"
-            ></app-reports>
-            <app-clients
-            *ngIf="account?.role?.name==='employee' && activeIndex===3"
-            ></app-clients>
-            <app-clients
-            *ngIf="account?.role?.name==='technicalResponsible' && activeIndex===3"
-            ></app-clients>
+            ></app-reports> -->
             <app-reports
+            [isTechnicalResponsible]="false"
+            [account]="account!"
+            *ngIf="account?.role?.name==='employee' && activeIndex===3"
+            ></app-reports>
+            <app-reports
+            [account]="account!"
+            [isTechnicalResponsible]="true"
+            *ngIf="account?.role?.name==='technicalResponsible' && activeIndex===3"
+            ></app-reports>
+            <app-reports
+            [account]="account!"
+            [isTechnicalResponsible]="false"
             *ngIf="account?.role?.name==='labAdminEmployee' && activeIndex===3"
             ></app-reports>
             <app-reports
+            [account]="account!"
+            [isTechnicalResponsible]="true"
             *ngIf="account?.role?.name==='labAdminTechnical' && activeIndex===3"
             ></app-reports>
 
             <!-- Clientes e Planos -->
+            <app-clients
+            *ngIf="account?.role?.name==='employee' && activeIndex===4"
+            ></app-clients>
+            <app-clients
+            *ngIf="account?.role?.name==='technicalResponsible' && activeIndex===4"
+            ></app-clients>
             <app-clients
             *ngIf="account?.role?.name==='labAdminEmployee' && activeIndex===4"
             ></app-clients>

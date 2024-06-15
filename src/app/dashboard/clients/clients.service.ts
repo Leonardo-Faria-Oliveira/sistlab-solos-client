@@ -27,8 +27,8 @@ export class ClientsService {
 
 
   public getClients(): Observable<GetClients>{
-
-    return this.httpClient.get<GetClients>(this.url+"/client",
+    let labName = localStorage.getItem("labName")
+    return this.httpClient.get<GetClients>(this.url+"/client/"+labName,
       this.httpOptions
     ) 
 
@@ -41,9 +41,10 @@ export class ClientsService {
   }
 
   public searchClients(search:SearchBasic): Observable<GetClients>{
-      
+    
+    let labName = localStorage.getItem("labName")
     return this.httpClient.get<GetClients>(
-      this.url+"/client/search/"+search.header+"/"+search.search,
+      this.url+`/client/${labName}/search/`+search.header+"/"+search.search,
       this.httpOptions
     ) 
 
@@ -51,7 +52,8 @@ export class ClientsService {
 
   public orderClients(filter:OrderBasic): Observable<GetClients>{
 
-    return this.httpClient.get<GetClients>(this.url+"/client/"+filter.header+"/"+filter.orderBy,
+    let labName = localStorage.getItem("labName")
+    return this.httpClient.get<GetClients>(this.url+"/client/"+labName+"/"+filter.header+"/"+filter.orderBy,
       this.httpOptions
     ) 
 

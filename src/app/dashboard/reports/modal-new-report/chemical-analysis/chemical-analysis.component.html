@@ -1,0 +1,116 @@
+<main class="mb-7 w-full pl-5">
+    <form [formGroup]="chemicalAnalysisForm" class="w-full flex flex-col">
+        <div class=" flex mb-5 flex-row w-full justify-between">
+            <div class="w-full">
+                <h2 class=" text-2xl font-semibold mb-3 text-main-green font-main ">
+                    pH da amostra
+                </h2>
+                <input
+                formControlName="ph"
+                class=" max-w-96 text-xl text-second-black tracking-wider outline-none font-second border border-second-gray h-14 rounded-[5px] pl-5 w-full "
+                placeholder="mol dm³" 
+                type="text"
+                autocomplete="new-name"
+                />
+            </div>
+            <div class="w-full">
+                <h2 class=" text-2xl font-semibold mb-3 text-main-green font-main ">
+                    Enxofre
+                </h2>
+                <input
+                formControlName="sulfur"
+                class=" max-w-96 text-xl text-second-black tracking-wider outline-none font-second border border-second-gray h-14 rounded-[5px] pl-5 w-full "
+                placeholder="mol dm³" 
+                type="text"
+                autocomplete="new-name"
+                />
+            </div>
+           
+        </div>
+        <div class=" flex mb-5 flex-row justify-between">
+           
+            <div class="w-full">
+                <h2 class=" text-2xl font-semibold mb-3 text-main-green font-main ">
+                    H+AL
+                </h2>
+                <input
+                formControlName="potencialAcidity"
+                class=" max-w-96 text-xl text-second-black tracking-wider outline-none font-second border border-second-gray h-14 rounded-[5px] pl-5 w-full "
+                placeholder="mol/dm³" 
+                type="text"
+                autocomplete="new-name"
+                />
+            </div>
+            <div class="w-full">
+                <h2 class=" text-2xl font-semibold mb-3 text-main-green font-main ">
+                    Potássio
+                </h2>
+                <input
+                formControlName="potassium"
+                class=" max-w-96 text-xl text-second-black tracking-wider outline-none font-second border border-second-gray h-14 rounded-[5px] pl-5 w-full "
+                placeholder="mol/dm³" 
+                type="text"
+                autocomplete="new-name"
+                />
+            </div>
+        </div>
+
+        <div class=" flex flex-row mb-5 justify-between">
+            <div class="w-full">
+                <h2 class=" text-2xl font-semibold mb-3 text-main-green font-main ">
+                    Cálcio
+                </h2>
+                <input
+                formControlName="calcium"
+                class=" max-w-96 text-xl text-second-black tracking-wider outline-none font-second border border-second-gray h-14 rounded-[5px] pl-5 w-full "
+                placeholder="mol/dm³" 
+                type="text"
+                autocomplete="new-name"
+                />
+            </div>
+            <div class="w-full">
+                <h2 class=" text-2xl font-semibold mb-3 text-main-green font-main ">
+                    Magnésio
+                </h2>
+                <input
+                formControlName="magnesium"
+                class=" max-w-96 text-xl text-second-black tracking-wider outline-none font-second border border-second-gray h-14 rounded-[5px] pl-5 w-full "
+                placeholder="mol/dm³" 
+                type="text"
+                autocomplete="new-name"
+                />
+            </div>
+        </div>
+        <div class=" flex mb-8 flex-row justify-between">
+            <div class="w-full">
+                <h2 class=" text-2xl font-semibold mb-3 text-main-green font-main ">
+                    Alumínio
+                </h2>
+                <input
+                formControlName="aluminum"
+                class=" max-w-96 text-xl text-second-black tracking-wider outline-none font-second border border-second-gray h-14 rounded-[5px] pl-5 w-full "
+                placeholder="mol/dm³" 
+                type="text"
+                autocomplete="new-name"
+                />
+            </div>
+            <div class="w-full">
+                <h2 class=" text-2xl font-semibold mb-3 text-main-green font-main ">
+                    Sódio
+                </h2>
+                <input
+                formControlName="sodium"
+                class=" max-w-96 text-xl text-second-black tracking-wider outline-none font-second border border-second-gray h-14 rounded-[5px] pl-5 w-full "
+                placeholder="mol/dm³" 
+                type="text"
+                autocomplete="new-name"
+                />
+            </div>
+        </div>
+    </form>
+</main>
+<footer class="w-full flex text-main-white justify-center flex-row">
+    <button (click)="hasMicronutrients ? next() : doubleNext()" class=" rounded-[5px] text-lg text-center transition-colors ease-linear duration-150 font-second uppercase font-semibold w-full max-w-[360px]  px-6 pt-4 pb-3 bg-main-green hover:bg-hover-main-green ">
+        <h4>{{hasMicronutrients ? 'Proximo' : 'Visualizar prévia'}}</h4>
+    </button>
+</footer>

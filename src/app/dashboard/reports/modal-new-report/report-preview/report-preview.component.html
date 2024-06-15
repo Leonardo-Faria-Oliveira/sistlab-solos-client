@@ -1,0 +1,52 @@
+
+
+<section class="w-full flex flex-row  font-main justify-between">
+    <app-chemical-physical-preview
+    [chartMaxPx]="75.2"
+    [chemicalAttr1Points]="chemicalAttr1Points"
+    [chemicalAttr1Scales]="chemicalAttr1Scales"
+    [chemicalAttr2Points]="chemicalAttr2Points"
+    [chemicalAttr2Scales]="chemicalAttr2Scales"
+    [city]="city!"
+    [clientName]="clientName!"
+    [depth]="depth!"
+    [landName]="landName"
+    [physicalAttrPoints]="physicalAttrPoints"
+    [physicalAttrScales]="physicalAttrScales"
+    [radarChartAttrPoints]="radarChartAttrPoints"
+    [reportDate]="reportDate!"
+    [technicalResponsible]="technicalResponsible"
+    ></app-chemical-physical-preview>
+
+    <app-chemical-physical-pdf
+    class=" off-screen"
+    [chartMaxPx]="96"
+    [chemicalAttr1Points]="chemicalAttr1Points"
+    [chemicalAttr1Scales]="chemicalAttr1Scales"
+    [chemicalAttr2Points]="chemicalAttr2Points"
+    [chemicalAttr2Scales]="chemicalAttr2Scales"
+    [city]="city!"
+    [clientName]="clientName!"
+    [depth]="depth!"
+    [landName]="landName"
+    [physicalAttrPoints]="physicalAttrPoints"
+    [physicalAttrScales]="physicalAttrScales"
+    [radarChartAttrPoints]="radarChartAttrPoints"
+    [reportDate]="reportDate!"
+    [technicalResponsible]="technicalResponsible"
+    ></app-chemical-physical-pdf>
+    
+    
+   
+    <footer class="w-full items-end max-w-[25rem]  flex text-main-white justify-end flex-col">
+        <button 
+        (click)="gerarLaudo()"
+        class="h-14 mb-4 rounded-[5px] text-lg text-center transition-colors ease-linear duration-150 font-second uppercase font-semibold w-full max-w-[360px]  px-6 pt-4 pb-3 bg-main-green hover:bg-hover-main-green ">
+            <h4 *ngIf="!isLoading" >Gerar laudo</h4>   <div ngClass="self-center" *ngIf="isLoading" class="loader"></div>
+        </button>
+        <button (click)="hasMicronutrients ? back() : doubleBack()" class="h-14 rounded-[5px] text-lg text-center transition-colors ease-linear duration-150 font-second uppercase font-semibold w-full max-w-[360px]  px-6 pt-4 pb-3 bg-main-gray hover:bg-hover-main-gray ">
+            <h4>Voltar</h4>
+        </button>
+    </footer>
+</section>
+

@@ -1,0 +1,135 @@
+<main id="pdf"  class="max-w-[37rem] p-5 h-[52rem] w-full pl-5">
+    
+    <div class="bg-darker-green mb-4 flex justify-center h-[4.8rem] items-center  rounded-[5px]">
+        <h1 class="  text-2xl text-main-white" >Laudo Químico Físico</h1>
+    </div>
+
+    <div class="flex flex-col mb-4 w-full">
+        <div class="flex flex-row mb-4 justify-between w-full">
+            <div class="w-[5.8rem]  ">
+                <h5 class="text-main-gray text-sm">Proprietário</h5>
+                <h3  class="font-semibold text-sm">{{clientName!}}</h3>
+            </div>
+            <div class="w-[5.8rem]">
+                <h5 class="text-main-gray text-sm">Municipio</h5>
+                <h3 class="font-semibold text-sm">{{city}}</h3>
+            </div>
+            <div>
+                <h5 class="text-main-gray text-sm">Profundidade</h5>
+                <h3 class="font-semibold text-center text-sm">0 - {{depth}}cm</h3>
+            </div>
+        </div>
+        <div class="flex flex-row justify-between ">
+            <div class="w-[5.2rem]  ">
+                <h5 class="text-main-gray text-sm">Propriedade</h5>
+                <h3 class="font-semibold text-sm">{{landName.slice(0,15)}}</h3>
+            </div>
+            <div class="w-[5.8rem]  ">
+                <h5 class="text-main-gray text-sm">Data</h5>
+                <h3 class="font-semibold text-sm">{{reportDate}}</h3>
+            </div>
+            <div>
+                <h5 class="text-main-gray text-sm">Descrição</h5>
+                <h3 class="font-semibold text-sm">Amostra</h3>
+            </div>
+        </div>
+    </div>
+
+
+    <div  class="bg-darker-green text-center p-1 py-[3px] px-4 ">
+        <h2 class="text-main-white py-1 text-xl mb-1">Análise do solo</h2>
+        <div class="flex flex-row justify-between w-full">
+            <div class="w-full flex flex-col mr-1 ">
+                
+                <app-chemical-attr1-pdf
+                [points]="chemicalAttr1Points"
+                [scales]="chemicalAttr1Scales"
+                [chartMaxPx]="chartMaxPx"
+                ></app-chemical-attr1-pdf>
+
+                <app-physical-attr-pdf
+                [points]="physicalAttrPoints"
+                [scales]="physicalAttrScales"
+                [chartMaxPx]="chartMaxPx"
+                ></app-physical-attr-pdf>
+
+                <app-technical-signature-pdf
+                [technicalName]="technicalResponsible!.name"
+                [crea]="technicalResponsible!.crea!"
+                ></app-technical-signature-pdf>
+                
+            </div>
+           
+            
+            <div class="w-full flex flex-col">
+
+                 <app-chemical-attr2-pdf
+                [points]="chemicalAttr2Points"
+                [scales]="chemicalAttr2Scales"
+                [chartMaxPx]="chartMaxPx"
+                ></app-chemical-attr2-pdf>
+
+                <app-radar-chart-frame-pdf
+                [points]="radarChartAttrPoints"
+                [minValue]="0"
+                [maxValue]="100"
+                ></app-radar-chart-frame-pdf> 
+                <!-- <div class=" w-40 mb-1  bg-main-white  text-[0.3rem] p-1 flex flex-col items-center">
+                    
+                    <h3 class="text-[0.5rem] font-semibold mb-2">Fósforo remanescente e nível crítico</h3>
+                    
+                    <div class="flex w-full flex-row ml-2 justify-around">
+                        <div>
+                            <div class="mr-2 px-1 text-main-white flex flex-col justify-center align-middle bg-main-green ">
+                                mg dm³
+                            </div>
+                            <div class="mr-1 w-[1.47rem] text-[0.35rem] border flex flex-col justify-center align-middle ">
+                                ns
+                            </div>
+                            <div class="mr-1 w-[1.47rem] text-[0.3rem]  flex flex-col justify-center align-middle ">
+                                P-rem
+                            </div>
+                        </div>
+                        <div>
+                            <div class="mr-2 px-1 text-main-white flex flex-col justify-center align-middle bg-main-green ">
+                                mg dm³
+                            </div>
+                            <div class="mr-1 w-[1.47rem] text-[0.35rem] border flex flex-col justify-center align-middle ">
+                                ns
+                            </div>
+                            <div class="mr-1 w-[1.47rem] text-[0.3rem]  flex flex-col justify-center align-middle ">
+                                Fósforo
+                            </div>
+                        </div>
+                        <div>
+                            <div class="mr-2 px-1 text-main-white flex flex-col justify-center align-middle bg-main-green ">
+                                mg dm³
+                            </div>
+                            <div class="mr-1 w-[1.47rem] text-[0.35rem] border flex flex-col justify-center align-middle ">
+                                ns
+                            </div>
+                            <div class="mr-1 w-[1.47rem] text-[0.3rem]  flex flex-col justify-center align-middle ">
+                                Enxofre
+                            </div>
+                        </div>
+                        <div>
+                            <div class="mr-2 px-1 text-main-white flex flex-col justify-center align-middle bg-main-green ">
+                                mg dm³
+                            </div>
+                            <div class="mr-1 w-[1.47rem] text-[0.35rem] border flex flex-col justify-center align-middle ">
+                                ns
+                            </div>
+                            <div class="mr-1 w-[1.47rem] text-[0.3rem]  flex flex-col justify-center align-middle ">
+                                Zinco
+                            </div>
+                        </div>
+                    </div>
+                </div>  -->
+                
+            </div>
+
+        </div>
+    
+    </div>
+
+</main>
