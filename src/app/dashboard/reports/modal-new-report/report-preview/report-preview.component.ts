@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import * as d3 from 'd3';
-import html2canvas from 'html2canvas';
+// import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
 import { Employee } from 'src/app/models/employee';
 import { Report } from 'src/app/models/report';
@@ -136,14 +136,26 @@ export class ReportPreviewComponent implements OnInit{
     this.isPdf= true
     const data = document.getElementById('pdf');
     if (data) {
-      html2canvas(data).then(canvas => {
-        const imgWidth = 450;
-        const imgHeight = canvas.height * imgWidth / canvas.width;
-        const contentDataURL = canvas.toDataURL('image/png');
-        let pdf = new jsPDF('p', 'px', 'a4');
-        pdf.addImage(contentDataURL, 'PNG', -1, -1, imgWidth, imgHeight);
-        pdf.save(this.landName + " - "+ this.clientName+".pdf");
+      import('html2canvas').then(html2canvas => {
+        html2canvas.default(data).then(canvas => {
+
+          const imgWidth = 450;
+          const imgHeight = canvas.height * imgWidth / canvas.width;
+          const contentDataURL = canvas.toDataURL('image/png');
+          let pdf = new jsPDF('p', 'px', 'a4');
+          pdf.addImage(contentDataURL, 'PNG', -1, -1, imgWidth, imgHeight);
+          pdf.save(this.landName + " - "+ this.clientName+".pdf");
+
+        });
       });
+      // html2canvas(data).then(canvas => {
+      //   const imgWidth = 450;
+      //   const imgHeight = canvas.height * imgWidth / canvas.width;
+      //   const contentDataURL = canvas.toDataURL('image/png');
+      //   let pdf = new jsPDF('p', 'px', 'a4');
+      //   pdf.addImage(contentDataURL, 'PNG', -1, -1, imgWidth, imgHeight);
+      //   pdf.save(this.landName + " - "+ this.clientName+".pdf");
+      // });
     }
   }
 

@@ -57,7 +57,6 @@ import { ChemicalAttr1Component } from './dashboard/reports/modal-new-report/rep
 import { RadarChartComponent } from './dashboard/charts/radar-chart/radar-chart.component';
 import { provideCharts, withDefaultRegisterables } from 'ng2-charts';
 import { RadarChartFrameComponent } from './dashboard/reports/modal-new-report/report-preview/chemical-physical-preview/frames/radar-chart-frame/radar-chart-frame.component';
-import {NgxPrintModule} from 'ngx-print';
 import { PhysicalAttrComponent } from './dashboard/reports/modal-new-report/report-preview/chemical-physical-preview/frames/physical-attr/physical-attr.component';
 import { TechnicalSignatureComponent } from './dashboard/reports/modal-new-report/report-preview/chemical-physical-preview/frames/technical-signature/technical-signature.component';
 import { ChemicalAttr2Component } from './dashboard/reports/modal-new-report/report-preview/chemical-physical-preview/frames/chemical-attr2/chemical-attr2.component';
@@ -148,8 +147,7 @@ import { RadarChartFramePdfComponent } from './dashboard/reports/modal-new-repor
         RouterLinkActive,
         CommonModule,
         HttpClientModule,
-        RadarChartComponent,
-        NgxPrintModule
+        RadarChartComponent
     ]
 })
 export class AppModule { }

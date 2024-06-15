@@ -19,13 +19,10 @@
     "@angular/platform-browser-dynamic": "^16.2.0",
     "@angular/router": "^16.2.0",
     "chart.js": "^4.4.2",
-    "d3": "^7.9.0",
     "flow.js": "^0.2.6",
-    "flowjs": "^1.0.0",
     "html2canvas": "^1.4.1",
     "jspdf": "^2.5.1",
     "ng2-charts": "^6.0.1",
-    "ngx-print": "^1.5.1",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.13.0"
