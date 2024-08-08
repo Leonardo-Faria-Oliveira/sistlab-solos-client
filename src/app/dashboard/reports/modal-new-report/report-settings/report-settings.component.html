@@ -98,15 +98,15 @@
         <div class=" flex flex-row justify-between">
             <div class="w-full">
                 <h2 class=" text-2xl font-semibold mb-3 text-main-green font-main cursor-pointer">
-                    Cidade
+                    Município
                 </h2>
-                <input
-                formControlName="city"
-                class=" max-w-96  text-xl text-second-black tracking-wider outline-none font-second border border-second-gray h-14 rounded-[5px] pl-5 w-full "
-                placeholder="Cidade da propriedade" 
-                type="text"
-                autocomplete="new-city"
-                />
+                <select 
+                    data-live-search="true"
+                    class="outline-none  appearance-none h-14 mb-11 rounded-[5px] pl-5 pr-10 w-full"  
+                    required>
+                    <option disabled selected>Município*</option>
+                    <option class="hover:bg-second-green duration-75" *ngFor="let city of cities" [ngValue]="city">{{city}}</option>
+                </select>
             </div>
             
             <div class="w-full">

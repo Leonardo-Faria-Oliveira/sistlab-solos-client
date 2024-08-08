@@ -13,7 +13,30 @@
             </h3>
         </div>
         <div class="flex flex-col justify-center  font-second text-xl text-main-gray w-full max-w-sm ">
-            <input 
+            <form [formGroup]="firstStepForm" class="w-full flex flex-col">
+                <input
+                formControlName = "name"
+                class=" outline-none h-14 mb-11 rounded-[5px] pl-5 w-full"
+                placeholder="Nome*" 
+                type="text"
+                autocomplete="new-name"
+                />
+                <input 
+                formControlName = "email"
+                class=" outline-none h-14 mb-11 rounded-[5px] pl-5 w-full "
+                placeholder="Email*" 
+                type="email"
+                autocomplete="new-email" 
+                />
+                <input 
+                formControlName = "contact"
+                class=" outline-none h-14 mb-11 rounded-[5px] pl-5 w-full "
+                placeholder="Telefone" 
+                type="text" 
+                autocomplete="new-contact"
+                />
+            </form>
+            <!-- <input 
                 class="  outline-none h-14 mb-11 rounded-[5px] pl-5 w-full "
                 placeholder="Nome*" 
                 type="text"
@@ -30,7 +53,7 @@
                 placeholder="Telefone: (43) 9 9999-9999" 
                 type="text" 
                 autocomplete="new-phone"
-            />
+            /> -->
             <button
             (click)="next()"
             class="h-14 -mt-2 hover:bg-hover-second-green ease-in duration-100 bg-second-green w-full font-semibold rounded-[5px] font-second text-main-white "

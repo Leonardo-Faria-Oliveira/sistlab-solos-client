@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Output } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-fourth-step-form',
@@ -7,8 +8,18 @@ import { Component, EventEmitter, Output } from '@angular/core';
 })
 export class FourthStepFormComponent {
 
-  @Output() backStep = new EventEmitter();
+  @Output() submit = new EventEmitter();
 
+  public fourthStepForm = new FormGroup({
+    password: new FormControl<string | undefined>(undefined),
+    confirm_password: new FormControl<string | undefined>(undefined)
+  });
+
+  public next(): void{
+    this.submit.emit(this.fourthStepForm);
+  }
+
+  @Output() backStep = new EventEmitter();
 
   public back(): void{
 

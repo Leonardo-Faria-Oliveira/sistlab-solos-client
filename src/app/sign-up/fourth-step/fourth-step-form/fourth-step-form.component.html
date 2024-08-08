@@ -5,7 +5,23 @@
     </header>
     <main class="flex flex-col min-h-[581px] h-full justify-center  items-center max-w-2xl  w-full">
         <div class="flex flex-col justify-center  font-second text-xl text-main-gray w-full max-w-sm ">
-            <input 
+            <form [formGroup]="fourthStepForm" class="w-full flex flex-col">
+                <input
+                formControlName = "password"
+                class=" outline-none h-14 mb-10 rounded-[5px] pl-5 w-full "
+                placeholder="Senha*" 
+                type="password"
+                autocomplete="new-password"
+                />
+                <input 
+                formControlName = "confirm_password"
+                class=" outline-none h-14 mb-10 rounded-[5px] pl-5 w-full "
+                placeholder="Confirmar senha*" 
+                type="password"
+                autocomplete="new-password" 
+                />
+            </form>
+            <!-- <input 
                 class="  outline-none h-14 mb-10 rounded-[5px] pl-5 w-full "
                 placeholder="Senha*" 
                 type="password"
@@ -16,8 +32,9 @@
                 placeholder="Confirmar senha*" 
                 type="password" 
                 autocomplete="new-password"
-            />
+            /> -->
             <button
+            (click)="next()"
             class="h-14 -mt-2 mb-6 hover:bg-hover-second-green ease-in duration-100 bg-second-green w-full font-semibold rounded-[5px] font-second text-main-white "
             >
                 ENVIAR

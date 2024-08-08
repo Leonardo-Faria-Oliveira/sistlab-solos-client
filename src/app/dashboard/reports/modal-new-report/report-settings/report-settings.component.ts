@@ -5,6 +5,7 @@ import { ReportSettingsEmitter } from 'src/app/interfaces/report-settings-emitte
 import { Client } from 'src/app/models/client';
 import { Employee } from 'src/app/models/employee';
 import { Report } from 'src/app/models/report';
+import { cities } from '../../../../sign-up/second-step/second-step-form/cities';
 
 @Component({
   selector: 'app-report-settings',
@@ -12,6 +13,8 @@ import { Report } from 'src/app/models/report';
   styleUrls: ['./report-settings.component.css']
 })
 export class ReportSettingsComponent {
+
+  public cities = cities
 
   @Input({required:true}) clientList:Client[] = new Array<Client>()
 

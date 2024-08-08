@@ -11,7 +11,37 @@
             </h3>
         </div>
         <div class="flex flex-col justify-center  font-second text-xl text-main-gray w-full max-w-sm ">
-            <input 
+            <form [formGroup]="thirdStepForm" class="w-full flex flex-col">
+                <input
+                formControlName = "employee_name"
+                class="  outline-none h-14 mb-10 rounded-[5px] pl-5 w-full "
+                placeholder="Nome*" 
+                type="text"
+                autocomplete="cc-name"
+                />
+                <input 
+                formControlName = "employee_email"
+                class="  outline-none h-14 mb-10 rounded-[5px] pl-5 w-full "
+                placeholder="Email*" 
+                type="email" 
+                autocomplete="email"
+                />
+                <input 
+                formControlName = "employee_contact"
+                class="  outline-none h-14 mb-10 rounded-[5px] pl-5 w-full "
+                placeholder="Telefone: (43) 9 9999-9999" 
+                type="text" 
+                autocomplete="tel"
+                />
+                <input 
+                formControlName = "job"
+                class="  outline-none h-14 mb-10 rounded-[5px] pl-5 w-full "
+                placeholder="Função*" 
+                type="text" 
+                autocomplete="new-job"
+                />
+            </form>
+            <!-- <input 
                 class="  outline-none h-14 mb-10 rounded-[5px] pl-5 w-full "
                 placeholder="Nome*" 
                 type="text"
@@ -33,7 +63,7 @@
                 class="  outline-none h-14 mb-10 rounded-[5px] pl-5 w-full "
                 placeholder="Função*" 
                 type="text" 
-            />
+            /> -->
             <button
             (click)="next()"
             class="h-14 -mt-2 hover:bg-hover-second-green ease-in duration-100 bg-second-green w-full font-semibold rounded-[5px] font-second text-main-white "
