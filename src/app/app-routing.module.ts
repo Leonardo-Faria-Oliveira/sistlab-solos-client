@@ -1,16 +1,16 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { LoginComponent } from './login/login.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
+import { LoginComponent } from './components/login/login.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 import {unloggedUserGuard} from './guards/unlogged-user.guard';
 import {loggedUserGuard} from './guards/logged-user.guard';
-import { SignUpComponent } from './sign-up/sign-up.component';
-import { OverviewComponent } from './dashboard/overview/overview.component';
-import { LabsComponent } from './dashboard/labs/labs.component';
-import { ReportsComponent } from './dashboard/reports/reports.component';
-import { PricingsComponent } from './dashboard/pricings/pricings.component';
-import { StaticsComponent } from './dashboard/statics/statics.component';
-import { FirstAccessComponent } from './first-access/first-access.component';
+import { SignUpComponent } from './components/sign-up/sign-up.component';
+import { OverviewComponent } from './components/overview/overview.component';
+import { LabsComponent } from './components/labs/labs.component';
+import { ReportsComponent } from './components/reports/reports.component';
+import { PricingsComponent } from './components/pricing/pricings.component';
+import { StaticsComponent } from './components/statics/statics.component';
+import { FirstAccessComponent } from './components/first-access/first-access.component';
 
 const routes: Routes = [
   {path:'', component: LoginComponent, canActivate:[unloggedUserGuard]},
