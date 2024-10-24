@@ -66,6 +66,7 @@ export class EmployeesComponent implements OnInit {
     .subscribe(res => {
 
       this.employees = res.employees;
+      this.employees = this.employees.filter(employee => employee.email !== this.userEmail)
       // let count = 0
       // res.employees.map(employee =>{
       

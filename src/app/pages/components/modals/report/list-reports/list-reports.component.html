@@ -24,14 +24,14 @@
             </div>
             <div class="flex text-right  flex-col font-second text-xl text-second-black">
                 <h3>Funcionário Responsável: <span class="text-second-green cursor-pointer">{{nameParser(report.employeesList[0].employee.name)}}</span></h3>
-                <h3>Responsável Técnico: <span class="text-second-green cursor-pointer">{{nameParser(report.employeesList[1].employee.name)}}</span></h3>
+                <h3>Responsável Técnico: <span class="text-second-green cursor-pointer">{{nameParser(report.employeesList[0].employee.name)}}</span></h3>
             </div>
         </div>
         <div class=" w-full flex flex-row  justify-between">
             <div class="flex text-center flex-row w-full max-w-96  justify-between">
                 <div class=" font-second text-xl text-second-black flex flex-col">
                     <h3>Profundidade</h3>
-                    <h3>{{report.depth}} cm</h3>
+                    <h3>20 cm</h3>
                 </div>
                 <div class="font-second text-xl text-second-black flex flex-col">
                     <h3>Data</h3>
@@ -46,4 +46,7 @@
             </div>
         </div>
     </main>
+    <section class="text-second-black w-full  mb-4  text-xl font-main font-semibold" *ngIf="reports.length == 0">
+        <div colspan="4" class="py-12 border w-full text-center">Não há laudos</div>
+    </section>
 </section>

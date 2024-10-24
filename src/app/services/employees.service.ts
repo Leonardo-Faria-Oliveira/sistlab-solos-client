@@ -38,7 +38,7 @@ export class EmployeesService {
 
   public createEmployee(employee: CreateEmployee):Observable<Employee>{
     let path = employee.roleName.includes("echnical") ? "/technical" : ""
-    return this.httpClient.post<Employee>(this.url+"/employee"+path, JSON.stringify(employee), this.httpOptions)
+    return this.httpClient.post<Employee>(this.url+"/employee", JSON.stringify(employee), this.httpOptions)
   }
 
   public searchEmployees(search:SearchBasic): Observable<GetEmployees>{

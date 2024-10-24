@@ -59,8 +59,8 @@ export class ReportsComponent  implements OnInit {
   public lastPhosphorValue:PhosphorValue | undefined
   
   public properties:string[] = [
-    "totalOrganicCarbon",
-    "organicMatter",
+    "total_organic_carbon",
+    "organic_matter",
     "ph",
     "potassium",
     "calcium",
@@ -82,7 +82,7 @@ export class ReportsComponent  implements OnInit {
 
   public hasConfig:boolean = false
 
-  public hasModalNewReport:boolean = true
+  public hasModalNewReport:boolean = false
 
   public reports:ReportPdf[] = new Array<ReportPdf>();
 
@@ -168,8 +168,9 @@ export class ReportsComponent  implements OnInit {
         return throwError(() => new Error(err));
       }))
       .subscribe(res => {
+        console.log(res)
         this.reports = res.reports;
-        console.log(this.reports)
+        console.log(this.reports[0].depth)
       }),
       
       this.getScales()

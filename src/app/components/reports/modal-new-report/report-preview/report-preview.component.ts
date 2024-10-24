@@ -159,14 +159,7 @@ export class ReportPreviewComponent implements OnInit{
 
         });
       });
-      // html2canvas(data).then(canvas => {
-      //   const imgWidth = 450;
-      //   const imgHeight = canvas.height * imgWidth / canvas.width;
-      //   const contentDataURL = canvas.toDataURL('image/png');
-      //   let pdf = new jsPDF('p', 'px', 'a4');
-      //   pdf.addImage(contentDataURL, 'PNG', -1, -1, imgWidth, imgHeight);
-      //   pdf.save(this.landName + " - "+ this.clientName+".pdf");
-      // });
+
     }
   }
 

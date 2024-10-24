@@ -30,20 +30,20 @@ export class MenuComponent {
   public isMenuActive:boolean = true
 
   adminItensMenu:ItemMenu[] = [
-    {
-      index:1,
-      text:"Visão geral",
-      icon:"../../../assets/overview.svg",
-      activeIcon: "../../../assets/overview_active.svg",
+    // {
+    //   index:1,
+    //   text:"Visão geral",
+    //   icon:"../../../assets/overview.svg",
+    //   activeIcon: "../../../assets/overview_active.svg",
       
-    },
-    {
-      index:2,
-      text:"Laboratórios",
-      icon:"../../../assets/labs.svg",
-      activeIcon: "../../../assets/labs_active.svg"
+    // },
+    // {
+    //   index:2,
+    //   text:"Laboratórios",
+    //   icon:"../../../assets/labs.svg",
+    //   activeIcon: "../../../assets/labs_active.svg"
       
-    },
+    // },
     {
       index:3,
       text:"Laudos",
@@ -51,30 +51,30 @@ export class MenuComponent {
       activeIcon: "../../../assets/reports_active.svg",
       
     },
-    {
-      index:4,
-      text:"Planos",
-      icon:"../../../assets/pricings.svg",
-      activeIcon: "../../../assets/pricings_active.svg",
+    // {
+    //   index:4,
+    //   text:"Planos",
+    //   icon:"../../../assets/pricings.svg",
+    //   activeIcon: "../../../assets/pricings_active.svg",
       
-    },
-    {
-      index:5,
-      text:"Estatísticas",
-      icon:"../../../assets/statics.svg",
-      activeIcon: "../../../assets/statics_active.svg",
+    // },
+    // {
+    //   index:5,
+    //   text:"Estatísticas",
+    //   icon:"../../../assets/statics.svg",
+    //   activeIcon: "../../../assets/statics_active.svg",
       
-    },
+    // },
   ]
 
   labAdminEmployeeItensMenu:ItemMenu[] = [
-    {
-      index:1,
-      text:"Visão geral",
-      icon:"../../../assets/overview.svg",
-      activeIcon: "../../../assets/overview_active.svg",
+    // {
+    //   index:1,
+    //   text:"Visão geral",
+    //   icon:"../../../assets/overview.svg",
+    //   activeIcon: "../../../assets/overview_active.svg",
       
-    },
+    // },
     {
       index:2,
       text:"Funcionários",
@@ -96,23 +96,23 @@ export class MenuComponent {
       activeIcon: "../../../assets/clients_active.svg",
       
     },
-    {
-      index:5,
-      text:"Assinatura",
-      icon:"../../../assets/pricings.svg",
-      activeIcon: "../../../assets/pricings_active.svg",
+    // {
+    //   index:5,
+    //   text:"Assinatura",
+    //   icon:"../../../assets/pricings.svg",
+    //   activeIcon: "../../../assets/pricings_active.svg",
       
-    },
+    // },
   ]
 
   employeeItensMenu:ItemMenu[] = [
-    {
-      index:1,
-      text:"Visão geral",
-      icon:"../../../assets/overview.svg",
-      activeIcon: "../../../assets/overview_active.svg",
+    // {
+    //   index:1,
+    //   text:"Visão geral",
+    //   icon:"../../../assets/overview.svg",
+    //   activeIcon: "../../../assets/overview_active.svg",
       
-    },
+    // },
     {
       index:3,
       text:"Laudos",

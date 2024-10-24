@@ -23,13 +23,13 @@
                         <input (change)="hasFilledValues()" formControlName="y1" placeholder="y1" class="border h-14 w-14 text-center  border-second-gray rounded-[5px]" type="text"/>
                     </div>
                     <div class="border-l border-b w-full max-w-xl h-[28rem]">
-                        <!-- <google-chart
-                        *ngIf="hasChart"
-                            [type]="type"
+                        <google-chart
+                        *ngIf="true"
+                            [type]= "type"
                             [data]="formattedValues!"
                             [options]="options"
                         >
-                        </google-chart> -->
+                        </google-chart>
                     </div>
                 </div>
                 <div class="flex ml-14 mt-2 text-main-gray justify-around flex-row-reverse">

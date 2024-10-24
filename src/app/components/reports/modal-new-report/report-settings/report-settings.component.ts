@@ -82,6 +82,7 @@ export class ReportSettingsComponent {
       this.reportSettingsForm.value.lng === null ||
       parseFloat(this.reportSettingsForm.value.lng!) <= 0)
     ){
+
       this.formEmitter.emit({
         clientId: this.reportSettingsForm.value.clientId!,
         technicalResponsibleId:this.reportSettingsForm.value.technicalResponsibleId!,

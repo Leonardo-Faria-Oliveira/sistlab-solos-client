@@ -10,6 +10,7 @@ import { MenuComponent } from './menu.component';
 import { EmployeesComponent } from '../employee/employees.component';
 import { FooterComponent } from './footer.component';
 import { ClientsComponent } from '../clients/clients.component';
+import { ReportsComponent } from "../reports/reports.component";
 
 @Component({
   selector: 'app-dashboard',
@@ -20,8 +21,9 @@ import { ClientsComponent } from '../clients/clients.component';
     ReactiveFormsModule,
     MenuComponent,
     FooterComponent,
-    ClientsComponent
-  ],
+    ClientsComponent,
+    ReportsComponent
+],
   templateUrl: '../../pages/dashboard/dashboard.component.html',
   styleUrls: ['../../pages/dashboard/dashboard.component.css']
 })

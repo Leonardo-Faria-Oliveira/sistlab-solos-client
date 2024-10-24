@@ -101,6 +101,7 @@ export class ModalNewReportComponent {
   }
 
   public getReportSettings(reportSettings:ReportSettingsEmitter){
+    console.log(this.clientList, reportSettings)
     let client = this.clientList.find(client => client.id === reportSettings.clientId)
     if(client == null){
       this.setError({
@@ -110,23 +111,21 @@ export class ModalNewReportComponent {
 
     }else{
 
-      let technicalResponsible
-      if(!this.isTechnicalResponsible){
+      let technicalResponsible = "8624d535-41bc-4230-95d6-d65785af3f4b"
+      // if(!this.isTechnicalResponsible){
         
-        technicalResponsible = this.clientList.find(technical => technical.id === reportSettings.technicalResponsibleId)
+        // technicalResponsible = this.employeeList.find(technical => technical.employee.id === reportSettings.technicalResponsibleId)
+        // if(technicalResponsible == null){
+        //   this.setError({
+        //     errorCode: 400,
+        //     errorMessage: "Funcionário inválido"
+        //   })
+        // }
         
-        if(technicalResponsible == null){
-          this.setError({
-            errorCode: 400,
-            errorMessage: "Funcionário inválido"
-          })
-        }
-    
-        
-      }
-
+      // }
+      
       this.report.employeeEmail = this.employee.email
-      this.report.technicalResponsibleEmail = this.isTechnicalResponsible ? this.employee.email : technicalResponsible!.email
+      this.report.technicalResponsibleEmail = "esmeralda@uenp.edu.br"//this.isTechnicalResponsible ? this.employee.email : technicalResponsible!.employee.email
       this.report.landName = reportSettings.landName    
       this.report.field = reportSettings.field
       this.report.depth = reportSettings.depth

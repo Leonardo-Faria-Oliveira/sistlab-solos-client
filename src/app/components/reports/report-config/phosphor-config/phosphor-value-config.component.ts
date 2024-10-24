@@ -5,6 +5,10 @@ import { catchError, throwError } from 'rxjs';
 import { ErrorHandler } from 'src/app/interfaces/error-handler';
 import { CommonModule } from '@angular/common';
 import { ErrorModalComponent } from 'src/app/components/modals/error-modal.component';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { ChartType, GoogleChartComponent, GoogleChartsModule } from 'angular-google-charts';
+import { Chart } from 'chart.js';
+
 
 @Component({
   selector: 'app-phosphor-value-config',
@@ -13,7 +17,9 @@ import { ErrorModalComponent } from 'src/app/components/modals/error-modal.compo
     CommonModule,
     ErrorModalComponent,
     ReactiveFormsModule,
+    GoogleChartsModule
   ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   templateUrl: '../../../../pages/components/modals/report/report-config/phosphor-value-config/phosphor-value-config.component.html',
 }) 
 
@@ -35,6 +41,7 @@ export class PhosphorValueConfigComponent {
   public hasError:boolean = false
   public error:ErrorHandler | null = null 
 
+  public type = ChartType.LineChart
 
   public options = {
     areaOpacity: 0,
@@ -108,7 +115,7 @@ export class PhosphorValueConfigComponent {
     this.values.push(this.calcValue( parseFloat(this.phosphorValueForm.value.x4!), parseFloat(this.phosphorValueForm.value.y4!)))
     this.values.push(this.calcValue( parseFloat(this.phosphorValueForm.value.x5!), parseFloat(this.phosphorValueForm.value.y5!)))
     this.formattedValues = this.values.map((value, index) => {
-      return [``, value]; // Supõe-se que cada valor tenha um rótulo
+      return [`4`, value]; // Supõe-se que cada valor tenha um rótulo
     });
   }
 

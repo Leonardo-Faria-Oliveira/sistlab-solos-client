@@ -59,10 +59,12 @@ import { FirstStepComponent } from './components/sign-up/first-step.component';
 import { FourthStepComponent } from './components/sign-up/fourth-step.component';
 import { SecondStepComponent } from './components/sign-up/second-step.component';
 import { ThirdStepComponent } from './components/sign-up/third-step.component';
+import { GoogleChartsModule } from 'angular-google-charts';
 
 
 @NgModule({
     declarations: [
+        AppComponent,
         StaticsComponent,
         OverviewComponent,
         OverviewComponent,
@@ -70,12 +72,13 @@ import { ThirdStepComponent } from './components/sign-up/third-step.component';
         MicronutrientsComponent,
     ],
     providers: [
+        GoogleChartsModule,
         { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
         provideCharts(withDefaultRegisterables())
     ],
-    // bootstrap: [AppComponent],
+    bootstrap: [AppComponent],
     imports: [
-        AppComponent,
+        // AppComponent,
         BrowserModule,
         AppRoutingModule,
         RouterOutlet,
