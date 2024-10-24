@@ -1,0 +1,60 @@
+<!-- <div [ngClass]="hasError ? 'bg-main-black  overflow-y-hidden animate-pulse duration-75 transition-colors ease-out opacity-40 w-full min-h-screen h-full absolute z-[100]' : 'hidden'"></div> -->
+<div class="overflow-y-hidden overflow-x-hidden self-center items-center bg-second-green w-full h-full min-h-screen flex flex-col ">
+    <!-- <app-error-modal  
+    [ngClass]="hasError ? 'z-10 w-full relative text-center': 'hidden'" 
+    errorMessage="{{error?.errorMessage}}" >
+    </app-error-modal> -->
+    <div class=" bg-main-white flex flex-row justify-normal  max-h-screen w-full max-w-[96rem] ">
+        <div class="relative flex flex-col bg-noise -mt-56    w-full  ">
+            <img class=" " src = "../../assets/icon-noise.svg">
+        </div>
+        <div class=" max-w-xl w-full ">
+            <div class="bg-main-green h-full border flex flex-col w-full  p-6 ">
+                <header class="h-16 flex-row justify-end  flex w-full mb-12">
+                    <h2 class="mr-5 text-main-white self-center font-main font-semibold text-2xl">Soloview</h2>
+                    <img class="max-w-16" src=" ../../../../assets/main-logo-icon.svg">
+                </header>
+                <main class="flex flex-col items-center max-w-2xl  w-full">
+                    <div class="text-center mb-12 ">
+                        <h1 class="text-5xl text-main-white font-main font-bold mb-2">Bem vindo</h1>
+                        <h3 class="text-2xl max-w-xs text-second-green font-second ">
+                            Cadastre-se no maior sistema de análise de solos do Paraná
+                        </h3>
+                    </div>
+                    <div class="flex flex-col justify-center  font-second text-xl text-main-gray w-full max-w-sm ">
+                        <input 
+                            class="  outline-none h-14 mb-11 rounded-[5px] pl-5 w-full "
+                            placeholder="Nome*" 
+                            type="text"
+                            autocomplete="new-name"
+                        />
+                        <input 
+                            class="  outline-none h-14 mb-11 rounded-[5px] pl-5 w-full "
+                            placeholder="Email*" 
+                            type="email"
+                            autocomplete="new-email" 
+                        />
+                        <input 
+                            class="  outline-none h-14 mb-11 rounded-[5px] pl-5 w-full "
+                            placeholder="Telefone: (43) 9 9999-9999" 
+                            type="text" 
+                            autocomplete="new-phone"
+                        />
+                        <button
+                        (click)="next()"
+                        class="h-14 -mt-2 hover:bg-hover-second-green ease-in duration-100 bg-second-green w-full font-semibold rounded-[5px] font-second text-main-white "
+                        >
+                            PROXIMO
+                        </button>
+                    </div>
+                    <div class="mt-5 text-main-white text-xl flex flex-col text-center font-second">
+                        <h3 class="mb-4" href="">Seu laboratório não está cadastrado?
+                            <a class="font-bold text-second-green" href="signup">Cadastre-se</a>
+                        </h3>
+                        
+                    </div>    
+                </main>
+            </div>
+        </div>
+    </div>
+</div>

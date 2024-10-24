@@ -2,113 +2,120 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LoginComponent } from './login/login.component';
-import { EmployeeLoginFormComponent } from './login/employee-login-form/employee-login-form.component';
-import { AdminLoginFormComponent } from './login/admin-login-form/admin-login-form.component';
+import { LoginComponent } from './components/login/login.component';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { ErrorModalComponent } from './error-modal/error-modal.component';
-import { SignUpComponent } from './sign-up/sign-up.component';
-import { FirstStepComponent } from './sign-up/first-step/first-step.component';
-import { SecondStepComponent } from './sign-up/second-step/second-step.component';
-import { ThirdStepComponent } from './sign-up/third-step/third-step.component';
-import { FourthStepComponent } from './sign-up/fourth-step/fourth-step.component';
-import { FirstStepFormComponent } from './sign-up/first-step/first-step-form/first-step-form.component';
-import { SecondStepFormComponent } from './sign-up/second-step/second-step-form/second-step-form.component';
-import { ThirdStepFormComponent } from './sign-up/third-step/third-step-form/third-step-form.component';
-import { FourthStepFormComponent } from './sign-up/fourth-step/fourth-step-form/fourth-step-form.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { ErrorModalComponent } from './components/modals/error-modal.component';
+import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { TokenInterceptor } from './interceptors/token.interceptor';
-import { Access } from './models/access';
-import { MenuComponent } from './dashboard/menu/menu.component';
-import { FooterComponent } from './dashboard/footer/footer.component';
-import { OverviewComponent } from './dashboard/overview/overview.component';
-import { LabsComponent } from './dashboard/labs/labs.component';
-import { ReportsComponent } from './dashboard/reports/reports.component';
-import { PricingsComponent } from './dashboard/pricings/pricings.component';
-import { StaticsComponent } from './dashboard/statics/statics.component';
-import { EmployeesComponent } from './dashboard/employees/employees.component';
-import { ModalSignupEmployeeComponent } from './dashboard/employees/modal-signup-employee/modal-signup-employee.component';
-import { FirstAccessComponent } from './first-access/first-access.component';
-import { ClientsComponent } from './dashboard/clients/clients.component';
-import { ModalSignupClientComponent } from './dashboard/clients/modal-signup-client/modal-signup-client.component';
-import { SuccessModalComponent } from './success-modal/success-modal.component';
-import { SearchEmployeeComponent } from './dashboard/employees/search-employee/search-employee.component';
-import { SearchClientComponent } from './dashboard/clients/search-client/search-client.component';
-import { ListEmployeesComponent } from './dashboard/employees/list-employees/list-employees.component';
-import { OverviewEmployeesComponent } from './dashboard/employees/overview-employees/overview-employees.component';
-import { OverviewClientsComponent } from './dashboard/clients/overview-clients/overview-clients.component';
-import { ListClientsComponent } from './dashboard/clients/list-clients/list-clients.component';
-import { ListReportsComponent } from './dashboard/reports/list-reports/list-reports.component';
-import { ReportConfigComponent } from './dashboard/reports/report-config/report-config.component';
-import { HeaderConfigComponent } from './dashboard/reports/report-config/header-config/header-config.component';
-import { PhosphorValueConfigComponent } from './dashboard/reports/report-config/phosphor-value-config/phosphor-value-config.component';
-// import { GoogleChartsModule } from 'angular-google-charts';
-import { ModalNewReportComponent } from './dashboard/reports/modal-new-report/modal-new-report.component';
-import { ReportSettingsComponent } from './dashboard/reports/modal-new-report/report-settings/report-settings.component';
-import { PhysicalAnalysisComponent } from './dashboard/reports/modal-new-report/physical-analysis/physical-analysis.component';
-import { ChemicalAnalysisComponent } from './dashboard/reports/modal-new-report/chemical-analysis/chemical-analysis.component';
-import { ReportPreviewComponent } from './dashboard/reports/modal-new-report/report-preview/report-preview.component';
-import { MicronutrientsComponent } from './dashboard/reports/modal-new-report/micronutrients/micronutrients.component';
-import { ScaleChartsComponent } from './dashboard/charts/scale-charts/scale-charts.component';
-import { ChemicalAttr1Component } from './dashboard/reports/modal-new-report/report-preview/chemical-physical-preview/frames/chemical-attr1/chemical-attr1.component';
-import { RadarChartComponent } from './dashboard/charts/radar-chart/radar-chart.component';
+import { MenuComponent } from './components/dashboard/menu.component';
+import { FooterComponent } from './components/dashboard/footer.component';
+import { OverviewComponent } from './components/overview/overview.component';
+import { LabsComponent } from './components/labs/labs.component';
+import { ReportsComponent } from './components/reports/reports.component';
+import { PricingsComponent } from './components/pricing/pricings.component';
+import { StaticsComponent } from './components/statics/statics.component';
+import { EmployeesComponent } from './components/employee/employees.component';
+import { FirstAccessComponent } from './components/first-access/first-access.component';
+import { ClientsComponent } from './components/clients/clients.component';
+import { ModalSignupClientComponent } from './components/clients/modal-signup-client.component';
+import { SuccessModalComponent } from './components/modals/success-modal.component';
+import { SearchClientComponent } from './components/clients/search-client.component';
+import { ListClientsComponent } from './components/clients/list-clients.component';
+import { ScaleChartsComponent } from './components/charts/scale-charts/scale-charts.component';
+import { RadarChartComponent } from './components/charts/radar-chart/radar-chart.component';
 import { provideCharts, withDefaultRegisterables } from 'ng2-charts';
-import { RadarChartFrameComponent } from './dashboard/reports/modal-new-report/report-preview/chemical-physical-preview/frames/radar-chart-frame/radar-chart-frame.component';
-import { PhysicalAttrComponent } from './dashboard/reports/modal-new-report/report-preview/chemical-physical-preview/frames/physical-attr/physical-attr.component';
-import { TechnicalSignatureComponent } from './dashboard/reports/modal-new-report/report-preview/chemical-physical-preview/frames/technical-signature/technical-signature.component';
-import { ChemicalAttr2Component } from './dashboard/reports/modal-new-report/report-preview/chemical-physical-preview/frames/chemical-attr2/chemical-attr2.component';
-import { ChemicalPhysicalPreviewComponent } from './dashboard/reports/modal-new-report/report-preview/chemical-physical-preview/chemical-physical-preview.component';
-import { ChemicalPhysicalPdfComponent } from './dashboard/reports/modal-new-report/report-preview/chemical-physical-pdf/chemical-physical-pdf.component';
-import { ChemicalAttr1PdfComponent } from './dashboard/reports/modal-new-report/report-preview/chemical-physical-pdf/frames/chemical-attr1-pdf/chemical-attr1-pdf.component';
-import { PhysicalAttrPdfComponent } from './dashboard/reports/modal-new-report/report-preview/chemical-physical-pdf/frames/physical-attr-pdf/physical-attr-pdf.component';
-import { TechnicalSignaturePdfComponent } from './dashboard/reports/modal-new-report/report-preview/chemical-physical-pdf/frames/technical-signature-pdf/technical-signature-pdf.component';
-import { ChemicalAttr2PdfComponent } from './dashboard/reports/modal-new-report/report-preview/chemical-physical-pdf/frames/chemical-attr2-pdf/chemical-attr2-pdf.component';
-import { RadarChartFramePdfComponent } from './dashboard/reports/modal-new-report/report-preview/chemical-physical-pdf/frames/radar-chart-frame-pdf/radar-chart-frame-pdf.component';
+import { EmployeeLoginFormComponent } from './components/login/employee-login-form.component';
+import { AdminLoginFormComponent } from './components/login/admin-login-form.component';
+import { ListEmployeesComponent } from './components/employee/list-employees.component';
+import { ModalSignupEmployeeComponent } from './components/employee/modal-signup-employee.component';
+import { SearchEmployeeComponent } from './components/employee/search-employee.component';
+import { ListReportsComponent } from './components/reports/list-reports.component';
+import { ChemicalAnalysisComponent } from './components/reports/modal-new-report/chemical-analysis/chemical-analysis.component';
+import { MicronutrientsComponent } from './components/reports/modal-new-report/micronutrients/micronutrients.component';
+import { ModalNewReportComponent } from './components/reports/modal-new-report/modal-new-report.component';
+import { PhysicalAnalysisComponent } from './components/reports/modal-new-report/physical-analysis/physical-analysis.component';
+import { ChemicalPhysicalPdfComponent } from './components/reports/modal-new-report/report-preview/pdf/chemical-physical-pdf.component';
+import { ChemicalAttr1PdfComponent } from './components/reports/modal-new-report/report-preview/pdf/frames/chemical-attr-1/chemical-attr1-pdf.component';
+import { ChemicalAttr2PdfComponent } from './components/reports/modal-new-report/report-preview/pdf/frames/chemical-attr-2/chemical-attr2-pdf.component';
+import { PhysicalAttrPdfComponent } from './components/reports/modal-new-report/report-preview/pdf/frames/physical-attr/physical-attr-pdf.component';
+import { RadarChartFramePdfComponent } from './components/reports/modal-new-report/report-preview/pdf/frames/radar-chart/radar-chart-frame-pdf.component';
+import { TechnicalSignaturePdfComponent } from './components/reports/modal-new-report/report-preview/pdf/frames/signature/technical-signature-pdf.component';
+import { ChemicalPhysicalPreviewComponent } from './components/reports/modal-new-report/report-preview/preview/chemical-physical-preview.component';
+import { ChemicalAttr1Component } from './components/reports/modal-new-report/report-preview/preview/frames/chemical-attr-1/chemical-attr1.component';
+import { ChemicalAttr2Component } from './components/reports/modal-new-report/report-preview/preview/frames/chemical-attr-2/chemical-attr2.component';
+import { PhysicalAttrComponent } from './components/reports/modal-new-report/report-preview/preview/frames/physical-attr/physical-attr.component';
+import { RadarChartFrameComponent } from './components/reports/modal-new-report/report-preview/preview/frames/radar-chart/radar-chart-frame.component';
+import { TechnicalSignatureComponent } from './components/reports/modal-new-report/report-preview/preview/frames/signature/technical-signature.component';
+import { ReportPreviewComponent } from './components/reports/modal-new-report/report-preview/report-preview.component';
+import { ReportSettingsComponent } from './components/reports/modal-new-report/report-settings/report-settings.component';
+import { HeaderConfigComponent } from './components/reports/report-config/header/header-config.component';
+import { PhosphorValueConfigComponent } from './components/reports/report-config/phosphor-config/phosphor-value-config.component';
+import { ReportConfigComponent } from './components/reports/report-config/report-config.component';
+import { FirstStepComponent } from './components/sign-up/first-step.component';
+import { FourthStepComponent } from './components/sign-up/fourth-step.component';
+import { SecondStepComponent } from './components/sign-up/second-step.component';
+import { ThirdStepComponent } from './components/sign-up/third-step.component';
+import { GoogleChartsModule } from 'angular-google-charts';
 
-
-
-
-// import Flow from 'flowjs/flow.js';
 
 @NgModule({
     declarations: [
         AppComponent,
+        StaticsComponent,
+        OverviewComponent,
+        OverviewComponent,
+        LabsComponent,
+        MicronutrientsComponent,
+    ],
+    providers: [
+        GoogleChartsModule,
+        { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
+        provideCharts(withDefaultRegisterables())
+    ],
+    bootstrap: [AppComponent],
+    imports: [
+        // AppComponent,
+        BrowserModule,
+        AppRoutingModule,
+        RouterOutlet,
+        ReactiveFormsModule,
+        RouterLink,
+        RouterLinkActive,
+        ListClientsComponent,
+        CommonModule,
+        HttpClientModule,
+        RadarChartComponent,
+        MenuComponent,
+        FooterComponent,
+        EmployeesComponent,
+        ModalSignupEmployeeComponent,
+        ClientsComponent,
+        ModalSignupClientComponent,
+        SearchEmployeeComponent,
+        ListEmployeesComponent,
+        FirstAccessComponent,
+        SearchClientComponent,
+        DashboardComponent,
+        ErrorModalComponent,
+        SuccessModalComponent,
         LoginComponent,
         EmployeeLoginFormComponent,
         AdminLoginFormComponent,
-        DashboardComponent,
-        ErrorModalComponent,
+        // DashboardComponent, // Removed from declarations
         SignUpComponent,
         FirstStepComponent,
         SecondStepComponent,
         ThirdStepComponent,
         FourthStepComponent,
-        FirstStepFormComponent,
-        SecondStepFormComponent,
-        ThirdStepFormComponent,
-        FourthStepFormComponent,
-        MenuComponent,
-        FooterComponent,
-        OverviewComponent,
-        LabsComponent,
+        FirstStepComponent,
+        SecondStepComponent,
+        ThirdStepComponent,
+        FourthStepComponent,
         ReportsComponent,
-        PricingsComponent,
-        StaticsComponent,
-        EmployeesComponent,
-        ModalSignupEmployeeComponent,
-        FirstAccessComponent,
-        ClientsComponent,
-        ModalSignupClientComponent,
-        SuccessModalComponent,
-        SearchEmployeeComponent,
-        SearchClientComponent,
-        ListEmployeesComponent,
-        OverviewEmployeesComponent,
-        OverviewClientsComponent,
-        ListClientsComponent,
         ListReportsComponent,
         ReportConfigComponent,
         HeaderConfigComponent,
@@ -118,7 +125,6 @@ import { RadarChartFramePdfComponent } from './dashboard/reports/modal-new-repor
         PhysicalAnalysisComponent,
         ChemicalAnalysisComponent,
         ReportPreviewComponent,
-        MicronutrientsComponent,
         ScaleChartsComponent,
         ChemicalAttr1Component,
         RadarChartFrameComponent,
@@ -133,21 +139,5 @@ import { RadarChartFramePdfComponent } from './dashboard/reports/modal-new-repor
         ChemicalAttr2PdfComponent,
         RadarChartFramePdfComponent,
     ],
-    providers: [
-        { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
-        provideCharts(withDefaultRegisterables())
-    ],
-    bootstrap: [AppComponent],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        RouterOutlet,
-        ReactiveFormsModule,
-        RouterLink,
-        RouterLinkActive,
-        CommonModule,
-        HttpClientModule,
-        RadarChartComponent
-    ]
 })
 export class AppModule { }

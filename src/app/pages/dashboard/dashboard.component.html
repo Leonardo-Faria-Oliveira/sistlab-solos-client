@@ -1,0 +1,82 @@
+<div class="flex flex-col w-full  ">
+    <div class="flex flex-row h-screen  w-full">
+        <header 
+        class="w-full  max-w-sm">
+            <app-menu 
+            (nextIndex)="setIndex($event)"
+            [activeItem]= activeIndex
+            role = "{{account?.role?.name}}"
+            name="{{account?.name}}"
+            ></app-menu>
+        </header>
+        <main  class=" w-full box-border overflow-y-scroll ">
+
+            <!-- Overview -->
+            <!-- <app-overview
+            *ngIf="activeIndex===1"
+            ></app-overview> -->
+
+            <!-- Laboratorios, Funcionarios e Laudos -->
+            <!-- <app-labs
+            *ngIf="account?.role?.name==='admin' && activeIndex===2"
+            ></app-labs> -->
+            <app-employees
+            *ngIf="account?.role?.name==='labAdminEmployee' && activeIndex===2"
+            ></app-employees>
+            <app-employees
+            *ngIf="account?.role?.name==='labAdminTechnical' && activeIndex===2"
+            ></app-employees>
+
+            <!-- Laudos e Clientes -->
+            <!-- <app-reports
+            [isTechnicalResponsible]="false"
+            *ngIf="account?.role?.name==='admin' && activeIndex===3"
+            ></app-reports> -->
+            <app-reports
+            [isTechnicalResponsible]="false"
+            [account]="account!"
+            *ngIf="account?.role?.name==='employee' && activeIndex===3"
+            ></app-reports>
+            <app-reports
+            [account]="account!"
+            [isTechnicalResponsible]="true"
+            *ngIf="account?.role?.name==='technicalResponsible' && activeIndex===3"
+            ></app-reports>
+            <app-reports
+            [account]="account!"
+            [isTechnicalResponsible]="false"
+            *ngIf="account?.role?.name==='labAdminEmployee' && activeIndex===3"
+            ></app-reports>
+            <app-reports
+            [account]="account!"
+            [isTechnicalResponsible]="true"
+            *ngIf="account?.role?.name==='labAdminTechnical' && activeIndex===3"
+            ></app-reports>
+
+            <!-- Clientes e Planos -->
+            <app-clients
+            *ngIf="account?.role?.name==='employee' && activeIndex===4"
+            ></app-clients>
+            <app-clients
+            *ngIf="account?.role?.name==='technicalResponsible' && activeIndex===4"
+            ></app-clients>
+            <app-clients
+            *ngIf="account?.role?.name==='labAdminEmployee' && activeIndex===4"
+            ></app-clients>
+            <app-clients
+            *ngIf="account?.role?.name==='labAdminTechnical' && activeIndex===4"
+            ></app-clients>
+            <!-- <app-pricings
+            *ngIf="account?.role?.name==='admin' && activeIndex===4"
+            ></app-pricings> -->
+
+            <!-- Estatísticas -->
+            <!-- <app-statics
+            *ngIf="account?.role?.name==='admin' && activeIndex===5"
+            ></app-statics> -->
+        </main>
+    </div>
+    <footer class="z-10">
+        <app-footer></app-footer>
+    </footer>
+</div>
