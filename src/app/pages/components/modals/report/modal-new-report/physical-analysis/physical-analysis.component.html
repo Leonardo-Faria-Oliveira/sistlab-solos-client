@@ -3,66 +3,66 @@
         
         <div class=" mb-11 flex flex-row justify-between">
             <div class="w-full">
-                <h2 class=" text-2xl font-semibold mb-3 text-main-green font-main ">
+                <h2 class=" text-2xl md:text-xl font-semibold mb-3 text-main-green font-main ">
                     Absorbância do fósforo
                 </h2>
                 <input
                 formControlName="phosphorAbsorbance"
-                class=" max-w-96 text-xl text-second-black tracking-wider outline-none font-second border border-second-gray h-14 rounded-[5px] pl-5 w-full "
+                class=" max-w-96 md:max-w-72 md:h-10 text-xl placeholder:text-[1rem] text-second-black tracking-wider outline-none font-second border border-second-gray h-14 rounded-[5px] pl-5 md:pl-2 w-full  "
                 placeholder="mol dm³" 
                 type="text"
                 autocomplete="new-name"
                 />
             </div>
             <div class="w-full">
-                <h2 class=" text-2xl font-semibold mb-3 text-main-green font-main ">
+                <h2 class=" text-2xl md:text-xl font-semibold mb-3 text-main-green font-main ">
                     Carbono
                 </h2>
                 <input
                 formControlName="carbon"
-                class=" max-w-96 text-xl text-second-black tracking-wider outline-none font-second border border-second-gray h-14 rounded-[5px] pl-5 w-full "
+                class=" max-w-96 md:max-w-72 md:h-10 text-xl placeholder:text-[1rem] text-second-black tracking-wider outline-none font-second border border-second-gray h-14 rounded-[5px] pl-5 md:pl-2 w-full "
                 placeholder="mol dm³" 
                 type="text"
                 autocomplete="new-name"
                 />
             </div>
         </div>
-        <h2 class=" mb-9 text-3xl font-semibold  text-second-green font-main ">
+        <h2 class=" mb-9 text-2xl font-semibold  text-second-green font-main ">
             Análise física
         </h2>
         
-            <div class=" flex mb-8 flex-row justify-between">
-                <div class="w-full">
-                    <h2 class=" text-2xl font-semibold mb-3 text-main-green font-main ">
+            <div class=" w-full flex mb-8 flex-row justify-between">
+                <div class="w-full md:max-w-48">
+                    <h2 class="text-2xl md:text-xl font-semibold mb-3 text-main-green font-main ">
                         Areia
                     </h2>
                     <input
                     formControlName="sand"
-                    class=" max-w-[15rem] text-xl text-second-black tracking-wider outline-none font-second border border-second-gray h-14 rounded-[5px] pl-5 w-full "
+                    class=" max-w-96 md:max-w-48 md:h-10 text-xl placeholder:text-[1rem] text-second-black tracking-wider outline-none font-second border border-second-gray h-14 rounded-[5px] pl-5 md:pl-2 w-full "
                     placeholder="g/Kg" 
                     type="text"
                     autocomplete="new-name"
                     />
                 </div>
-                <div class="w-full">
-                    <h2 class=" text-2xl font-semibold mb-3 text-main-green font-main ">
+                <div class="w-full md:max-w-48">
+                    <h2 class="text-2xl md:text-xl font-semibold mb-3 text-main-green font-main ">
                         Argila
                     </h2>
                     <input
                     formControlName="clay"
-                    class=" max-w-[15rem] text-xl text-second-black tracking-wider outline-none font-second border border-second-gray h-14 rounded-[5px] pl-5 w-full "
+                    class=" max-w-96 md:max-w-48 md:h-10 text-xl placeholder:text-[1rem] text-second-black tracking-wider outline-none font-second border border-second-gray h-14 rounded-[5px] pl-5 md:pl-2 w-full "
                     placeholder="g/Kg" 
                     type="text"
                     autocomplete="new-name"
                     />
                 </div>
-                <div class="w-full">
-                    <h2 class=" text-2xl font-semibold mb-3 text-main-green font-main ">
+                <div class="w-full md:max-w-48">
+                    <h2 class=" text-2xl md:text-xl font-semibold mb-3 text-main-green font-main ">
                         Silte
                     </h2>
                     <input
                     formControlName="silt"
-                    class=" max-w-[15rem] text-xl text-second-black tracking-wider outline-none font-second border border-second-gray h-14 rounded-[5px] pl-5 w-full "
+                    class=" max-w-96 md:max-w-48 md:h-10 text-xl placeholder:text-[1rem] text-second-black tracking-wider outline-none font-second border border-second-gray h-14 rounded-[5px] pl-5 md:pl-2 w-full "
                     placeholder="g/Kg" 
                     type="text"
                     autocomplete="new-name"
@@ -87,8 +87,8 @@
             </div> -->
     </form>
 </main>
-<footer class="w-full flex text-main-white justify-center flex-row">
-    <button (click)="next()" class=" rounded-[5px] text-lg text-center transition-colors ease-linear duration-150 font-second uppercase font-semibold w-full max-w-[360px]  px-6 pt-4 pb-3 bg-main-green hover:bg-hover-main-green ">
+<footer class="w-full flex mt-8 text-main-white justify-center flex-row">
+    <button (click)="next()"  class=" rounded-[5px] text-lg md:text-sm text-center transition-colors ease-linear duration-150 font-second uppercase font-semibold w-full max-w-[360px] md:max-w-72  px-6 pt-4 pb-3 bg-main-green hover:bg-hover-main-green ">
         <h4>Proximo</h4>
     </button>
 </footer>

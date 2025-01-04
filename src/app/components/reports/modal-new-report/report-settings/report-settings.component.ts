@@ -6,6 +6,7 @@ import { ErrorHandler } from 'src/app/interfaces/error-handler';
 import { ReportSettingsEmitter } from 'src/app/interfaces/report-settings-emitter';
 import { Client } from 'src/app/models/client';
 import { Employee } from 'src/app/models/employee';
+import { cities } from 'src/app/utils/cities';
 
 @Component({
   selector: 'app-report-settings',
@@ -22,6 +23,8 @@ export class ReportSettingsComponent {
   @Input({required:true}) clientList:Client[] = new Array<Client>()
 
   @Input({required:true}) technicalResponsibleList:Employee[] | null = new Array()
+
+  cities = cities
 
 
   @Input({required:true}) isTechnicalResponsible!:boolean
