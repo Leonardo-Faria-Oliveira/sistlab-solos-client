@@ -1,4 +1,4 @@
-<nav class="bg-main-green flex flex-col text-main-white  min-h-screen max-w-sm w-full">
+<nav class="bg-main-green flex flex-col text-main-white  min-h-screen max-w-sm md:max-w-xs w-full">
     <header class="bg-darker-green flex  h-fit items-center pr-12 p-6  justify-between flex-row w-full ">
         <div class="flex flex-row font-main font-semibold text-xl  w-full">
             <h1 class="mr-2">{{name?.slice(0, 15)}}</h1>
@@ -41,7 +41,7 @@
             (click)="setActive(item.index)"
             *ngFor="let item of employeeItensMenu"
             [ngClass]="activeItem === item.index ? 'bg-main-white text-main-green' : 'bg-main-green  text-main-white'"
-            class="flex flex-row px-12 h-20 text-2xl font-semibold my-4 justify-between font-main cursor-pointer"
+            class="flex flex-row px-12 h-20 text-2xl md:text-xl font-semibold my-4 justify-between font-main cursor-pointer"
             >
             <img class="w-14"  [src]="activeItem === item.index ? item.activeIcon : item.icon"/>
                 <h2 class="tracking-wider self-center">{{item.text}}</h2>
