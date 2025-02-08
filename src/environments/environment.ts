@@ -1,3 +1,3 @@
 export const environment = {
-    apiUrl: "https://api.soloview.uenp.edu.br/v1"
+    apiUrl: "http://localhost:3000/v1"
 };
