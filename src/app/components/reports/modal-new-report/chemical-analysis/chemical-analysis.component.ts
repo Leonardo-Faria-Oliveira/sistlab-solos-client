@@ -80,6 +80,8 @@ export class ChemicalAnalysisComponent {
        )
       {
 
+        console.log("log: "+this.getAcidity(6.16))
+
         const calcium = parseFloat(this.chemicalAnalysisForm.value.calcium!)
         const magnesium = parseFloat(this.chemicalAnalysisForm.value.magnesium!)
         const potassium = parseFloat(this.chemicalAnalysisForm.value.potassium!)

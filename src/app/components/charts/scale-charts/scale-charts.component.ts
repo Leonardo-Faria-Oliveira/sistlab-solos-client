@@ -27,14 +27,24 @@ export class ScaleChartsComponent implements OnInit {
     if(data < 0){
       this.isHidden = true
     }
-    let aux = this.chartMaxPx * data
-    let res =  aux / this.scale[this.scale.length - 1]
+
+    let a = this.scale[0] * data
+    // let aux = this.chartMaxPx * data
+    let res =  a / this.chartMaxPx
+
+    if(res < this.scale[this.scale.length - 1]){
+      res = this.scale[this.scale.length - 1]
+    }
+
+    if(res > this.scale[0]){
+      res = this.scale[0]
+    }
     const element = document.getElementById(id);
     if (element) {
 
-      let pos = res / 16
-      console.log("med:"+ pos)
-      element.style.marginLeft = `${pos}rem`;
+      let pos = res
+      
+      element.style.marginLeft = `${pos}px`;
       
     }
 
@@ -43,14 +53,22 @@ export class ScaleChartsComponent implements OnInit {
   public setChartWidth(id:string, width:number){
     const element = document.getElementById(id);
     if (element) {
-      // Suponha que você queira aumentar a largura em 50 pixels
 
-      element.style.width = `${width/16}rem`;
+      element.style.width = `${width}px`;
     }
   }
 
   ngOnInit(): void {
-    console.log(this.chartMaxPx)
+    console.log(
+
+      this.chartId,
+      this.pointId,
+      this.point,
+      this.scale,
+      this.chartMaxPx
+    )
+
+
     setTimeout(() => this.setChartWidth(this.chartId, this.chartMaxPx), 5)
     setTimeout(() => this.calcDataPosition(this.pointId, this.point), 5)
   }

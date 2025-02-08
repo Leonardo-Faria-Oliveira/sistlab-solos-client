@@ -48,7 +48,7 @@ export class ReportPreviewComponent implements OnInit{
   public physicalAttrScales:number[][] = new Array<number[]>()
   public physicalAttrPoints:number[] = new Array<number>()
   public technicalResponsible:Employee = new Employee(
-    "Eduarda Satie",
+    "Francisco",
     "",
     "",
     "",
